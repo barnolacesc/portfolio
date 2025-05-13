@@ -1,6 +1,6 @@
 # Francesc Barnola's Portfolio
 
-![Portfolio Screenshot](assets/website.png)
+![Portfolio Screenshot - Dark Mode](assets/image-dark.png)
 
 ## 🚀 Live Demo
 
@@ -59,7 +59,7 @@ The portfolio is fully responsive and optimized for:
 
 ## 🔮 Future Enhancements
 
-- Add a dark mode toggle
+- ✅ Dark mode toggle (Implemented!)
 - Implement a blog section
 - Add more interactive elements
 - Enhance accessibility features

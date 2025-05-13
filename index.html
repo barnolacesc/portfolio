@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -21,6 +21,13 @@
                     <li><a href="#experience">Experience</a></li>
                     <li><a href="#contact">Contact</a></li>
                     <li><a href="assets/francesc_barnola_cv.pdf" target="_blank" class="cv-button">Resume</a></li>
+                    <li class="theme-switch-wrapper">
+                        <i class="fas fa-moon theme-icon" id="theme-icon"></i>
+                        <label class="theme-switch" for="checkbox">
+                            <input type="checkbox" id="checkbox" />
+                            <div class="slider"></div>
+                        </label>
+                    </li>
                 </ul>
             </nav>
 
@@ -389,5 +396,71 @@
     </footer>
 
     <script src="js/main.js"></script>
+    <script>
+        // Check for saved theme preference or use the system preference
+        const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)");
+        const currentTheme = localStorage.getItem("theme");
+        
+        // Function to apply theme with transition effect
+        function applyTheme(isDark) {
+            // First add a class that signals we're transitioning
+            document.body.classList.add('theme-transition');
+            
+            // Set the theme
+            if (isDark) {
+                document.documentElement.setAttribute("data-theme", "dark");
+                document.getElementById("checkbox").checked = true;
+                document.getElementById("theme-icon").classList.replace("fa-moon", "fa-sun");
+            } else {
+                document.documentElement.setAttribute("data-theme", "light");
+                document.getElementById("checkbox").checked = false;
+                document.getElementById("theme-icon").classList.replace("fa-sun", "fa-moon");
+            }
+            
+            // Remove the transition class after the transition completes
+            setTimeout(() => {
+                document.body.classList.remove('theme-transition');
+            }, 500);
+        }
+        
+        // Set initial theme based on saved preference or system preference
+        applyTheme(currentTheme === "dark" || (!currentTheme && prefersDarkScheme.matches));
+        
+        // Theme switcher functionality
+        const checkbox = document.getElementById("checkbox");
+        const themeIcon = document.getElementById("theme-icon");
+        
+        checkbox.addEventListener("change", function() {
+            if (this.checked) {
+                applyTheme(true);
+                localStorage.setItem("theme", "dark");
+            } else {
+                applyTheme(false);
+                localStorage.setItem("theme", "light");
+            }
+        });
+        
+        // Reveal sections on scroll
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('section');
+            
+            function checkVisibility() {
+                sections.forEach(section => {
+                    const sectionTop = section.getBoundingClientRect().top;
+                    const windowHeight = window.innerHeight;
+                    
+                    if (sectionTop < windowHeight * 0.75) {
+                        section.classList.add('visible');
+                    }
+                });
+            }
+            
+            // Initial check
+            checkVisibility();
+            
+            // Check on scroll
+            window.addEventListener('scroll', checkVisibility);
+        });
+    </script>
 </body>
 </html> 
