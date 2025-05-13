@@ -1,44 +1,55 @@
+// Wait for the DOM to be fully loaded
 document.addEventListener('DOMContentLoaded', function() {
-    // Smooth scrolling for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
+    // Smooth scrolling for navigation links
+    const links = document.querySelectorAll('a[href^="#"]');
+    
+    links.forEach(link => {
+        link.addEventListener('click', function(e) {
             e.preventDefault();
             
             const targetId = this.getAttribute('href');
-            const targetElement = document.querySelector(targetId);
+            if (targetId === '#') return;
             
+            const targetElement = document.querySelector(targetId);
             if (targetElement) {
                 window.scrollTo({
-                    top: targetElement.offsetTop - 70, // Adjust for sticky header
+                    top: targetElement.offsetTop - 20,
                     behavior: 'smooth'
                 });
             }
         });
     });
-
-    // Add active class to navigation links based on scroll position
-    const sections = document.querySelectorAll('section');
-    const navLinks = document.querySelectorAll('nav a');
     
-    function updateActiveLink() {
-        let currentSection = '';
+    // Animate sections on scroll
+    const sections = document.querySelectorAll('section');
+    const animateOnScroll = () => {
+        const triggerBottom = window.innerHeight * 0.8;
         
         sections.forEach(section => {
-            const sectionTop = section.offsetTop - 100;
-            const sectionHeight = section.clientHeight;
-            if (pageYOffset >= sectionTop && pageYOffset < sectionTop + sectionHeight) {
-                currentSection = '#' + section.getAttribute('id');
+            const sectionTop = section.getBoundingClientRect().top;
+            
+            if (sectionTop < triggerBottom) {
+                section.classList.add('visible');
             }
+        });
+    };
+    
+    // Initial check for animations
+    animateOnScroll();
+    
+    // Check for animations on scroll
+    window.addEventListener('scroll', animateOnScroll);
+    
+    // Add hover effect for project cards
+    const projectCards = document.querySelectorAll('.project-card');
+    
+    projectCards.forEach(card => {
+        card.addEventListener('mouseenter', function() {
+            this.classList.add('hover');
         });
         
-        navLinks.forEach(link => {
-            link.classList.remove('active');
-            if (link.getAttribute('href') === currentSection) {
-                link.classList.add('active');
-            }
+        card.addEventListener('mouseleave', function() {
+            this.classList.remove('hover');
         });
-    }
-    
-    window.addEventListener('scroll', updateActiveLink);
-    updateActiveLink();
+    });
 }); 
