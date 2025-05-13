@@ -19,7 +19,11 @@
 
 3. **Connect your local repository to GitHub**
    ```bash
-   git remote add origin https://github.com/[username]/cv.git
+   cd /path/to/your/cv/project
+   git init
+   git add .
+   git commit -m "Initial commit"
+   git remote add origin https://github.com/barnolacesc/cv.git
    git push -u origin main
    ```
 
@@ -44,7 +48,7 @@
      185.199.110.153
      185.199.111.153
      ```
-   - Or add a CNAME record pointing to `[username].github.io` if using a subdomain
+   - Or add a CNAME record pointing to `barnolacesc.github.io` if using a subdomain
 
 3. **Update the CNAME file** in your repository:
    - Edit the CNAME file in the root of your repository

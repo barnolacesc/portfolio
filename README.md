@@ -25,7 +25,7 @@ A clean, responsive portfolio website to showcase my skills, experience, and pro
 2. Go to the repository settings.
 3. Navigate to the "Pages" section.
 4. Select the main branch as the source.
-5. Your site will be published at `https://[your-username].github.io/cv/`.
+5. Your site will be published at `https://barnolacesc.github.io/cv/`.
 
 ### Custom Domain (Optional)
 
