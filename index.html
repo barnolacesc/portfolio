@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Francesc Barnola | DevOps Engineer & Cloud Specialist</title>
+    <title>Francesc Barnola | DevOps Engineer & Cloud CyberSec Specialist</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
@@ -14,10 +14,11 @@
             <nav class="main-nav">
                 <div class="logo">francesc<span>.</span>barnola</div>
                 <ul class="nav-links">
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#experience">Experience</a></li>
-                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#funfacts">Fun Facts</a></li>
                     <li><a href="#projects">Projects</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#experience">Experience</a></li>
                     <li><a href="#contact">Contact</a></li>
                     <li><a href="assets/francesc_barnola_cv.pdf" target="_blank" class="cv-button">Resume</a></li>
                 </ul>
@@ -25,15 +26,15 @@
 
             <div class="hero">
                 <div class="hero-content">
-                    <h1>DevOps Engineer & <span class="accent">Cloud Specialist</span></h1>
-                    <p class="hero-description">I specialize in automating infrastructure, containerization, and cloud services management. Building robust systems that scale efficiently.</p>
+                    <h1>DevOps Engineer & <span class="accent">Cloud CyberSec Specialist</span></h1>
+                    <p class="hero-description">I make servers sing and infrastructure dance. The cloud is just someone else's computer, but I make sure it's a secure one!</p>
                     <div class="hero-cta">
                         <a href="#projects" class="btn primary">View Projects</a>
                         <a href="#contact" class="btn secondary">Contact Me</a>
                     </div>
                 </div>
                 <div class="hero-image">
-                    <img src="assets/perfil.jpeg" alt="Francesc Barnola" class="profile-img">
+                    <img src="assets/bust.JPG" alt="Francesc Barnola" class="profile-img">
                 </div>
             </div>
         </div>
@@ -41,115 +42,100 @@
 
     <main>
         <div class="container">
-            <section id="about">
+            <section id="funfacts">
                 <div class="section-heading">
                     <span class="section-number">01</span>
+                    <h2>Fun Facts About Me</h2>
+                </div>
+                <div class="section-content">
+                    <div class="fun-facts-grid">
+                        <div class="fun-fact-item">
+                            <i class="fas fa-running"></i>
+                            <h3>Outdoor Enthusiast</h3>
+                            <p>I'm happiest when I'm outside running, cycling, or hiking. Nature is my reset button - much like turning servers off and on again, but with better views.</p>
+                        </div>
+                        <div class="fun-fact-item">
+                            <i class="fas fa-swimmer"></i>
+                            <h3>Triathlon Survivor</h3>
+                            <p>I've completed two triathlons despite swimming like a panicked rock. Push your limits, they said. It'll be fun, they said. My definition of "fun" has been permanently altered.</p>
+                        </div>
+                        <div class="fun-fact-item">
+                            <i class="fas fa-music"></i>
+                            <h3>Techno Fan</h3>
+                            <p>Techno music is my jam - it matches the rhythmic humming of server racks. Reggaeton, on the other hand, is strictly forbidden in my deployment pipelines.</p>
+                        </div>
+                        <div class="fun-fact-item">
+                            <i class="fas fa-keyboard"></i>
+                            <h3>Keyboard Collector</h3>
+                            <p>I have a growing collection of mechanical keyboards that I tell myself are "investments." My neighbors probably think I'm running a typewriter museum from my home office. Each one has a different sound profile - for different types of code, obviously.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="projects">
+                <div class="section-heading">
+                    <span class="section-number">02</span>
+                    <h2>Featured Projects</h2>
+                </div>
+                <div class="section-content">
+                    <div class="projects-showcase">
+                        <div class="project-card featured">
+                            <div class="project-image">
+                                <div class="project-placeholder"></div>
+                            </div>
+                            <div class="project-info">
+                                <h3>Personal Finances Tracker</h3>
+                                <p class="project-tech">SvelteKit, TypeScript, SQLite, Bootstrap, Chart.js</p>
+                                <p class="project-description">Web application for tracking daily expenses with filtering, visualization, and CSV import/export functionality. Designed to run on Raspberry Pi with systemd service integration for home network access.</p>
+                                <div class="project-links">
+                                    <a href="https://github.com/barnolacesc/personal-finances" target="_blank"><i class="fab fa-github"></i> View Code</a>
+                                    <a href="#" class="demo-link"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="project-card">
+                            <div class="project-image">
+                                <div class="project-placeholder"></div>
+                            </div>
+                            <div class="project-info">
+                                <h3>Home Lab Infrastructure</h3>
+                                <p class="project-tech">Docker, Kubernetes, Ansible</p>
+                                <p class="project-description">Home server setup using containerization for various services including media server, automation tools, and development environments.</p>
+                                <div class="project-links">
+                                    <a href="#" class="case-study"><i class="fas fa-file-alt"></i> Case Study</a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="project-card">
+                            <div class="project-image">
+                                <div class="project-placeholder"></div>
+                            </div>
+                            <div class="project-info">
+                                <h3>Portfolio Website</h3>
+                                <p class="project-tech">HTML, CSS, JavaScript</p>
+                                <p class="project-description">Responsive personal website deployed on GitHub Pages to showcase my skills and experience.</p>
+                                <div class="project-links">
+                                    <a href="https://github.com/barnolacesc/portfolio" target="_blank"><i class="fab fa-github"></i> View Code</a>
+                                    <a href="#" class="demo-link"><i class="fas fa-external-link-alt"></i> Live Site</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="about">
+                <div class="section-heading">
+                    <span class="section-number">03</span>
                     <h2>About Me</h2>
                 </div>
                 <div class="section-content">
-                    <p>DevOps Engineer with a background in software development and embedded systems. I specialize in automating infrastructure deployments, containerization, CI/CD pipelines, and cloud services management, particularly AWS.</p>
-                    <p>I consider myself passionate about technology with a lot of interest for innovation. I have the initiative to look for new challenges and projects that can make my life and others' easier and simpler, both in a personal and professional level by automating tasks and processes using all kind of technologies.</p>
-                    <p>I'm an easy-going and happy person who loves practicing all kinds of sports, mainly running. I own a car and I am available to relocate.</p>
-                </div>
-            </section>
-
-            <section id="experience">
-                <div class="section-heading">
-                    <span class="section-number">02</span>
-                    <h2>Experience</h2>
-                </div>
-                <div class="section-content">
-                    <div class="experience-item">
-                        <div class="job-header">
-                            <h3>DevOps Engineer</h3>
-                            <p class="company">Fundcraft</p>
-                            <p class="location">Girona, Spain</p>
-                            <p class="period">Feb. 2025 - Present</p>
-                        </div>
-                        <ul>
-                            <li>Implemented and maintained CI/CD pipelines using GitHub Actions</li>
-                            <li>Managed containerized applications with Docker and container orchestration</li>
-                            <li>Provisioned and managed cloud infrastructure using Terraform</li>
-                            <li>Administered AWS services including S3, ECS, ECR, and EC2</li>
-                            <li>Automated deployment processes and infrastructure management</li>
-                        </ul>
-                    </div>
-
-                    <div class="experience-item">
-                        <div class="job-header">
-                            <h3>Embedded Systems Engineer</h3>
-                            <p class="company">SALICRU S.A.</p>
-                            <p class="location">Santa Maria de Palautordera, Barcelona</p>
-                            <p class="period">Sep. 2023 - Feb. 2025</p>
-                        </div>
-                        <ul>
-                            <li>Development of software for microcontrollers using C</li>
-                            <li>Communication drivers programming</li>
-                            <li>Assistance on the design of control boards</li>
-                            <li>Technical support to different projects creating tools and complementing libraries</li>
-                        </ul>
-                    </div>
-
-                    <div class="experience-item">
-                        <div class="job-header">
-                            <h3>Software Engineer</h3>
-                            <p class="company">SALICRU S.A.</p>
-                            <p class="location">Santa Maria de Palautordera, Barcelona</p>
-                            <p class="period">Feb. 2022 - Jul. 2023</p>
-                        </div>
-                        <ul>
-                            <li>Responsible for the development and maintenance of a Python based desktop app</li>
-                            <li>Management of a relational database</li>
-                            <li>Manage the Version Control System of the R+D department</li>
-                            <li>Detect and solve bugs in a production environment</li>
-                            <li>Did my Thesis consisting of an automatic code generating desktop app with a Python based graphical interface</li>
-                        </ul>
-                    </div>
-
-                    <div class="experience-item">
-                        <div class="job-header">
-                            <h3>Web Developer</h3>
-                            <p class="company">The Batch Lab</p>
-                            <p class="location">Remotely, Girona</p>
-                            <p class="period">Jun. 2021 - Nov. 2021</p>
-                        </div>
-                        <ul>
-                            <li>Develop a website using the Drupal CMS</li>
-                            <li>Aid in the design of the different sections of the website</li>
-                        </ul>
-                    </div>
-                </div>
-            </section>
-
-            <section id="education">
-                <div class="section-heading">
-                    <span class="section-number">03</span>
-                    <h2>Education</h2>
-                </div>
-                <div class="section-content">
-                    <div class="education-item">
-                        <div class="edu-header">
-                            <h3>MSc in Cybersecurity and Privacy</h3>
-                            <p class="school">Universitat Oberta de Catalunya</p>
-                            <p class="location">Barcelona, Espanya</p>
-                            <p class="period">Sep. 2024 - Current</p>
-                        </div>
-                        <ul>
-                            <li>Formation in Cybersecurity technologies, protection and infrastructure development, pentesting, IT forensics, security audits and more</li>
-                        </ul>
-                    </div>
-
-                    <div class="education-item">
-                        <div class="edu-header">
-                            <h3>B.S in Computer Engineering</h3>
-                            <p class="school">Universitat de Girona</p>
-                            <p class="location">Girona, Spain</p>
-                            <p class="period">Sep. 2017 - Sep. 2023</p>
-                        </div>
-                        <ul>
-                            <li>Specialization in ICT (Information and communication technologies)</li>
-                        </ul>
-                    </div>
+                    <p>DevOps engineer by day, outdoor enthusiast by... well, whenever the servers allow me to step away. I'm dedicated to automation and efficiency, creating solutions that make complex systems run smoothly.</p>
+                    <p>I enjoy optimizing systems and creating efficient solutions that make digital experiences better for everyone. My background in software development gives me perspective on both building applications and maintaining the infrastructure they run on.</p>
+                    <p>When I'm not configuring Kubernetes clusters or optimizing AWS resources, I'm probably out on a trail somewhere, convincing myself that triathlons are a good idea despite evidence to the contrary.</p>
                 </div>
             </section>
 
@@ -222,63 +208,9 @@
                 </div>
             </section>
 
-            <section id="projects">
-                <div class="section-heading">
-                    <span class="section-number">05</span>
-                    <h2>Featured Projects</h2>
-                </div>
-                <div class="section-content">
-                    <div class="projects-showcase">
-                        <div class="project-card featured">
-                            <div class="project-image">
-                                <div class="project-placeholder"></div>
-                            </div>
-                            <div class="project-info">
-                                <h3>Personal Finances Tracker</h3>
-                                <p class="project-tech">SvelteKit, TypeScript, SQLite, Bootstrap, Chart.js</p>
-                                <p class="project-description">Web application for tracking daily expenses with filtering, visualization, and CSV import/export functionality. Designed to run on Raspberry Pi with systemd service integration for home network access.</p>
-                                <div class="project-links">
-                                    <a href="https://github.com/barnolacesc/personal-finances" target="_blank"><i class="fab fa-github"></i> View Code</a>
-                                    <a href="#" class="demo-link"><i class="fas fa-external-link-alt"></i> Live Demo</a>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="project-card">
-                            <div class="project-image">
-                                <div class="project-placeholder"></div>
-                            </div>
-                            <div class="project-info">
-                                <h3>Home Lab Infrastructure</h3>
-                                <p class="project-tech">Docker, Kubernetes, Ansible</p>
-                                <p class="project-description">Home server setup using containerization for various services including media server, automation tools, and development environments.</p>
-                                <div class="project-links">
-                                    <a href="#" class="case-study"><i class="fas fa-file-alt"></i> Case Study</a>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="project-card">
-                            <div class="project-image">
-                                <div class="project-placeholder"></div>
-                            </div>
-                            <div class="project-info">
-                                <h3>Portfolio Website</h3>
-                                <p class="project-tech">HTML, CSS, JavaScript</p>
-                                <p class="project-description">Responsive personal website deployed on GitHub Pages to showcase my skills and experience.</p>
-                                <div class="project-links">
-                                    <a href="https://github.com/barnolacesc/cv" target="_blank"><i class="fab fa-github"></i> View Code</a>
-                                    <a href="#" class="demo-link"><i class="fas fa-external-link-alt"></i> Live Site</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
             <section id="languages">
                 <div class="section-heading">
-                    <span class="section-number">06</span>
+                    <span class="section-number">05</span>
                     <h2>Languages</h2>
                 </div>
                 <div class="section-content">
@@ -305,15 +237,115 @@
                 </div>
             </section>
 
-            <section id="contact">
+            <section id="experience">
+                <div class="section-heading">
+                    <span class="section-number">06</span>
+                    <h2>Experience</h2>
+                </div>
+                <div class="section-content">
+                    <div class="experience-item">
+                        <div class="job-header">
+                            <h3>DevOps Engineer</h3>
+                            <p class="company">Fundcraft</p>
+                            <p class="location">Girona, Spain</p>
+                            <p class="period">Feb. 2025 - Present</p>
+                        </div>
+                        <ul>
+                            <li>Implemented and maintained CI/CD pipelines using GitHub Actions</li>
+                            <li>Managed containerized applications with Docker and container orchestration</li>
+                            <li>Provisioned and managed cloud infrastructure using Terraform</li>
+                            <li>Administered AWS services including S3, ECS, ECR, and EC2</li>
+                            <li>Automated deployment processes and infrastructure management</li>
+                        </ul>
+                    </div>
+
+                    <div class="experience-item">
+                        <div class="job-header">
+                            <h3>Embedded Systems Engineer</h3>
+                            <p class="company">SALICRU S.A.</p>
+                            <p class="location">Santa Maria de Palautordera, Barcelona</p>
+                            <p class="period">Sep. 2023 - Feb. 2025</p>
+                        </div>
+                        <ul>
+                            <li>Development of software for microcontrollers using C</li>
+                            <li>Communication drivers programming</li>
+                            <li>Assistance on the design of control boards</li>
+                            <li>Technical support to different projects creating tools and complementing libraries</li>
+                        </ul>
+                    </div>
+
+                    <div class="experience-item">
+                        <div class="job-header">
+                            <h3>Software Engineer</h3>
+                            <p class="company">SALICRU S.A.</p>
+                            <p class="location">Santa Maria de Palautordera, Barcelona</p>
+                            <p class="period">Feb. 2022 - Jul. 2023</p>
+                        </div>
+                        <ul>
+                            <li>Responsible for the development and maintenance of a Python based desktop app</li>
+                            <li>Management of a relational database</li>
+                            <li>Manage the Version Control System of the R+D department</li>
+                            <li>Detect and solve bugs in a production environment</li>
+                            <li>Did my Thesis consisting of an automatic code generating desktop app with a Python based graphical interface</li>
+                        </ul>
+                    </div>
+
+                    <div class="experience-item">
+                        <div class="job-header">
+                            <h3>Web Developer</h3>
+                            <p class="company">The Batch Lab</p>
+                            <p class="location">Remotely, Girona</p>
+                            <p class="period">Jun. 2021 - Nov. 2021</p>
+                        </div>
+                        <ul>
+                            <li>Develop a website using the Drupal CMS</li>
+                            <li>Aid in the design of the different sections of the website</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section id="education">
                 <div class="section-heading">
                     <span class="section-number">07</span>
+                    <h2>Education</h2>
+                </div>
+                <div class="section-content">
+                    <div class="education-item">
+                        <div class="edu-header">
+                            <h3>MSc in Cybersecurity and Privacy</h3>
+                            <p class="school">Universitat Oberta de Catalunya</p>
+                            <p class="location">Barcelona, Espanya</p>
+                            <p class="period">Sep. 2024 - Current</p>
+                        </div>
+                        <ul>
+                            <li>Formation in Cybersecurity technologies, protection and infrastructure development, pentesting, IT forensics, security audits and more</li>
+                        </ul>
+                    </div>
+
+                    <div class="education-item">
+                        <div class="edu-header">
+                            <h3>B.S in Computer Engineering</h3>
+                            <p class="school">Universitat de Girona</p>
+                            <p class="location">Girona, Spain</p>
+                            <p class="period">Sep. 2017 - Sep. 2023</p>
+                        </div>
+                        <ul>
+                            <li>Specialization in ICT (Information and communication technologies)</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section id="contact">
+                <div class="section-heading">
+                    <span class="section-number">08</span>
                     <h2>Get In Touch</h2>
                 </div>
                 <div class="section-content contact-section">
                     <div class="contact-info">
                         <h3>Let's work together</h3>
-                        <p>I'm currently available for freelance work and full-time positions. If you're interested in working together or have any questions, feel free to reach out.</p>
+                        <p>Looking for someone who can secure your infrastructure and keep your systems running? I promise my response time is faster than my swimming pace (which isn't saying much).</p>
                         <ul class="contact-links">
                             <li>
                                 <i class="fas fa-map-marker-alt"></i>
@@ -342,7 +374,7 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-logo">francesc<span>.</span>barnola</div>
-                <p class="footer-tagline">DevOps Engineer & Cloud Specialist</p>
+                <p class="footer-tagline">DevOps Engineer & Cloud CyberSec Specialist</p>
                 
                 <div class="social-links">
                     <a href="https://github.com/barnolacesc" target="_blank"><i class="fab fa-github"></i></a>
