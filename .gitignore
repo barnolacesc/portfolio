@@ -1,0 +1,29 @@
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Editor directories and files
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Build files
+node_modules/
+dist/
+.cache/
+.parcel-cache/
+
+# Local history
+.history/
+
+# LaTeX files
+latex-cv-pdf/
+
+# PDF conversion script
+convert_to_pdf.sh 
