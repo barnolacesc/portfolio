@@ -1,70 +1,77 @@
-# DevOps Engineer Portfolio Website
+# Francesc Barnola's Portfolio
 
-A clean, responsive portfolio website to showcase my skills, experience, and projects as a DevOps Engineer.
+![Portfolio Screenshot](assets/website.png)
 
-## Features
+## 🚀 Live Demo
 
-- Responsive design that works on all devices
-- Organized sections for education, experience, skills, and projects
-- Downloadable CV in PDF format
-- Easy to deploy on GitHub Pages
+Visit my portfolio website: [https://barnolacesc.github.io/portfolio/](https://barnolacesc.github.io/portfolio/)
 
-## Technologies Used
+## 📋 Overview
+
+This is my professional portfolio website showcasing my skills as a DevOps Engineer & Cloud CyberSec Specialist. The website highlights my:
+
+- Technical skills
+- Professional experience
+- Notable projects
+- Educational background
+- Fun facts about me
+
+## ✨ Features
+
+- Responsive design that works on mobile, tablet, and desktop
+- Clean, modern UI with engaging animations
+- Section-based navigation
+- Project showcase with links to code and live demos
+- Contact information
+
+## 🛠️ Technologies Used
 
 - HTML5
-- CSS3 (with custom variables and modern layout techniques)
-- JavaScript (for smooth scrolling and other interactions)
-- FontAwesome icons
+- CSS3
+- JavaScript
+- Font Awesome for icons
 - Google Fonts
 
-## Deployment Instructions
+## 🔧 Development
 
-### GitHub Pages Deployment
-
-1. Push this repository to your GitHub account.
-2. Go to the repository settings.
-3. Navigate to the "Pages" section.
-4. Select the main branch as the source.
-5. Your site will be published at `https://barnolacesc.github.io/cv/`.
-
-### Custom Domain (Optional)
-
-1. Purchase a domain name from a domain registrar.
-2. Add a CNAME file to the repository with your domain name.
-3. Configure DNS settings at your domain registrar:
-   - Add an A record pointing to GitHub Pages IP addresses
-   - Add a CNAME record if using a subdomain
-4. Update the GitHub Pages settings to use your custom domain.
-
-## Customization
-
-### Adding Your CV PDF
-
-1. Replace the placeholder file at `assets/francesc_barnola_cv.pdf` with your own CV PDF.
-
-### Updating Profile Photo
-
-1. Replace the placeholder image at `assets/profile.jpg` with your own profile photo.
-
-### Modifying Content
-
-Simply edit the HTML files to update your information:
-
-- Work experience and education details in the corresponding sections
-- Skills and technologies in the skills section
-- Project details in the projects section
-
-## Local Development
-
-To run the website locally:
+### Local Setup
 
 1. Clone the repository
-2. Open `index.html` in your browser
+   ```bash
+   git clone https://github.com/barnolacesc/portfolio.git
+   ```
 
-## License
+2. Open index.html in your browser
+   ```bash
+   open index.html
+   ```
 
-This project is available for personal use and modification.
+### Deployment
+
+The site is deployed using GitHub Pages. Any push to the main branch will automatically update the live site.
+
+## 📱 Responsive Design
+
+The portfolio is fully responsive and optimized for:
+- Mobile devices
+- Tablets
+- Desktop screens
+
+## 🔮 Future Enhancements
+
+- Add a dark mode toggle
+- Implement a blog section
+- Add more interactive elements
+- Enhance accessibility features
+
+## 📫 Contact
+
+Feel free to reach out if you have any questions or would like to work together!
+
+- Email: [contact@barnola.net](mailto:contact@barnola.net)
+- LinkedIn: [linkedin.com/in/fbarnola](https://linkedin.com/in/fbarnola)
+- GitHub: [github.com/barnolacesc](https://github.com/barnolacesc)
 
 ---
 
-Created by Francesc Barnola 
+© 2024 Francesc Barnola. All rights reserved. 
