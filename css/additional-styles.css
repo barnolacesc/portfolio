@@ -1,5 +1,41 @@
 /* Additional Futuristic Portfolio Styles */
 
+/* Enhanced Navigation Improvements */
+.glass-nav {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.nav-container {
+    position: relative;
+}
+
+/* Active nav link indicator */
+.nav-link.active {
+    color: var(--accent-primary);
+    background: rgba(0, 212, 255, 0.1);
+}
+
+.nav-link.active::before {
+    left: 0;
+}
+
+/* Logo hover effect */
+.logo-container:hover .logo-glow {
+    opacity: 0.6;
+    transform: translate(-50%, -50%) scale(1.2);
+}
+
+.logo-container:hover .accent-dot {
+    animation: pulse 1s ease-in-out infinite;
+}
+
+/* Navbar scroll enhancement */
+.glass-nav.scrolled {
+    background: rgba(10, 10, 15, 0.95);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(0, 212, 255, 0.2);
+}
+
 /* About Section */
 .about-section {
     background: rgba(26, 26, 46, 0.3);
@@ -364,13 +400,13 @@
 /* Experience Section */
 .timeline {
     position: relative;
-    padding-left: 2rem;
+    padding-left: 3rem;
 }
 
 .timeline::before {
     content: '';
     position: absolute;
-    left: 0;
+    left: 1rem;
     top: 0;
     bottom: 0;
     width: 2px;
@@ -391,14 +427,15 @@
 
 .timeline-marker {
     position: absolute;
-    left: -2rem;
-    top: 0;
+    left: -1.9rem;
+    top: 1rem;
     width: 16px;
     height: 16px;
     background: var(--accent-primary);
     border-radius: 50%;
     border: 3px solid var(--primary-bg);
     box-shadow: 0 0 0 3px var(--accent-primary);
+    transform: translateX(-50%);
 }
 
 .timeline-content {
@@ -672,31 +709,64 @@
 
 /* Responsive Design */
 @media (max-width: 768px) {
-    .nav-links {
-        display: none;
-    }
-    
-    .mobile-menu-toggle {
-        display: flex;
-    }
-    
     .hero-container {
         grid-template-columns: 1fr;
         text-align: center;
-        gap: 2rem;
+        gap: 3rem;
+        min-height: 100vh;
+        align-content: center;
+    }
+    
+    .hero-content {
+        order: 1;
+    }
+    
+    .hero-visual {
+        order: 2;
+        margin-top: -2rem;
+        display: none; /* Hide hero image on mobile */
+    }
+    
+    /* Show mobile profile image in About section */
+    .about-profile-mobile {
+        display: block !important;
     }
     
     .hero-title {
         font-size: 2.5rem;
+        margin-bottom: 1rem;
+    }
+    
+    .hero-description {
+        font-size: 1.1rem;
+        margin-bottom: 1.5rem;
     }
     
     .hero-stats {
         justify-content: center;
+        margin-bottom: 2rem;
     }
     
     .hero-actions {
         justify-content: center;
         flex-wrap: wrap;
+        margin-bottom: 2rem;
+    }
+    
+    .profile-image {
+        width: 200px !important;
+        height: 200px !important;
+    }
+    
+    .profile-ring {
+        width: 220px !important;
+        height: 220px !important;
+    }
+    
+    .tech-icon {
+        width: 35px !important;
+        height: 35px !important;
+        font-size: 1rem !important;
     }
     
     .about-content,
@@ -727,6 +797,49 @@
     
     .section {
         padding: 60px 0;
+    }
+    
+    /* Footer mobile improvements */
+    .footer {
+        padding: 2rem 0 1rem;
+    }
+    
+    .footer-content {
+        flex-direction: column;
+        gap: 1.5rem;
+        text-align: center;
+        margin-bottom: 1.5rem;
+    }
+    
+    .footer-links {
+        justify-content: center;
+    }
+    
+    .footer-bottom {
+        padding-top: 1.5rem;
+    }
+    
+    .footer-bottom p {
+        font-size: 0.8rem;
+        line-height: 1.5;
+    }
+    
+    /* Timeline responsive adjustments */
+    .timeline {
+        padding-left: 3rem;
+    }
+    
+    .timeline::before {
+        left: 1rem;
+    }
+    
+    .timeline-marker {
+        left: -1.9rem;
+        transform: translateX(-50%);
+    }
+    
+    .timeline-content {
+        margin-left: 1rem;
     }
 }
 
