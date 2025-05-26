@@ -1,466 +1,626 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Francesc Barnola | DevOps Engineer & Cloud CyberSec Specialist</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/futuristic-style.css">
+    <link rel="stylesheet" href="css/additional-styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header class="portfolio-header">
-        <div class="container">
-            <nav class="main-nav">
-                <div class="logo">francesc<span>.</span>barnola</div>
-                <ul class="nav-links">
-                    <li><a href="#funfacts">Fun Facts</a></li>
-                    <li><a href="#projects">Projects</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#skills">Skills</a></li>
-                    <li><a href="#experience">Experience</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                    <li><a href="assets/francesc_barnola_cv.pdf" target="_blank" class="cv-button">Resume</a></li>
-                    <li class="theme-switch-wrapper">
-                        <i class="fas fa-moon theme-icon" id="theme-icon"></i>
-                        <label class="theme-switch" for="checkbox">
-                            <input type="checkbox" id="checkbox" />
-                            <div class="slider"></div>
-                        </label>
-                    </li>
-                </ul>
-            </nav>
+    <!-- Animated Background -->
+    <div class="bg-animation">
+        <div class="particle-field">
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+        </div>
+        <div class="gradient-orbs">
+            <div class="orb orb-1"></div>
+            <div class="orb orb-2"></div>
+            <div class="orb orb-3"></div>
+        </div>
+    </div>
 
-            <div class="hero">
-                <div class="hero-content">
-                    <h1>DevOps Engineer & <span class="accent">Cloud CyberSec Specialist</span></h1>
-                    <p class="hero-description">I make servers sing and infrastructure dance. The cloud is just someone else's computer, but I make sure it's a secure one!</p>
-                    <div class="hero-cta">
-                        <a href="#projects" class="btn primary">View Projects</a>
-                        <a href="#contact" class="btn secondary">Contact Me</a>
+    <!-- Navigation -->
+    <nav class="glass-nav">
+        <div class="nav-container">
+            <div class="logo-container">
+                <span class="logo-text">francesc<span class="accent-dot">.</span>barnola</span>
+                <div class="logo-glow"></div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#experience" class="nav-link">Experience</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+                <li><a href="assets/francesc_barnola_cv.pdf" target="_blank" class="cta-button">Resume</a></li>
+            </ul>
+            <div class="mobile-menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-container">
+            <div class="hero-content">
+                <a href="https://linkedin.com/in/fbarnola" target="_blank" class="hero-badge">
+                    <span class="status-indicator"></span>
+                    Currently building at Fundcraft
+                </a>
+                <h1 class="hero-title">
+                    <span class="title-line">DevOps Engineer &</span>
+                    <span class="title-line accent-gradient">Cloud CyberSec</span>
+                    <span class="title-line">Specialist</span>
+                </h1>
+                <p class="hero-description">
+                    I architect secure cloud infrastructures and automate deployment pipelines. 
+                    Transforming complex systems into elegant, scalable solutions that power the digital future.
+                </p>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">5+</span>
+                        <span class="stat-label">Years Experience</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">50+</span>
+                        <span class="stat-label">Projects Deployed</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">99.9%</span>
+                        <span class="stat-label">Uptime Achieved</span>
                     </div>
                 </div>
-                <div class="hero-image">
-                    <img src="assets/profile.jpg" alt="Francesc Barnola" class="profile-img">
+                <div class="hero-actions">
+                    <button class="primary-button">
+                        <span>View My Work</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                    <button class="secondary-button">
+                        <span>Get In Touch</span>
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="profile-container">
+                    <div class="profile-glow"></div>
+                    <img src="assets/profile.jpg" alt="Francesc Barnola" class="profile-image">
+                    <div class="profile-ring"></div>
+                    <div class="floating-elements">
+                        <div class="tech-icon" style="--delay: 0s">
+                            <i class="fab fa-docker"></i>
+                        </div>
+                        <div class="tech-icon" style="--delay: 0.5s">
+                            <i class="fab fa-aws"></i>
+                        </div>
+                        <div class="tech-icon" style="--delay: 1s">
+                            <i class="fab fa-kubernetes"></i>
+                        </div>
+                        <div class="tech-icon" style="--delay: 1.5s">
+                            <i class="fab fa-python"></i>
+                        </div>
+                        <div class="tech-icon" style="--delay: 2s">
+                            <i class="fab fa-github"></i>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </header>
-
-    <main>
-        <div class="container">
-            <section id="funfacts">
-                <div class="section-heading">
-                    <span class="section-number">01</span>
-                    <h2>Fun Facts About Me</h2>
-                </div>
-                <div class="section-content">
-                    <div class="fun-facts-grid">
-                        <div class="fun-fact-item">
-                            <i class="fas fa-running"></i>
-                            <h3>Outdoor Enthusiast</h3>
-                            <p>I'm happiest when I'm outside running, cycling, or hiking. Nature is my reset button - much like turning servers off and on again, but with better views.</p>
-                        </div>
-                        <div class="fun-fact-item">
-                            <i class="fas fa-swimmer"></i>
-                            <h3>Triathlon Survivor</h3>
-                            <p>I've completed two triathlons despite swimming like a panicked rock. Push your limits, they said. It'll be fun, they said. My definition of "fun" has been permanently altered.</p>
-                        </div>
-                        <div class="fun-fact-item">
-                            <i class="fas fa-music"></i>
-                            <h3>Techno Fan</h3>
-                            <p>Techno music is my jam - it matches the rhythmic humming of server racks. Reggaeton, on the other hand, is strictly forbidden in my deployment pipelines.</p>
-                        </div>
-                        <div class="fun-fact-item">
-                            <i class="fas fa-keyboard"></i>
-                            <h3>Keyboard Collector</h3>
-                            <p>I have a growing collection of mechanical keyboards that I tell myself are "investments." My neighbors probably think I'm running a typewriter museum from my home office. Each one has a different sound profile - for different types of code, obviously.</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <section id="projects">
-                <div class="section-heading">
-                    <span class="section-number">02</span>
-                    <h2>Featured Projects</h2>
-                </div>
-                <div class="section-content">
-                    <div class="projects-showcase">
-                        <div class="project-card featured">
-                            <div class="project-image">
-                                <div class="project-placeholder"></div>
-                            </div>
-                            <div class="project-info">
-                                <h3>Personal Finances Tracker</h3>
-                                <p class="project-tech">SvelteKit, TypeScript, SQLite, Bootstrap, Chart.js</p>
-                                <p class="project-description">Web application for tracking daily expenses with filtering, visualization, and CSV import/export functionality. Designed to run on Raspberry Pi with systemd service integration for home network access.</p>
-                                <div class="project-links">
-                                    <a href="https://github.com/barnolacesc/personal-finances" target="_blank"><i class="fab fa-github"></i> View Code</a>
-                                    <a href="#" class="demo-link"><i class="fas fa-external-link-alt"></i> Live Demo</a>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="project-card">
-                            <div class="project-image">
-                                <div class="project-placeholder"></div>
-                            </div>
-                            <div class="project-info">
-                                <h3>Home Lab Infrastructure</h3>
-                                <p class="project-tech">Docker, Kubernetes, Ansible</p>
-                                <p class="project-description">Home server setup using containerization for various services including media server, automation tools, and development environments.</p>
-                                <div class="project-links">
-                                    <a href="#" class="case-study"><i class="fas fa-file-alt"></i> Case Study</a>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="project-card">
-                            <div class="project-image">
-                                <div class="project-placeholder"></div>
-                            </div>
-                            <div class="project-info">
-                                <h3>Portfolio Website</h3>
-                                <p class="project-tech">HTML, CSS, JavaScript</p>
-                                <p class="project-description">Responsive personal website deployed on GitHub Pages to showcase my skills and experience. I'm not a web dev by trade, so this site doesn't use the latest fancy frameworks—just good ol' HTML, CSS, and JavaScript that gets the job done without the bloat!</p>
-                                <div class="project-links">
-                                    <a href="https://github.com/barnolacesc/portfolio" target="_blank"><i class="fab fa-github"></i> View Code</a>
-                                    <a href="#" class="demo-link"><i class="fas fa-external-link-alt"></i> Live Site</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <section id="about">
-                <div class="section-heading">
-                    <span class="section-number">03</span>
-                    <h2>About Me</h2>
-                </div>
-                <div class="section-content">
-                    <p>DevOps engineer by day, outdoor enthusiast by... well, whenever the servers allow me to step away. I'm dedicated to automation and efficiency, creating solutions that make complex systems run smoothly.</p>
-                    <p>I enjoy optimizing systems and creating efficient solutions that make digital experiences better for everyone. My background in software development gives me perspective on both building applications and maintaining the infrastructure they run on.</p>
-                    <p>When I'm not configuring Kubernetes clusters or optimizing AWS resources, I'm probably out on a trail somewhere, convincing myself that triathlons are a good idea despite evidence to the contrary.</p>
-                </div>
-            </section>
-
-            <section id="skills">
-                <div class="section-heading">
-                    <span class="section-number">04</span>
-                    <h2>Technical Skills</h2>
-                </div>
-                <div class="section-content">
-                    <div class="skills-grid">
-                        <div class="skill-category">
-                            <h3>DevOps</h3>
-                            <ul>
-                                <li>Docker/DockerSwarm</li>
-                                <li>Kubernetes</li>
-                                <li>CI/CD (GitHub Actions)</li>
-                                <li>Terraform</li>
-                                <li>Ansible</li>
-                                <li>Git/GitHub/GitLab</li>
-                                <li>Jenkins</li>
-                                <li>Grafana/Prometheus</li>
-                                <li>Cloudron</li>
-                            </ul>
-                        </div>
-                        <div class="skill-category">
-                            <h3>Programming Languages</h3>
-                            <ul>
-                                <li>Python</li>
-                                <li>C</li>
-                                <li>C++</li>
-                                <li>Java</li>
-                                <li>Javascript</li>
-                                <li>PHP</li>
-                                <li>Bash</li>
-                                <li>Lua</li>
-                            </ul>
-                        </div>
-                        <div class="skill-category">
-                            <h3>Graphic Libraries</h3>
-                            <ul>
-                                <li>PySide2</li>
-                                <li>PyQt</li>
-                                <li>Qt</li>
-                                <li>Bootstrap</li>
-                            </ul>
-                        </div>
-                        <div class="skill-category">
-                            <h3>Workflow</h3>
-                            <ul>
-                                <li>Ubuntu</li>
-                                <li>Windows</li>
-                                <li>Raspbian</li>
-                                <li>Kali</li>
-                                <li>NVim</li>
-                                <li>ApacheGuacamole</li>
-                            </ul>
-                        </div>
-                        <div class="skill-category">
-                            <h3>Cloud</h3>
-                            <ul>
-                                <li>AWS (S3, EC2, ECS, ECR)</li>
-                                <li>Azure</li>
-                                <li>Oracle Cloud</li>
-                                <li>Linode</li>
-                                <li>Hetzner</li>
-                                <li>DigitalOcean</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <section id="languages">
-                <div class="section-heading">
-                    <span class="section-number">05</span>
-                    <h2>Languages</h2>
-                </div>
-                <div class="section-content">
-                    <div class="language-grid">
-                        <div class="language-item">
-                            <div class="language-circle">
-                                <span class="language-level">Native</span>
-                            </div>
-                            <h3>Català</h3>
-                        </div>
-                        <div class="language-item">
-                            <div class="language-circle">
-                                <span class="language-level">Native</span>
-                            </div>
-                            <h3>Español</h3>
-                        </div>
-                        <div class="language-item">
-                            <div class="language-circle">
-                                <span class="language-level">C1</span>
-                            </div>
-                            <h3>English</h3>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <section id="experience">
-                <div class="section-heading">
-                    <span class="section-number">06</span>
-                    <h2>Experience</h2>
-                </div>
-                <div class="section-content">
-                    <div class="experience-item">
-                        <div class="job-header">
-                            <h3>DevOps Engineer</h3>
-                            <p class="company">Fundcraft</p>
-                            <p class="location">Girona, Spain</p>
-                            <p class="period">Feb. 2025 - Present</p>
-                        </div>
-                        <ul>
-                            <li>Implemented and maintained CI/CD pipelines using GitHub Actions</li>
-                            <li>Managed containerized applications with Docker and container orchestration</li>
-                            <li>Provisioned and managed cloud infrastructure using Terraform</li>
-                            <li>Administered AWS services including S3, ECS, ECR, and EC2</li>
-                            <li>Automated deployment processes and infrastructure management</li>
-                        </ul>
-                    </div>
-
-                    <div class="experience-item">
-                        <div class="job-header">
-                            <h3>Embedded Systems Engineer</h3>
-                            <p class="company">SALICRU S.A.</p>
-                            <p class="location">Santa Maria de Palautordera, Barcelona</p>
-                            <p class="period">Sep. 2023 - Feb. 2025</p>
-                        </div>
-                        <ul>
-                            <li>Development of software for microcontrollers using C</li>
-                            <li>Communication drivers programming</li>
-                            <li>Assistance on the design of control boards</li>
-                            <li>Technical support to different projects creating tools and complementing libraries</li>
-                        </ul>
-                    </div>
-
-                    <div class="experience-item">
-                        <div class="job-header">
-                            <h3>Software Engineer</h3>
-                            <p class="company">SALICRU S.A.</p>
-                            <p class="location">Santa Maria de Palautordera, Barcelona</p>
-                            <p class="period">Feb. 2022 - Jul. 2023</p>
-                        </div>
-                        <ul>
-                            <li>Responsible for the development and maintenance of a Python based desktop app</li>
-                            <li>Management of a relational database</li>
-                            <li>Manage the Version Control System of the R+D department</li>
-                            <li>Detect and solve bugs in a production environment</li>
-                            <li>Did my Thesis consisting of an automatic code generating desktop app with a Python based graphical interface</li>
-                        </ul>
-                    </div>
-
-                    <div class="experience-item">
-                        <div class="job-header">
-                            <h3>Web Developer</h3>
-                            <p class="company">The Batch Lab</p>
-                            <p class="location">Remotely, Girona</p>
-                            <p class="period">Jun. 2021 - Nov. 2021</p>
-                        </div>
-                        <ul>
-                            <li>Develop a website using the Drupal CMS</li>
-                            <li>Aid in the design of the different sections of the website</li>
-                        </ul>
-                    </div>
-                </div>
-            </section>
-
-            <section id="education">
-                <div class="section-heading">
-                    <span class="section-number">07</span>
-                    <h2>Education</h2>
-                </div>
-                <div class="section-content">
-                    <div class="education-item">
-                        <div class="edu-header">
-                            <h3>MSc in Cybersecurity and Privacy</h3>
-                            <p class="school">Universitat Oberta de Catalunya</p>
-                            <p class="location">Barcelona, Espanya</p>
-                            <p class="period">Sep. 2024 - Current</p>
-                        </div>
-                        <ul>
-                            <li>Formation in Cybersecurity technologies, protection and infrastructure development, pentesting, IT forensics, security audits and more</li>
-                        </ul>
-                    </div>
-
-                    <div class="education-item">
-                        <div class="edu-header">
-                            <h3>B.S in Computer Engineering</h3>
-                            <p class="school">Universitat de Girona</p>
-                            <p class="location">Girona, Spain</p>
-                            <p class="period">Sep. 2017 - Sep. 2023</p>
-                        </div>
-                        <ul>
-                            <li>Specialization in ICT (Information and communication technologies)</li>
-                        </ul>
-                    </div>
-                </div>
-            </section>
-
-            <section id="contact">
-                <div class="section-heading">
-                    <span class="section-number">08</span>
-                    <h2>Get In Touch</h2>
-                </div>
-                <div class="section-content contact-section">
-                    <div class="contact-info">
-                        <h3>Let's work together</h3>
-                        <p>Looking for someone who can secure your infrastructure and keep your systems running? I promise my response time is faster than my swimming pace (which isn't saying much).</p>
-                        <ul class="contact-links">
-                            <li>
-                                <i class="fas fa-map-marker-alt"></i>
-                                <span>Barcelona/Girona Area, Spain</span>
-                            </li>
-                            <li>
-                                <i class="fas fa-envelope"></i>
-                                <a href="mailto:contact@barnola.net">contact@barnola.net</a>
-                            </li>
-                            <li>
-                                <i class="fab fa-github"></i>
-                                <a href="https://github.com/barnolacesc" target="_blank">github.com/barnolacesc</a>
-                            </li>
-                            <li>
-                                <i class="fab fa-linkedin"></i>
-                                <a href="https://linkedin.com/in/fbarnola" target="_blank">linkedin.com/in/fbarnola</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </section>
+        <div class="scroll-indicator">
+            <div class="scroll-line"></div>
+            <span>Scroll to explore</span>
         </div>
-    </main>
+    </section>
 
-    <footer>
+    <!-- About Section -->
+    <section id="about" class="section about-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-number">01</span>
+                <h2 class="section-title">About Me</h2>
+                <div class="section-line"></div>
+            </div>
+            <!-- Mobile profile image with floating icons -->
+            <div class="about-profile-mobile">
+                <div class="mobile-profile-container">
+                    <div class="mobile-profile-glow"></div>
+                    <img src="assets/profile.jpg" alt="Francesc Barnola" class="mobile-profile-image">
+                    <div class="mobile-profile-ring"></div>
+                    <div class="mobile-floating-elements">
+                        <div class="mobile-tech-icon" style="--delay: 0s">
+                            <i class="fab fa-docker"></i>
+                        </div>
+                        <div class="mobile-tech-icon" style="--delay: 0.5s">
+                            <i class="fab fa-aws"></i>
+                        </div>
+                        <div class="mobile-tech-icon" style="--delay: 1s">
+                            <i class="fab fa-kubernetes"></i>
+                        </div>
+                        <div class="mobile-tech-icon" style="--delay: 1.5s">
+                            <i class="fab fa-python"></i>
+                        </div>
+                        <div class="mobile-tech-icon" style="--delay: 2s">
+                            <i class="fab fa-github"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <p class="lead-text">
+                        I'm a passionate DevOps engineer who believes that great infrastructure 
+                        is invisible to users but essential for success.
+                    </p>
+                    <p>
+                        With over 5 years of experience in cloud technologies and cybersecurity, 
+                        I specialize in creating robust, scalable, and secure systems that enable 
+                        teams to deploy with confidence.
+                    </p>
+                    <p>
+                        When I'm not optimizing CI/CD pipelines or securing cloud environments, 
+                        you'll find me exploring the latest in containerization technologies or 
+                        contributing to open-source projects.
+                    </p>
+                    <div class="personality-traits">
+                        <div class="trait-item">
+                            <i class="fas fa-shield-alt"></i>
+                            <span>Security First</span>
+                        </div>
+                        <div class="trait-item">
+                            <i class="fas fa-rocket"></i>
+                            <span>Performance Focused</span>
+                        </div>
+                        <div class="trait-item">
+                            <i class="fas fa-cogs"></i>
+                            <span>Automation Enthusiast</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-visual">
+                    <div class="code-window">
+                        <div class="window-header">
+                            <div class="window-controls">
+                                <span class="control close"></span>
+                                <span class="control minimize"></span>
+                                <span class="control maximize"></span>
+                            </div>
+                            <span class="window-title">deploy.yml</span>
+                        </div>
+                        <div class="code-content">
+                            <div class="code-line">
+                                <span class="line-number">1</span>
+                                <span class="code-text">
+                                    <span class="keyword">name:</span> 
+                                    <span class="string">Deploy to Production</span>
+                                </span>
+                            </div>
+                            <div class="code-line">
+                                <span class="line-number">2</span>
+                                <span class="code-text">
+                                    <span class="keyword">on:</span>
+                                </span>
+                            </div>
+                            <div class="code-line">
+                                <span class="line-number">3</span>
+                                <span class="code-text">
+                                    &nbsp;&nbsp;<span class="keyword">push:</span>
+                                </span>
+                            </div>
+                            <div class="code-line">
+                                <span class="line-number">4</span>
+                                <span class="code-text">
+                                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">branches:</span> 
+                                    <span class="string">[main]</span>
+                                </span>
+                            </div>
+                            <div class="code-line">
+                                <span class="line-number">5</span>
+                                <span class="code-text">
+                                    <span class="keyword">jobs:</span>
+                                </span>
+                            </div>
+                            <div class="code-line">
+                                <span class="line-number">6</span>
+                                <span class="code-text">
+                                    &nbsp;&nbsp;<span class="keyword">deploy:</span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section skills-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-number">02</span>
+                <h2 class="section-title">Technical Arsenal</h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <div class="category-header">
+                        <i class="fas fa-cloud"></i>
+                        <h3>Cloud & Infrastructure</h3>
+                    </div>
+                    <div class="skills-list">
+                        <div class="skill-item">
+                            <span class="skill-name">AWS</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="--progress: 90%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">Azure</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="--progress: 85%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">Terraform</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="--progress: 88%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">Kubernetes</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="--progress: 82%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <div class="category-header">
+                        <i class="fas fa-code"></i>
+                        <h3>Development</h3>
+                    </div>
+                    <div class="skills-list">
+                        <div class="skill-item">
+                            <span class="skill-name">Python</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="--progress: 92%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">JavaScript</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="--progress: 78%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">Bash</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="--progress: 85%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">Go</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="--progress: 70%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <div class="category-header">
+                        <i class="fas fa-shield-alt"></i>
+                        <h3>Security & Monitoring</h3>
+                    </div>
+                    <div class="skills-list">
+                        <div class="skill-item">
+                            <span class="skill-name">Prometheus</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="--progress: 86%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">Grafana</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="--progress: 84%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">Security Auditing</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="--progress: 80%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">Penetration Testing</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="--progress: 75%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section projects-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-number">03</span>
+                <h2 class="section-title">Featured Projects</h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="projects-grid">
+                <div class="project-card featured">
+                    <div class="project-image">
+                        <div class="project-overlay">
+                            <div class="project-links">
+                                <a href="#" class="project-link">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                                <a href="#" class="project-link">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=600&h=400&fit=crop" alt="Cloud Infrastructure">
+                    </div>
+                    <div class="project-content">
+                        <div class="project-tech">
+                            <span class="tech-tag">AWS</span>
+                            <span class="tech-tag">Terraform</span>
+                            <span class="tech-tag">Kubernetes</span>
+                        </div>
+                        <h3 class="project-title">Multi-Cloud Infrastructure</h3>
+                        <p class="project-description">
+                            Designed and implemented a scalable multi-cloud infrastructure 
+                            supporting 10M+ daily requests with 99.99% uptime.
+                        </p>
+                        <div class="project-metrics">
+                            <div class="metric">
+                                <span class="metric-value">99.99%</span>
+                                <span class="metric-label">Uptime</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-value">10M+</span>
+                                <span class="metric-label">Daily Requests</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image">
+                        <div class="project-overlay">
+                            <div class="project-links">
+                                <a href="#" class="project-link">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                                <a href="#" class="project-link">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop" alt="Security Dashboard">
+                    </div>
+                    <div class="project-content">
+                        <div class="project-tech">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Docker</span>
+                            <span class="tech-tag">Grafana</span>
+                        </div>
+                        <h3 class="project-title">Security Monitoring Platform</h3>
+                        <p class="project-description">
+                            Real-time security monitoring and threat detection system 
+                            with automated incident response capabilities.
+                        </p>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-image">
+                        <div class="project-overlay">
+                            <div class="project-links">
+                                <a href="#" class="project-link">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                                <a href="#" class="project-link">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <img src="https://images.unsplash.com/photo-1518432031352-d6fc5c10da5a?w=600&h=400&fit=crop" alt="CI/CD Pipeline">
+                    </div>
+                    <div class="project-content">
+                        <div class="project-tech">
+                            <span class="tech-tag">GitHub Actions</span>
+                            <span class="tech-tag">Jenkins</span>
+                            <span class="tech-tag">Ansible</span>
+                        </div>
+                        <h3 class="project-title">Automated CI/CD Pipeline</h3>
+                        <p class="project-description">
+                            Zero-downtime deployment pipeline with automated testing, 
+                            security scanning, and rollback capabilities.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="section experience-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-number">04</span>
+                <h2 class="section-title">Professional Journey</h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <h3>DevOps Engineer</h3>
+                            <span class="company">Fundcraft</span>
+                            <span class="period">Feb 2025 - Present</span>
+                        </div>
+                        <p class="timeline-description">
+                            Leading cloud infrastructure initiatives and implementing 
+                            security-first DevOps practices for financial technology solutions.
+                        </p>
+                        <div class="timeline-achievements">
+                            <div class="achievement">
+                                <i class="fas fa-check"></i>
+                                <span>Reduced deployment time by 75%</span>
+                            </div>
+                            <div class="achievement">
+                                <i class="fas fa-check"></i>
+                                <span>Implemented zero-downtime deployments</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <h3>Embedded Systems Engineer</h3>
+                            <span class="company">SALICRU S.A.</span>
+                            <span class="period">Sep 2023 - Feb 2025</span>
+                        </div>
+                        <p class="timeline-description">
+                            Developed embedded software solutions and communication drivers 
+                            for industrial power systems and UPS devices.
+                        </p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <h3>Software Engineer</h3>
+                            <span class="company">SALICRU S.A.</span>
+                            <span class="period">Feb 2022 - Jul 2023</span>
+                        </div>
+                        <p class="timeline-description">
+                            Built and maintained Python-based desktop applications and 
+                            managed version control systems for the R&D department.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section contact-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-number">05</span>
+                <h2 class="section-title">Let's Build Something Amazing</h2>
+                <div class="section-line"></div>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Ready to collaborate?</h3>
+                    <p>
+                        I'm always excited to work on challenging projects that push 
+                        the boundaries of what's possible with cloud infrastructure and security.
+                    </p>
+                    <div class="contact-methods">
+                        <a href="mailto:contact@barnola.net" class="contact-method">
+                            <div class="method-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="method-info">
+                                <span class="method-label">Email</span>
+                                <span class="method-value">contact@barnola.net</span>
+                            </div>
+                        </a>
+                        <a href="https://linkedin.com/in/fbarnola" class="contact-method">
+                            <div class="method-icon">
+                                <i class="fab fa-linkedin"></i>
+                            </div>
+                            <div class="method-info">
+                                <span class="method-label">LinkedIn</span>
+                                <span class="method-value">linkedin.com/in/fbarnola</span>
+                            </div>
+                        </a>
+                        <a href="https://github.com/barnolacesc" class="contact-method">
+                            <div class="method-icon">
+                                <i class="fab fa-github"></i>
+                            </div>
+                            <div class="method-info">
+                                <span class="method-label">GitHub</span>
+                                <span class="method-value">github.com/barnolacesc</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form class="glass-form">
+                        <div class="form-group">
+                            <input type="text" id="name" required>
+                            <label for="name">Your Name</label>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" required>
+                            <label for="email">Email Address</label>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="message" required></textarea>
+                            <label for="message">Project Details</label>
+                        </div>
+                        <button type="submit" class="submit-button">
+                            <span>Send Message</span>
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
         <div class="container">
             <div class="footer-content">
-                <div class="footer-logo">francesc<span>.</span>barnola</div>
-                <p class="footer-tagline">DevOps Engineer & Cloud CyberSec Specialist</p>
-                
-                <div class="social-links">
-                    <a href="https://github.com/barnolacesc" target="_blank"><i class="fab fa-github"></i></a>
-                    <a href="mailto:contact@barnola.net"><i class="fas fa-envelope"></i></a>
-                    <a href="https://linkedin.com/in/fbarnola" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <div class="footer-brand">
+                    <span class="logo-text">francesc<span class="accent-dot">.</span>barnola</span>
+                    <p>DevOps Engineer & Cloud CyberSec Specialist</p>
+                </div>
+                <div class="footer-links">
+                    <a href="mailto:contact@barnola.net">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                    <a href="https://linkedin.com/in/fbarnola">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="https://github.com/barnolacesc">
+                        <i class="fab fa-github"></i>
+                    </a>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2024 Francesc Barnola. All rights reserved.</p>
+                <p>&copy; 2025 Francesc Barnola. Crafted with passion and precision.</p>
             </div>
         </div>
     </footer>
 
-    <script src="js/main.js"></script>
-    <script>
-        // Check for saved theme preference or use the system preference
-        const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)");
-        const currentTheme = localStorage.getItem("theme");
-        
-        // Function to apply theme with transition effect
-        function applyTheme(isDark) {
-            // First add a class that signals we're transitioning
-            document.body.classList.add('theme-transition');
-            
-            // Set the theme
-            if (isDark) {
-                document.documentElement.setAttribute("data-theme", "dark");
-                document.getElementById("checkbox").checked = true;
-                document.getElementById("theme-icon").classList.replace("fa-moon", "fa-sun");
-            } else {
-                document.documentElement.setAttribute("data-theme", "light");
-                document.getElementById("checkbox").checked = false;
-                document.getElementById("theme-icon").classList.replace("fa-sun", "fa-moon");
-            }
-            
-            // Remove the transition class after the transition completes
-            setTimeout(() => {
-                document.body.classList.remove('theme-transition');
-            }, 500);
-        }
-        
-        // Set initial theme based on saved preference or system preference
-        applyTheme(currentTheme === "dark" || (!currentTheme && prefersDarkScheme.matches));
-        
-        // Theme switcher functionality
-        const checkbox = document.getElementById("checkbox");
-        const themeIcon = document.getElementById("theme-icon");
-        
-        checkbox.addEventListener("change", function() {
-            if (this.checked) {
-                applyTheme(true);
-                localStorage.setItem("theme", "dark");
-            } else {
-                applyTheme(false);
-                localStorage.setItem("theme", "light");
-            }
-        });
-        
-        // Reveal sections on scroll
-        document.addEventListener('DOMContentLoaded', function() {
-            const sections = document.querySelectorAll('section');
-            
-            function checkVisibility() {
-                sections.forEach(section => {
-                    const sectionTop = section.getBoundingClientRect().top;
-                    const windowHeight = window.innerHeight;
-                    
-                    if (sectionTop < windowHeight * 0.75) {
-                        section.classList.add('visible');
-                    }
-                });
-            }
-            
-            // Initial check
-            checkVisibility();
-            
-            // Check on scroll
-            window.addEventListener('scroll', checkVisibility);
-        });
-    </script>
+    <!-- JavaScript -->
+    <script src="js/futuristic-main.js"></script>
 </body>
 </html> 
