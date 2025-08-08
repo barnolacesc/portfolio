@@ -252,6 +252,75 @@ nav, nav ul, nav li, nav a {
     }
 }
 
+/* Form Validation States */
+.form-group input.error,
+.form-group textarea.error {
+    border-color: var(--accent-secondary);
+    box-shadow: 0 0 0 2px rgba(255, 107, 107, 0.2);
+}
+
+.form-group input.valid,
+.form-group textarea.valid {
+    border-color: var(--accent-tertiary);
+    box-shadow: 0 0 0 2px rgba(78, 205, 196, 0.2);
+}
+
+/* No JavaScript Fallback */
+.no-js .particle,
+.no-js .orb {
+    display: none;
+}
+
+.no-js .section {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Loading State Improvements */
+body:not(.loaded) {
+    overflow: hidden;
+}
+
+body:not(.loaded) .section {
+    opacity: 0;
+    transform: translateY(50px);
+}
+
+body.loaded .section {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity var(--transition-slow), transform var(--transition-slow);
+}
+
+/* Performance Optimizations */
+.particle,
+.orb,
+.floating-elements .tech-icon {
+    transform: translateZ(0); /* Force GPU acceleration */
+    backface-visibility: hidden;
+}
+
+/* Print Styles */
+@media print {
+    .bg-animation,
+    .particle-field,
+    .gradient-orbs,
+    .glass-nav {
+        display: none;
+    }
+    
+    body {
+        background: white;
+        color: black;
+    }
+    
+    .section {
+        break-inside: avoid;
+        opacity: 1;
+        transform: none;
+    }
+}
+
 /* Glass Navigation */
 .glass-nav {
     position: fixed;

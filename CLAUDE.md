@@ -18,6 +18,9 @@ npx serve .
 
 # Open in browser (automated via script)
 ./update.sh  # Choose option 4
+
+# Run optimization checks
+./optimize.sh  # Performance optimization tool
 ```
 
 ### Deployment & Updates
