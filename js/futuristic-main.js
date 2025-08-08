@@ -7,8 +7,9 @@ document.addEventListener('DOMContentLoaded', function() {
     initParticleAnimation();
     initMobileMenu();
     initFormHandling();
-    initCursorEffects();
+    // initCursorEffects();  // Removed for performance optimization
     initTypingEffect();
+    initThemeToggle();
 });
 
 // Smooth scrolling for navigation links
@@ -281,56 +282,6 @@ function initFormHandling() {
     }
 }
 
-// Custom cursor effects
-function initCursorEffects() {
-    // Create custom cursor
-    const cursor = document.createElement('div');
-    cursor.className = 'custom-cursor';
-    document.body.appendChild(cursor);
-    
-    const cursorFollower = document.createElement('div');
-    cursorFollower.className = 'cursor-follower';
-    document.body.appendChild(cursorFollower);
-    
-    let mouseX = 0, mouseY = 0;
-    let followerX = 0, followerY = 0;
-    
-    document.addEventListener('mousemove', function(e) {
-        mouseX = e.clientX;
-        mouseY = e.clientY;
-        
-        cursor.style.left = mouseX + 'px';
-        cursor.style.top = mouseY + 'px';
-    });
-    
-    // Smooth follower animation
-    function animateFollower() {
-        followerX += (mouseX - followerX) * 0.1;
-        followerY += (mouseY - followerY) * 0.1;
-        
-        cursorFollower.style.left = followerX + 'px';
-        cursorFollower.style.top = followerY + 'px';
-        
-        requestAnimationFrame(animateFollower);
-    }
-    animateFollower();
-    
-    // Cursor interactions
-    const interactiveElements = document.querySelectorAll('a, button, .project-card, .skill-category');
-    
-    interactiveElements.forEach(element => {
-        element.addEventListener('mouseenter', function() {
-            cursor.classList.add('cursor-hover');
-            cursorFollower.classList.add('cursor-hover');
-        });
-        
-        element.addEventListener('mouseleave', function() {
-            cursor.classList.remove('cursor-hover');
-            cursorFollower.classList.remove('cursor-hover');
-        });
-    });
-}
-
 // Typing effect for hero title
 function initTypingEffect() {
     const titleLines = document.querySelectorAll('.title-line');
@@ -378,51 +329,51 @@ window.addEventListener('scroll', function() {
 });
 
 // Add CSS for custom cursor
-const cursorStyles = `
-.custom-cursor {
-    position: fixed;
-    width: 10px;
-    height: 10px;
-    background: var(--accent-primary);
-    border-radius: 50%;
-    pointer-events: none;
-    z-index: 9999;
-    transition: transform 0.1s ease;
-    mix-blend-mode: difference;
-}
+// const cursorStyles = `
+// .custom-cursor {
+//     position: fixed;
+//     width: 10px;
+//     height: 10px;
+//     background: var(--accent-primary);
+//     border-radius: 50%;
+//     pointer-events: none;
+//     z-index: 9999;
+//     transition: transform 0.1s ease;
+//     mix-blend-mode: difference;
+// }
 
-.cursor-follower {
-    position: fixed;
-    width: 30px;
-    height: 30px;
-    border: 2px solid var(--accent-primary);
-    border-radius: 50%;
-    pointer-events: none;
-    z-index: 9998;
-    opacity: 0.5;
-}
+// .cursor-follower {
+//     position: fixed;
+//     width: 30px;
+//     height: 30px;
+//     border: 2px solid var(--accent-primary);
+//     border-radius: 50%;
+//     pointer-events: none;
+//     z-index: 9998;
+//     opacity: 0.5;
+// }
 
-.cursor-hover {
-    transform: scale(2);
-}
+// .cursor-hover {
+//     transform: scale(2);
+// }
 
-.cursor-follower.cursor-hover {
-    transform: scale(1.5);
-    opacity: 0.8;
-}
+// .cursor-follower.cursor-hover {
+//     transform: scale(1.5);
+//     opacity: 0.8;
+// }
 
-@media (max-width: 768px) {
-    .custom-cursor,
-    .cursor-follower {
-        display: none;
-    }
-}
-`;
+// @media (max-width: 768px) {
+//     .custom-cursor,
+//     .cursor-follower {
+//         display: none;
+//     }
+// }
+// `;
 
 // Inject cursor styles
-const styleSheet = document.createElement('style');
-styleSheet.textContent = cursorStyles;
-document.head.appendChild(styleSheet);
+// const styleSheet = document.createElement('style');
+// styleSheet.textContent = cursorStyles;
+// document.head.appendChild(styleSheet);
 
 // Performance optimization: Throttle scroll events
 function throttle(func, limit) {
@@ -538,3 +489,16 @@ const rainbowStyles = `
 const rainbowStyleSheet = document.createElement('style');
 rainbowStyleSheet.textContent = rainbowStyles;
 document.head.appendChild(rainbowStyleSheet); 
+
+// Theme toggle functionality
+function initThemeToggle() {
+    const toggle = document.querySelector('.theme-toggle');
+    const body = document.body;
+    
+    toggle.addEventListener('click', function() {
+        body.classList.toggle('light');
+        const icon = this.querySelector('i');
+        icon.classList.toggle('fa-moon');
+        icon.classList.toggle('fa-sun');
+    });
+} 
