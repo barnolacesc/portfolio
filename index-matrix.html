@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="matrix">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Francesc Barnola - DevOps Engineer & Cloud CyberSec Specialist. Enter the Matrix of modern infrastructure and automation.">
+    <meta name="theme-color" content="#00ff00">
+    <meta name="keywords" content="DevOps, Cloud Security, Kubernetes, Docker, AWS, Terraform, Matrix, Cyberpunk">
+    
+    <!-- Preload critical resources -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Futuristic Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=JetBrains+Mono:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <title>Francesc Barnola | Matrix Terminal - DevOps Engineer</title>
+    
+    <!-- Matrix Terminal Styles -->
+    <link rel="stylesheet" href="css/matrix-terminal-style.css">
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer">
+</head>
+<body>
+    <!-- Terminal Loading Screen -->
+    <div class="terminal-loader">
+        <div class="boot-text">&gt; Initializing Matrix Terminal...</div>
+        <div class="boot-progress">
+            <div class="boot-progress-bar"></div>
+        </div>
+    </div>
+
+    <!-- Matrix Rain Background -->
+    <div class="matrix-rain-container" aria-hidden="true"></div>
+    
+    <!-- Animated Mesh Gradient Background -->
+    <div class="mesh-gradient-bg" aria-hidden="true"></div>
+
+    <!-- Terminal Navigation -->
+    <nav class="terminal-nav" role="navigation">
+        <div class="terminal-nav-content">
+            <div class="terminal-prompt">francesc@matrix-portfolio</div>
+            <ul class="nav-commands">
+                <li><a href="#hero" class="nav-command">./home</a></li>
+                <li><a href="#about" class="nav-command">./about</a></li>
+                <li><a href="#skills" class="nav-command">./skills</a></li>
+                <li><a href="#projects" class="nav-command">./projects</a></li>
+                <li><a href="#contact" class="nav-command">./contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero-section">
+        <div class="container">
+            <div class="hero-terminal terminal-window">
+                <div class="terminal-header">
+                    <div class="terminal-controls">
+                        <div class="terminal-control close"></div>
+                        <div class="terminal-control minimize"></div>
+                        <div class="terminal-control maximize"></div>
+                    </div>
+                    <span>francesc@matrix-portfolio:~$</span>
+                </div>
+                <div class="terminal-content">
+                    <div class="terminal-output">
+                        <div class="typewriter-text" data-text="$ whoami">$ whoami</div>
+                        <div class="glitch neon-text" data-text="Francesc Barnola">Francesc Barnola</div>
+                        <div class="typewriter-text" data-text="$ cat /etc/passwd | grep francesc">$ cat /etc/passwd | grep francesc</div>
+                        <div>francesc:x:1001:1001:DevOps Engineer & Cloud CyberSec Specialist:/home/francesc:/bin/bash</div>
+                        <div class="typewriter-text" data-text="$ systemctl status career.service">$ systemctl status career.service</div>
+                        <div class="service-status">
+                            ● career.service - DevOps Engineering & Cloud Security<br>
+                            &nbsp;&nbsp;&nbsp;Loaded: loaded (/etc/systemd/system/career.service)<br>
+                            &nbsp;&nbsp;&nbsp;Active: <span class="terminal-success">active (running)</span> since 2019-01-01<br>
+                            &nbsp;&nbsp;&nbsp;Main PID: 2024 (innovation)<br>
+                            &nbsp;&nbsp;&nbsp;Memory: ∞ (unlimited potential)<br>
+                            &nbsp;&nbsp;&nbsp;CGroup: /system.slice/career.service<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─2024 /usr/bin/passion --continuous-learning
+                        </div>
+                        <div class="live-terminal-output"></div>
+                        <div class="terminal-input-line">
+                            <span class="terminal-prompt">$</span>
+                            <input type="text" class="terminal-input" placeholder="Enter command (try 'help')..." autocomplete="off">
+                            <span class="terminal-cursor">_</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 3D Floating Tech Stack -->
+            <div class="floating-tech-stack">
+                <div class="tech-icon floating-3d" data-tech="kubernetes">
+                    <i class="fab fa-docker"></i>
+                </div>
+                <div class="tech-icon floating-3d" data-tech="aws">
+                    <i class="fab fa-aws"></i>
+                </div>
+                <div class="tech-icon floating-3d" data-tech="python">
+                    <i class="fab fa-python"></i>
+                </div>
+                <div class="tech-icon floating-3d" data-tech="linux">
+                    <i class="fab fa-linux"></i>
+                </div>
+                <div class="tech-icon floating-3d" data-tech="git">
+                    <i class="fab fa-git-alt"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section animate-on-scroll">
+        <div class="container">
+            <div class="section-grid">
+                <div class="holo-card">
+                    <h2 class="glitch-trigger" data-text="System Information">System Information</h2>
+                    <div class="system-info">
+                        <div class="info-line">
+                            <span class="info-key">Hostname:</span>
+                            <span class="info-value">francesc.barnola.local</span>
+                        </div>
+                        <div class="info-line">
+                            <span class="info-key">Role:</span>
+                            <span class="info-value neon-text">DevOps Engineer & Cloud CyberSec Specialist</span>
+                        </div>
+                        <div class="info-line">
+                            <span class="info-key">Experience:</span>
+                            <span class="info-value">5+ years in production environments</span>
+                        </div>
+                        <div class="info-line">
+                            <span class="info-key">Specialization:</span>
+                            <span class="info-value">Infrastructure Automation, CI/CD, Container Orchestration</span>
+                        </div>
+                        <div class="info-line">
+                            <span class="info-key">Security Clearance:</span>
+                            <span class="info-value terminal-success">Active - Cloud Security Expert</span>
+                        </div>
+                        <div class="info-line">
+                            <span class="info-key">Location:</span>
+                            <span class="info-value">Matrix Node 001 (Earth)</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="holo-card">
+                    <h3>Mission Statement</h3>
+                    <p class="typewriter-trigger" data-text="Bridging the gap between development and operations through innovative automation, secure cloud architectures, and cutting-edge DevOps practices. I architect scalable solutions that enable teams to deploy faster, more securely, and with confidence.">
+                        Bridging the gap between development and operations through innovative automation, secure cloud architectures, and cutting-edge DevOps practices. I architect scalable solutions that enable teams to deploy faster, more securely, and with confidence.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills-section animate-on-scroll">
+        <div class="container">
+            <h2 class="section-title glitch-trigger" data-text="./skills --list-all">./skills --list-all</h2>
+            
+            <div class="skills-grid">
+                <!-- DevOps Tools -->
+                <div class="skill-category holo-card">
+                    <h3><i class="fas fa-tools"></i> DevOps & Automation</h3>
+                    <div class="skill-items">
+                        <div class="skill-item">
+                            <span>Kubernetes</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="--progress: 95%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span>Docker</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="--progress: 98%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span>Terraform</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="--progress: 90%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span>Ansible</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="--progress: 88%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cloud Platforms -->
+                <div class="skill-category holo-card">
+                    <h3><i class="fas fa-cloud"></i> Cloud Platforms</h3>
+                    <div class="skill-items">
+                        <div class="skill-item">
+                            <span>AWS</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="--progress: 92%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span>Google Cloud</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="--progress: 85%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span>Azure</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="--progress: 80%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Programming -->
+                <div class="skill-category holo-card">
+                    <h3><i class="fas fa-code"></i> Programming</h3>
+                    <div class="skill-items">
+                        <div class="skill-item">
+                            <span>Python</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="--progress: 95%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span>Go</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="--progress: 85%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span>Bash/Shell</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="--progress: 98%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span>YAML/JSON</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="--progress: 99%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Security -->
+                <div class="skill-category holo-card">
+                    <h3><i class="fas fa-shield-alt"></i> Security & Monitoring</h3>
+                    <div class="skill-items">
+                        <div class="skill-item">
+                            <span>Security Scanning</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="--progress: 90%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span>Prometheus</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="--progress: 88%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span>Grafana</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="--progress: 85%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects-section animate-on-scroll">
+        <div class="container">
+            <h2 class="section-title glitch-trigger" data-text="ls -la ~/projects/">ls -la ~/projects/</h2>
+            
+            <div class="projects-grid">
+                <div class="project-card holo-card">
+                    <div class="project-header">
+                        <h3>Infrastructure as Code Platform</h3>
+                        <div class="project-status terminal-success">Production</div>
+                    </div>
+                    <div class="project-details">
+                        <p>Automated multi-cloud infrastructure deployment using Terraform, reducing deployment time by 90% and eliminating configuration drift.</p>
+                        <div class="tech-stack">
+                            <span class="tech-tag">Terraform</span>
+                            <span class="tech-tag">AWS</span>
+                            <span class="tech-tag">Kubernetes</span>
+                            <span class="tech-tag">GitLab CI</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card holo-card">
+                    <div class="project-header">
+                        <h3>Container Security Pipeline</h3>
+                        <div class="project-status terminal-warning">Monitoring</div>
+                    </div>
+                    <div class="project-details">
+                        <p>Comprehensive security scanning and compliance automation for containerized applications with zero-trust architecture.</p>
+                        <div class="tech-stack">
+                            <span class="tech-tag">Docker</span>
+                            <span class="tech-tag">Falco</span>
+                            <span class="tech-tag">Trivy</span>
+                            <span class="tech-tag">OPA</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card holo-card">
+                    <div class="project-header">
+                        <h3>Observability Stack</h3>
+                        <div class="project-status terminal-success">Active</div>
+                    </div>
+                    <div class="project-details">
+                        <p>Full-stack monitoring and alerting system providing real-time insights across 200+ microservices.</p>
+                        <div class="tech-stack">
+                            <span class="tech-tag">Prometheus</span>
+                            <span class="tech-tag">Grafana</span>
+                            <span class="tech-tag">Jaeger</span>
+                            <span class="tech-tag">ELK Stack</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section animate-on-scroll">
+        <div class="container">
+            <h2 class="section-title glitch-trigger" data-text="./establish-connection">./establish-connection</h2>
+            
+            <div class="contact-grid">
+                <div class="contact-terminal terminal-window holo-card">
+                    <div class="terminal-header">
+                        <div class="terminal-controls">
+                            <div class="terminal-control close"></div>
+                            <div class="terminal-control minimize"></div>
+                            <div class="terminal-control maximize"></div>
+                        </div>
+                        <span>secure-channel@francesc.matrix</span>
+                    </div>
+                    <div class="terminal-content">
+                        <div class="contact-info">
+                            <div class="contact-line">
+                                <span class="contact-key">email:</span>
+                                <a href="mailto:contact@barnola.net" class="contact-value neon-text">contact@barnola.net</a>
+                            </div>
+                            <div class="contact-line">
+                                <span class="contact-key">linkedin:</span>
+                                <a href="https://linkedin.com/in/fbarnola" class="contact-value neon-text" target="_blank">linkedin.com/in/fbarnola</a>
+                            </div>
+                            <div class="contact-line">
+                                <span class="contact-key">github:</span>
+                                <a href="https://github.com/barnolacesc" class="contact-value neon-text" target="_blank">github.com/barnolacesc</a>
+                            </div>
+                            <div class="contact-line">
+                                <span class="contact-key">status:</span>
+                                <span class="contact-value terminal-success">Available for new opportunities</span>
+                            </div>
+                            <div class="contact-line">
+                                <span class="contact-key">location:</span>
+                                <span class="contact-value">Remote / On-site</span>
+                            </div>
+                        </div>
+                        
+                        <div class="terminal-divider">---</div>
+                        
+                        <div class="quick-commands">
+                            <p>Quick commands:</p>
+                            <button class="terminal-button" onclick="terminal.execute('contact')">./get-contact-info</button>
+                            <button class="terminal-button" onclick="window.open('assets/francesc_barnola_cv.pdf')">./download-resume</button>
+                            <button class="terminal-button" onclick="terminal.execute('skills')">./view-skills</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="matrix-stats holo-card">
+                    <h3>System Status</h3>
+                    <div class="stat-grid">
+                        <div class="stat-item">
+                            <span class="stat-label">Uptime</span>
+                            <span class="stat-value neon-text">5+ years</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Projects Deployed</span>
+                            <span class="stat-value neon-text">100+</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Coffee Consumed</span>
+                            <span class="stat-value neon-text">∞</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Security Level</span>
+                            <span class="stat-value terminal-success">MAXIMUM</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="matrix-footer">
+        <div class="container">
+            <div class="footer-terminal">
+                <span class="terminal-prompt">$</span>
+                <span class="typewriter-text" data-text="echo 'Thanks for visiting the Matrix. Stay curious, stay innovative.' && exit 0">echo "Thanks for visiting the Matrix. Stay curious, stay innovative." && exit 0</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Matrix Terminal JavaScript -->
+    <script src="js/matrix-terminal-main.js"></script>
+</body>
+</html>

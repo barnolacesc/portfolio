@@ -1,0 +1,602 @@
+/* 
+Matrix Terminal DevOps Portfolio - 2024 Modern Design
+Inspired by cyberpunk, terminal interfaces, and cutting-edge web trends
+*/
+
+:root {
+    /* Matrix/Terminal Color Scheme */
+    --matrix-black: #000000;
+    --matrix-dark: #0a0a0a;
+    --matrix-green-primary: #00ff00;
+    --matrix-green-secondary: #00cc00;
+    --matrix-green-dim: #004400;
+    --matrix-green-bright: #44ff44;
+    
+    /* Cyber Accent Colors */
+    --cyber-neon-cyan: #00ffff;
+    --cyber-neon-purple: #8000ff;
+    --cyber-neon-pink: #ff0080;
+    --cyber-neon-yellow: #ffff00;
+    --cyber-orange: #ff6600;
+    
+    /* Terminal Text Colors */
+    --terminal-text: #00ff00;
+    --terminal-prompt: #00cccc;
+    --terminal-error: #ff4444;
+    --terminal-warning: #ffaa00;
+    --terminal-success: #44ff44;
+    --terminal-secondary: #888888;
+    
+    /* Advanced Gradients */
+    --mesh-gradient-1: 
+        radial-gradient(ellipse at 20% 50%, rgba(0, 255, 255, 0.3) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 20%, rgba(128, 0, 255, 0.3) 0%, transparent 50%),
+        radial-gradient(ellipse at 40% 80%, rgba(255, 0, 128, 0.3) 0%, transparent 50%);
+    
+    --terminal-gradient: linear-gradient(135deg, 
+        rgba(0, 255, 0, 0.1) 0%, 
+        rgba(0, 204, 204, 0.1) 50%, 
+        rgba(0, 255, 0, 0.1) 100%);
+    
+    --hologram-gradient: linear-gradient(45deg,
+        transparent 30%,
+        rgba(0, 255, 255, 0.1) 50%,
+        transparent 70%);
+    
+    /* Typography */
+    --font-mono: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
+    --font-display: 'Orbitron', 'Exo 2', monospace;
+    
+    /* Spacing and Layout */
+    --container-max-width: 1400px;
+    --section-padding: 120px 0;
+    --section-padding-mobile: 60px 0;
+    --border-radius: 8px;
+    --border-radius-lg: 16px;
+    
+    /* Animation Speeds */
+    --matrix-rain-speed: 0.5s;
+    --typewriter-speed: 0.05s;
+    --glitch-duration: 2s;
+    --hover-speed: 0.3s;
+    
+    /* Z-Index Scale */
+    --z-matrix-bg: -2;
+    --z-mesh-bg: -1;
+    --z-content: 1;
+    --z-nav: 1000;
+    --z-cursor: 9999;
+}
+
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+
+body {
+    font-family: var(--font-mono);
+    background: var(--matrix-black);
+    color: var(--terminal-text);
+    line-height: 1.6;
+    overflow-x: hidden;
+    position: relative;
+    cursor: none; /* Custom cursor will be added */
+}
+
+/* Selection styles */
+::selection {
+    background: var(--cyber-neon-cyan);
+    color: var(--matrix-black);
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--matrix-dark);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--matrix-green-primary);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--matrix-green-bright);
+}
+
+/* Matrix Code Rain Background */
+.matrix-rain-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: var(--z-matrix-bg);
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.matrix-column {
+    position: absolute;
+    top: -100%;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--matrix-green-primary);
+    animation: matrix-fall linear infinite;
+    text-shadow: 0 0 5px var(--matrix-green-primary);
+    opacity: 0.7;
+}
+
+@keyframes matrix-fall {
+    0% {
+        transform: translateY(-100%);
+        opacity: 1;
+    }
+    90% {
+        opacity: 0.8;
+    }
+    100% {
+        transform: translateY(100vh);
+        opacity: 0;
+    }
+}
+
+/* Animated Mesh Gradient Background */
+.mesh-gradient-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: var(--z-mesh-bg);
+    background: var(--mesh-gradient-1);
+    animation: mesh-flow 20s ease-in-out infinite;
+    opacity: 0.4;
+}
+
+@keyframes mesh-flow {
+    0%, 100% {
+        transform: scale(1) rotate(0deg);
+        filter: hue-rotate(0deg);
+    }
+    25% {
+        transform: scale(1.1) rotate(90deg);
+        filter: hue-rotate(90deg);
+    }
+    50% {
+        transform: scale(1) rotate(180deg);
+        filter: hue-rotate(180deg);
+    }
+    75% {
+        transform: scale(1.1) rotate(270deg);
+        filter: hue-rotate(270deg);
+    }
+}
+
+/* Terminal Navigation */
+.terminal-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: var(--z-nav);
+    background: rgba(0, 0, 0, 0.9);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--matrix-green-dim);
+    padding: 1rem 2rem;
+    font-family: var(--font-mono);
+}
+
+.terminal-nav-content {
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.terminal-prompt {
+    color: var(--terminal-prompt);
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.terminal-prompt::before {
+    content: "$ ";
+    color: var(--matrix-green-primary);
+}
+
+.nav-commands {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+}
+
+.nav-command {
+    color: var(--terminal-text);
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border: 1px solid transparent;
+    border-radius: var(--border-radius);
+    transition: all var(--hover-speed);
+    position: relative;
+    overflow: hidden;
+}
+
+.nav-command::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: var(--hologram-gradient);
+    transition: left var(--hover-speed);
+    z-index: -1;
+}
+
+.nav-command:hover {
+    color: var(--cyber-neon-cyan);
+    border-color: var(--matrix-green-primary);
+    box-shadow: 0 0 20px rgba(0, 255, 0, 0.3);
+    text-shadow: 0 0 5px var(--cyber-neon-cyan);
+}
+
+.nav-command:hover::before {
+    left: 0;
+}
+
+/* Terminal Loading Animation */
+.terminal-loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--matrix-black);
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    font-family: var(--font-mono);
+    color: var(--terminal-text);
+    opacity: 1;
+    visibility: visible;
+    transition: all 1s ease-in-out;
+}
+
+.terminal-loader.loaded {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.boot-text {
+    font-size: 1rem;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.boot-progress {
+    width: 400px;
+    height: 20px;
+    border: 2px solid var(--matrix-green-primary);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    position: relative;
+}
+
+.boot-progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, 
+        var(--matrix-green-dim), 
+        var(--matrix-green-primary), 
+        var(--matrix-green-bright));
+    width: 0;
+    animation: boot-load 3s ease-in-out forwards;
+    box-shadow: 0 0 10px var(--matrix-green-primary);
+}
+
+@keyframes boot-load {
+    0% { width: 0; }
+    100% { width: 100%; }
+}
+
+/* Custom Cyber Cursor */
+.cyber-cursor {
+    position: fixed;
+    width: 20px;
+    height: 20px;
+    background: var(--cyber-neon-cyan);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: var(--z-cursor);
+    mix-blend-mode: difference;
+    transition: transform 0.1s ease;
+    box-shadow: 
+        0 0 10px var(--cyber-neon-cyan),
+        0 0 20px var(--cyber-neon-cyan),
+        0 0 30px var(--cyber-neon-cyan);
+}
+
+.cyber-cursor-trail {
+    position: fixed;
+    width: 6px;
+    height: 6px;
+    background: var(--matrix-green-primary);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: var(--z-cursor);
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+/* Terminal Window Effect */
+.terminal-window {
+    background: rgba(0, 20, 0, 0.9);
+    border: 2px solid var(--matrix-green-dim);
+    border-radius: var(--border-radius-lg);
+    overflow: hidden;
+    position: relative;
+    box-shadow: 
+        0 0 50px rgba(0, 255, 0, 0.1),
+        inset 0 0 50px rgba(0, 255, 0, 0.05);
+}
+
+.terminal-header {
+    background: var(--matrix-green-dim);
+    padding: 0.5rem 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.terminal-controls {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.terminal-control {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--terminal-error);
+}
+
+.terminal-control.minimize { background: var(--terminal-warning); }
+.terminal-control.maximize { background: var(--terminal-success); }
+
+.terminal-content {
+    padding: 1.5rem;
+    min-height: 200px;
+    font-family: var(--font-mono);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+/* Typewriter Effect */
+.typewriter {
+    overflow: hidden;
+    border-right: 2px solid var(--matrix-green-primary);
+    white-space: nowrap;
+    animation: 
+        typing 3s steps(40) infinite,
+        blink-cursor 0.8s infinite;
+}
+
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+@keyframes blink-cursor {
+    from, to { border-color: transparent; }
+    50% { border-color: var(--matrix-green-primary); }
+}
+
+/* Glitch Effect */
+.glitch {
+    position: relative;
+    animation: glitch var(--glitch-duration) infinite;
+}
+
+.glitch::before,
+.glitch::after {
+    content: attr(data-text);
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.glitch::before {
+    animation: glitch-1 var(--glitch-duration) infinite;
+    color: var(--cyber-neon-cyan);
+    z-index: -1;
+}
+
+.glitch::after {
+    animation: glitch-2 var(--glitch-duration) infinite;
+    color: var(--cyber-neon-pink);
+    z-index: -2;
+}
+
+@keyframes glitch {
+    0%, 100% { transform: translate(0); }
+    20% { transform: translate(-2px, 2px); }
+    40% { transform: translate(-2px, -2px); }
+    60% { transform: translate(2px, 2px); }
+    80% { transform: translate(2px, -2px); }
+}
+
+@keyframes glitch-1 {
+    0%, 100% { transform: translate(0); }
+    20% { transform: translate(2px, -2px); }
+    40% { transform: translate(-2px, 2px); }
+    60% { transform: translate(-2px, -2px); }
+    80% { transform: translate(2px, 2px); }
+}
+
+@keyframes glitch-2 {
+    0%, 100% { transform: translate(0); }
+    20% { transform: translate(-2px, -2px); }
+    40% { transform: translate(2px, -2px); }
+    60% { transform: translate(2px, 2px); }
+    80% { transform: translate(-2px, 2px); }
+}
+
+/* Holographic Cards */
+.holo-card {
+    background: rgba(0, 20, 0, 0.8);
+    border: 1px solid var(--matrix-green-dim);
+    border-radius: var(--border-radius-lg);
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
+    transition: all var(--hover-speed);
+    backdrop-filter: blur(10px);
+}
+
+.holo-card::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, 
+        var(--cyber-neon-cyan), 
+        var(--cyber-neon-purple), 
+        var(--cyber-neon-pink), 
+        var(--cyber-neon-yellow));
+    z-index: -1;
+    opacity: 0;
+    transition: opacity var(--hover-speed);
+    border-radius: var(--border-radius-lg);
+}
+
+.holo-card:hover::before {
+    opacity: 0.7;
+}
+
+.holo-card:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 
+        0 20px 40px rgba(0, 255, 0, 0.2),
+        0 0 50px rgba(0, 255, 255, 0.1);
+}
+
+/* 3D Floating Elements */
+.floating-3d {
+    transform-style: preserve-3d;
+    animation: float-3d 6s ease-in-out infinite;
+}
+
+@keyframes float-3d {
+    0%, 100% {
+        transform: translateY(0) rotateX(0deg) rotateY(0deg);
+    }
+    25% {
+        transform: translateY(-20px) rotateX(15deg) rotateY(90deg);
+    }
+    50% {
+        transform: translateY(-10px) rotateX(0deg) rotateY(180deg);
+    }
+    75% {
+        transform: translateY(-20px) rotateX(-15deg) rotateY(270deg);
+    }
+}
+
+/* Neon Text Effects */
+.neon-text {
+    color: var(--cyber-neon-cyan);
+    text-shadow: 
+        0 0 5px var(--cyber-neon-cyan),
+        0 0 10px var(--cyber-neon-cyan),
+        0 0 20px var(--cyber-neon-cyan),
+        0 0 40px var(--cyber-neon-cyan);
+    animation: neon-flicker 2s infinite alternate;
+}
+
+@keyframes neon-flicker {
+    0%, 100% {
+        opacity: 1;
+        text-shadow: 
+            0 0 5px var(--cyber-neon-cyan),
+            0 0 10px var(--cyber-neon-cyan),
+            0 0 20px var(--cyber-neon-cyan),
+            0 0 40px var(--cyber-neon-cyan);
+    }
+    50% {
+        opacity: 0.8;
+        text-shadow: 
+            0 0 2px var(--cyber-neon-cyan),
+            0 0 5px var(--cyber-neon-cyan),
+            0 0 10px var(--cyber-neon-cyan),
+            0 0 20px var(--cyber-neon-cyan);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .terminal-nav {
+        padding: 0.5rem 1rem;
+    }
+    
+    .nav-commands {
+        gap: 1rem;
+    }
+    
+    .nav-command {
+        padding: 0.25rem 0.5rem;
+        font-size: 0.9rem;
+    }
+    
+    .boot-progress {
+        width: 300px;
+    }
+    
+    .cyber-cursor,
+    .cyber-cursor-trail {
+        display: none;
+    }
+    
+    body {
+        cursor: default;
+    }
+    
+    .matrix-column {
+        font-size: 10px;
+    }
+    
+    :root {
+        --section-padding: var(--section-padding-mobile);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .matrix-column,
+    .mesh-gradient-bg,
+    .floating-3d,
+    .glitch,
+    .typewriter {
+        animation: none;
+    }
+    
+    .neon-text {
+        animation: none;
+        text-shadow: 0 0 5px var(--cyber-neon-cyan);
+    }
+}
