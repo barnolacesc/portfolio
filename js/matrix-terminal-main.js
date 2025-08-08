@@ -34,6 +34,9 @@ class MatrixTerminalPortfolio {
             this.initScrollEffects();
             this.initAudioEffects();
             
+            // Optimize performance for GitHub Pages
+            this.optimizePerformance();
+            
             console.log('✅ Matrix Terminal Portfolio fully loaded!');
             this.isLoaded = true;
             
@@ -79,9 +82,19 @@ class MatrixTerminalPortfolio {
         const container = document.querySelector('.matrix-rain-container');
         if (!container) return;
 
+        // Optimize for performance - reduce columns on smaller screens and slower devices
         const characters = '01アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲンABCDEFGHIJKLMNOPQRSTUVWXYZ';
         const columnWidth = 20;
-        const numColumns = Math.floor(window.innerWidth / columnWidth);
+        let numColumns = Math.floor(window.innerWidth / columnWidth);
+        
+        // Performance optimization: reduce columns based on device capability
+        if (window.innerWidth < 768) {
+            numColumns = Math.min(numColumns, 25); // Limit mobile columns
+        } else if (navigator.hardwareConcurrency < 4) {
+            numColumns = Math.min(numColumns, 40); // Limit for slower devices
+        } else {
+            numColumns = Math.min(numColumns, 60); // Cap for all devices
+        }
 
         for (let i = 0; i < numColumns; i++) {
             this.createMatrixColumn(container, i * columnWidth, characters);
@@ -398,20 +411,54 @@ class MatrixTerminalPortfolio {
         });
     }
 
-    // Performance optimization
+    // Performance optimization - enhanced for GitHub Pages
     optimizePerformance() {
-        // Reduce animations on low-performance devices
-        if (navigator.hardwareConcurrency < 4) {
+        // Detect low-performance devices and apply optimizations
+        const isLowPerformance = 
+            navigator.hardwareConcurrency < 4 || 
+            window.innerWidth < 768 ||
+            /Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+            
+        if (isLowPerformance) {
             document.body.classList.add('low-performance');
+            console.log('🔧 Low-performance mode activated for better GitHub Pages compatibility');
         }
 
-        // Pause matrix rain when tab is not active
+        // Pause resource-intensive animations when tab is not active
         document.addEventListener('visibilitychange', () => {
             const matrixColumns = document.querySelectorAll('.matrix-column');
-            matrixColumns.forEach(column => {
-                column.style.animationPlayState = document.hidden ? 'paused' : 'running';
-            });
+            const meshGradient = document.querySelector('.mesh-gradient-bg');
+            const floating3D = document.querySelectorAll('.floating-3d');
+            
+            if (document.hidden) {
+                // Pause animations when tab is hidden
+                matrixColumns.forEach(column => {
+                    column.style.animationPlayState = 'paused';
+                });
+                if (meshGradient) meshGradient.style.animationPlayState = 'paused';
+                floating3D.forEach(el => {
+                    el.style.animationPlayState = 'paused';
+                });
+            } else {
+                // Resume animations when tab is visible
+                matrixColumns.forEach(column => {
+                    column.style.animationPlayState = 'running';
+                });
+                if (meshGradient) meshGradient.style.animationPlayState = 'running';
+                floating3D.forEach(el => {
+                    el.style.animationPlayState = 'running';
+                });
+            }
         });
+
+        // Reduce matrix rain frequency on slower connections
+        if (navigator.connection && navigator.connection.effectiveType) {
+            const connectionType = navigator.connection.effectiveType;
+            if (connectionType === 'slow-2g' || connectionType === '2g' || connectionType === '3g') {
+                document.body.classList.add('slow-connection');
+                console.log('🌐 Slow connection detected, optimizing animations');
+            }
+        }
     }
 }
 

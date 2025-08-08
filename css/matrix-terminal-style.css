@@ -96,21 +96,40 @@ body {
     color: var(--matrix-black);
 }
 
+/* Scrollbar styling - fixed and optimized */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: var(--matrix-green-primary) var(--matrix-dark);
+}
+
 ::-webkit-scrollbar {
     width: 8px;
+    height: 8px;
 }
 
 ::-webkit-scrollbar-track {
     background: var(--matrix-dark);
+    border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb {
     background: var(--matrix-green-primary);
     border-radius: 4px;
+    border: 1px solid var(--matrix-dark);
 }
 
 ::-webkit-scrollbar-thumb:hover {
     background: var(--matrix-green-bright);
+}
+
+::-webkit-scrollbar-corner {
+    background: var(--matrix-dark);
+}
+
+/* Fix horizontal scrollbar issues */
+html, body {
+    overflow-x: hidden;
+    max-width: 100%;
 }
 
 /* Matrix Code Rain Background */
