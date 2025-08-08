@@ -1,6 +1,6 @@
 /* Futuristic Portfolio CSS */
 :root {
-    /* Colors */
+    /* Base Colors - Dark Theme (Default) */
     --primary-bg: #0a0a0f;
     --secondary-bg: #1a1a2e;
     --accent-primary: #00d4ff;
@@ -8,7 +8,12 @@
     --accent-tertiary: #4ecdc4;
     --text-primary: #ffffff;
     --text-secondary: #b8b8b8;
-    --text-muted: #6b7280;
+    --text-muted: #8892b0;
+    
+    /* Light Theme Variables (for future use) */
+    --background-light: #ffffff;
+    --text-primary-light: #1a1a2e;
+    --accent-light: #0099cc;
     
     /* Glass Effects */
     --glass-bg: rgba(255, 255, 255, 0.05);
@@ -21,20 +26,66 @@
     --gradient-secondary: linear-gradient(135deg, var(--accent-secondary), var(--accent-primary));
     --gradient-bg: linear-gradient(135deg, var(--primary-bg), var(--secondary-bg));
     
-    /* Spacing */
+    /* Layout & Spacing */
     --container-max-width: 1200px;
     --section-padding: 120px 0;
+    --section-padding-mobile: 60px 0;
     --border-radius: 16px;
     --border-radius-lg: 24px;
+    --border-radius-sm: 8px;
     
-    /* Animations */
+    /* Animations & Transitions */
     --transition-fast: 0.2s ease;
     --transition-normal: 0.3s ease;
     --transition-slow: 0.5s ease;
+    --animation-duration-short: 0.3s;
+    --animation-duration-normal: 0.6s;
+    --animation-duration-long: 1s;
     
     /* Typography */
     --font-primary: 'Inter', sans-serif;
     --font-mono: 'JetBrains Mono', monospace;
+    --font-size-xs: 0.75rem;
+    --font-size-sm: 0.875rem;
+    --font-size-base: 1rem;
+    --font-size-lg: 1.125rem;
+    --font-size-xl: 1.25rem;
+    --font-size-2xl: 1.5rem;
+    --font-size-3xl: 1.875rem;
+    --font-size-4xl: 2.25rem;
+    
+    /* Z-Index Scale */
+    --z-background: -1;
+    --z-default: 1;
+    --z-dropdown: 1000;
+    --z-sticky: 1020;
+    --z-fixed: 1030;
+    --z-modal: 1040;
+    --z-popover: 1050;
+    --z-tooltip: 1060;
+}
+
+body.light {
+    --background: var(--background-light);
+    --text-primary: var(--text-primary-light);
+    --accent-primary: var(--accent-light);
+    background: var(--background-light);
+    color: var(--text-primary-light);
+}
+
+.theme-toggle {
+    cursor: pointer;
+    font-size: 1.2rem;
+    color: var(--accent-primary);
+    transition: color 0.3s ease;
+}
+
+.theme-toggle:hover {
+    color: #ffffff;
+}
+
+body.light .theme-toggle i {
+    content: '\f185';  /* fa-sun */
 }
 
 /* Reset and Base Styles */
@@ -96,6 +147,8 @@ nav, nav ul, nav li, nav a {
     border-radius: 50%;
     animation: float 6s ease-in-out infinite;
     opacity: 0.6;
+    will-change: transform;
+    pointer-events: none;
 }
 
 .particle:nth-child(1) { left: 10%; top: 20%; animation-delay: 0s; }
@@ -127,6 +180,8 @@ nav, nav ul, nav li, nav a {
     filter: blur(60px);
     opacity: 0.3;
     animation: orbit 20s linear infinite;
+    will-change: transform;
+    pointer-events: none;
 }
 
 .orb-1 {
@@ -160,6 +215,41 @@ nav, nav ul, nav li, nav a {
 @keyframes orbit {
     0% { transform: rotate(0deg) translateX(50px) rotate(0deg); }
     100% { transform: rotate(360deg) translateX(50px) rotate(-360deg); }
+}
+
+/* Reduced Motion Accessibility */
+@media (prefers-reduced-motion: reduce) {
+    .particle,
+    .orb {
+        animation: none;
+    }
+    
+    .particle {
+        opacity: 0.3;
+    }
+    
+    .orb {
+        opacity: 0.1;
+    }
+    
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* Glassmorphism Fallbacks */
+@supports not (backdrop-filter: blur(10px)) {
+    .glass-nav {
+        background: rgba(10, 10, 15, 0.9);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    
+    .glass-card {
+        background: rgba(26, 26, 46, 0.8);
+        border: 1px solid rgba(255, 255, 255, 0.15);
+    }
 }
 
 /* Glass Navigation */
@@ -670,12 +760,12 @@ nav, nav ul, nav li, nav a {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 220px;
-    height: 220px;
+    width: 120%;
+    height: 120%;
     border: 2px solid var(--accent-primary);
     border-radius: 50%;
-    z-index: 2;
-    animation: rotate 10s linear infinite;
+    opacity: 0.3;
+    animation: pulse-ring 2s infinite;
 }
 
 .mobile-profile-ring::before {
@@ -774,12 +864,12 @@ nav, nav ul, nav li, nav a {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 320px;
-    height: 320px;
+    width: 120%;
+    height: 120%;
     border: 2px solid var(--accent-primary);
     border-radius: 50%;
-    z-index: 2;
-    animation: rotate 10s linear infinite;
+    opacity: 0.3;
+    animation: pulse-ring 2s infinite;
 }
 
 .profile-ring::before {
