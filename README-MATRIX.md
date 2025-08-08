@@ -2,6 +2,8 @@
 
 > **"Welcome to the Matrix."** - A revolutionary cyberpunk-inspired portfolio for the modern DevOps engineer.
 
+![Matrix Terminal Portfolio Screenshot](matrix-portfolio.png)
+
 ![Matrix Terminal Portfolio](https://img.shields.io/badge/Status-Revolutionary-00ff00?style=for-the-badge&logo=matrix&logoColor=white)
 ![Built with](https://img.shields.io/badge/Built%20with-Matrix%20Code-00ff00?style=for-the-badge)
 ![2024 Trends](https://img.shields.io/badge/2024%20Trends-Implemented-ff00ff?style=for-the-badge)

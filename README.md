@@ -1,6 +1,6 @@
 # Francesc Barnola's Portfolio
 
-![Portfolio Screenshot - Futuristic Design](assets/image-dark.png)
+![Matrix Terminal Portfolio Screenshot](matrix-portfolio.png)
 
 ## 🚀 Live Demo
 
