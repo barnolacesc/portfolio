@@ -1,381 +1,273 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en" data-theme="matrix">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Francesc Barnola - DevOps Engineer & Cloud CyberSec Specialist. Expert in cloud infrastructure, automation, and cybersecurity solutions.">
-    <meta name="theme-color" content="#00d4ff">
+    <meta name="description" content="Francesc Barnola - DevOps Engineer & Cloud CyberSec Specialist. Enter the Matrix of modern infrastructure and automation.">
+    <meta name="theme-color" content="#00ff00">
+    <meta name="keywords" content="DevOps, Cloud Security, Kubernetes, Docker, AWS, Terraform, Matrix, Cyberpunk">
     
     <!-- Preload critical resources -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
     
-    <!-- DNS prefetch for external resources -->
-    <link rel="dns-prefetch" href="//fonts.googleapis.com">
-    <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
+    <!-- Futuristic Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=JetBrains+Mono:wght@300;400;500;700&display=swap" rel="stylesheet">
     
-    <title>Francesc Barnola | DevOps Engineer & Cloud CyberSec Specialist</title>
+    <title>Francesc Barnola | Matrix Terminal - DevOps Engineer</title>
     
-    <!-- Critical CSS -->
-    <link rel="stylesheet" href="css/futuristic-style.css">
-    <link rel="stylesheet" href="css/additional-styles.css">
+    <!-- Matrix Terminal Styles -->
+    <link rel="stylesheet" href="css/matrix-terminal-style.css">
+    <link rel="stylesheet" href="css/matrix-components.css">
     
-    <!-- Font loading with font-display: swap for performance -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
-    
-    <!-- Font Awesome with integrity check -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer")
-    
-    <!-- No JavaScript fallback styles -->
-    <noscript>
-        <style>
-            .no-js .particle, .no-js .orb { display: none; }
-            .no-js .section { opacity: 1 !important; transform: translateY(0) !important; }
-            .no-js .hero-section { opacity: 1 !important; transform: translateY(0) !important; }
-        </style>
-    </noscript>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer">
 </head>
-<body class="no-js">
-    <!-- Animated Background -->
-    <div class="bg-animation">
-        <div class="particle-field">
-            <div class="particle"></div>
-            <div class="particle"></div>
-            <div class="particle"></div>
-            <div class="particle"></div>
-            <div class="particle"></div>
-            <div class="particle"></div>
-            <div class="particle"></div>
-            <div class="particle"></div>
-            <div class="particle"></div>
-            <div class="particle"></div>
-        </div>
-        <div class="gradient-orbs">
-            <div class="orb orb-1"></div>
-            <div class="orb orb-2"></div>
-            <div class="orb orb-3"></div>
+<body>
+    <!-- Terminal Loading Screen -->
+    <div class="terminal-loader">
+        <div class="boot-text">&gt; Initializing Matrix Terminal...</div>
+        <div class="boot-progress">
+            <div class="boot-progress-bar"></div>
         </div>
     </div>
 
-    <!-- Navigation -->
-    <nav class="glass-nav">
-        <div class="nav-container">
-            <div class="logo-container">
-                <span class="logo-text">francesc<span class="accent-dot">.</span>barnola</span>
-                <div class="logo-glow"></div>
-            </div>
-            <ul class="nav-links">
-                <li><a href="#about" class="nav-link">About</a></li>
-                <li><a href="#skills" class="nav-link">Skills</a></li>
-                <li><a href="#projects" class="nav-link">Projects</a></li>
-                <li><a href="#experience" class="nav-link">Experience</a></li>
-                <li><a href="#contact" class="nav-link">Contact</a></li>
-                <li><a href="assets/francesc_barnola_cv.pdf" target="_blank" class="cta-button">Resume</a></li>
+    <!-- Matrix Rain Background -->
+    <div class="matrix-rain-container" aria-hidden="true"></div>
+    
+    <!-- Animated Mesh Gradient Background -->
+    <div class="mesh-gradient-bg" aria-hidden="true"></div>
+
+    <!-- Terminal Navigation -->
+    <nav class="terminal-nav" role="navigation">
+        <div class="terminal-nav-content">
+            <div class="terminal-prompt">francesc@portfolio</div>
+            <ul class="nav-commands">
+                <li><a href="#hero" class="nav-command">./home</a></li>
+                <li><a href="#about" class="nav-command">./about</a></li>
+                <li><a href="#skills" class="nav-command">./skills</a></li>
+                <li><a href="#projects" class="nav-command">./projects</a></li>
+                <li><a href="#contact" class="nav-command">./contact</a></li>
             </ul>
-            <div class="mobile-menu-toggle">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section class="hero-section">
-        <div class="hero-container">
-            <div class="hero-content">
-                <a href="https://linkedin.com/in/fbarnola" target="_blank" class="hero-badge">
-                    <span class="status-indicator"></span>
-                    Currently building at Fundcraft
-                </a>
-                <h1 class="hero-title">
-                    <span class="title-line">DevOps Engineer &</span>
-                    <span class="title-line accent-gradient">Cloud CyberSec</span>
-                    <span class="title-line">Specialist</span>
-                </h1>
-                <p class="hero-description">
-                    I architect secure cloud infrastructures and automate deployment pipelines. 
-                    Transforming complex systems into elegant, scalable solutions that power the digital future.
-                </p>
-                <div class="hero-stats">
-                    <div class="stat-item">
-                        <span class="stat-number">5+</span>
-                        <span class="stat-label">Years Experience</span>
+    <section id="hero" class="hero-section">
+        <div class="container">
+            <div class="hero-terminal terminal-window">
+                <div class="terminal-header">
+                    <div class="terminal-controls">
+                        <div class="terminal-control close"></div>
+                        <div class="terminal-control minimize"></div>
+                        <div class="terminal-control maximize"></div>
                     </div>
-                    <div class="stat-item">
-                        <span class="stat-number">50+</span>
-                        <span class="stat-label">Projects Deployed</span>
-                    </div>
-                    <div class="stat-item">
-                        <span class="stat-number">99.9%</span>
-                        <span class="stat-label">Uptime Achieved</span>
-                    </div>
+                    <span>francesc@portfolio:~$</span>
                 </div>
-                <div class="hero-actions">
-                    <button class="primary-button">
-                        <span>View My Work</span>
-                        <i class="fas fa-arrow-right"></i>
-                    </button>
-                    <button class="secondary-button">
-                        <span>Get In Touch</span>
-                        <i class="fas fa-paper-plane"></i>
-                    </button>
-                </div>
-            </div>
-            <div class="hero-visual">
-                <div class="profile-container">
-                    <div class="profile-glow"></div>
-                    <img src="assets/profile.jpg" alt="Francesc Barnola" class="profile-image">
-                    <div class="profile-ring"></div>
-                    <div class="floating-elements">
-                        <div class="tech-icon" style="--delay: 0s">
-                            <i class="fab fa-docker"></i>
+                <div class="terminal-content">
+                    <div class="terminal-output">
+                        <div class="typewriter-text" data-text="$ whoami">$ whoami</div>
+                        <div class="typewriter-text neon-text" data-text="Francesc Barnola">Francesc Barnola</div>
+                        <div class="typewriter-text" data-text="$ cat /etc/passwd | grep francesc">$ cat /etc/passwd | grep francesc</div>
+                        <div>francesc:x:1001:1001:DevOps Engineer & Cloud CyberSec Specialist:/home/francesc:/bin/bash</div>
+                        <div class="typewriter-text" data-text="$ systemctl status career.service">$ systemctl status career.service</div>
+                        <div class="service-status">
+                            ● career.service - DevOps Engineering & Cloud Security<br>
+                            &nbsp;&nbsp;&nbsp;Loaded: loaded (/etc/systemd/system/career.service)<br>
+                            &nbsp;&nbsp;&nbsp;Active: <span class="terminal-success">active (running)</span> since 2019-01-01<br>
+                            &nbsp;&nbsp;&nbsp;Main PID: 2024 (innovation)<br>
+                            &nbsp;&nbsp;&nbsp;Memory: ∞ (unlimited potential)<br>
+                            &nbsp;&nbsp;&nbsp;CGroup: /system.slice/career.service<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─2024 /usr/bin/passion --continuous-learning
                         </div>
-                        <div class="tech-icon" style="--delay: 0.5s">
-                            <i class="fab fa-aws"></i>
-                        </div>
-                        <div class="tech-icon" style="--delay: 1s">
-                            <i class="fab fa-kubernetes"></i>
-                        </div>
-                        <div class="tech-icon" style="--delay: 1.5s">
-                            <i class="fab fa-python"></i>
-                        </div>
-                        <div class="tech-icon" style="--delay: 2s">
-                            <i class="fab fa-github"></i>
+                        <div class="live-terminal-output"></div>
+                        <div class="terminal-input-line">
+                            <span class="terminal-prompt">$</span>
+                            <input type="text" class="terminal-input" placeholder="Enter command (try 'help')..." autocomplete="off">
+                            <span class="terminal-cursor">_</span>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="scroll-indicator">
-            <div class="scroll-line"></div>
-            <span>Scroll to explore</span>
+            
+            <!-- 3D Floating Tech Stack -->
+            <div class="floating-tech-stack">
+                <div class="tech-icon floating-3d" data-tech="kubernetes">
+                    <i class="fab fa-docker"></i>
+                </div>
+                <div class="tech-icon floating-3d" data-tech="aws">
+                    <i class="fab fa-aws"></i>
+                </div>
+                <div class="tech-icon floating-3d" data-tech="python">
+                    <i class="fab fa-python"></i>
+                </div>
+                <div class="tech-icon floating-3d" data-tech="linux">
+                    <i class="fab fa-linux"></i>
+                </div>
+                <div class="tech-icon floating-3d" data-tech="git">
+                    <i class="fab fa-git-alt"></i>
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- About Section -->
-    <section id="about" class="section about-section">
+    <section id="about" class="about-section animate-on-scroll">
         <div class="container">
-            <div class="section-header">
-                <span class="section-number">01</span>
-                <h2 class="section-title">About Me</h2>
-                <div class="section-line"></div>
-            </div>
-            <!-- Mobile profile image with floating icons -->
-            <div class="about-profile-mobile">
-                <div class="mobile-profile-container">
-                    <div class="mobile-profile-glow"></div>
-                    <img src="assets/profile.jpg" alt="Francesc Barnola" class="mobile-profile-image">
-                    <div class="mobile-profile-ring"></div>
-                    <div class="mobile-floating-elements">
-                        <div class="mobile-tech-icon" style="--delay: 0s">
-                            <i class="fab fa-docker"></i>
+            <div class="section-grid">
+                <div class="holo-card">
+                    <h2 class="glitch-trigger" data-text="System Information">System Information</h2>
+                    <div class="system-info">
+                        <div class="info-line">
+                            <span class="info-key">Hostname:</span>
+                            <span class="info-value">francesc.barnola.local</span>
                         </div>
-                        <div class="mobile-tech-icon" style="--delay: 0.5s">
-                            <i class="fab fa-aws"></i>
+                        <div class="info-line">
+                            <span class="info-key">Role:</span>
+                            <span class="info-value neon-text">DevOps Engineer & Cloud CyberSec Specialist</span>
                         </div>
-                        <div class="mobile-tech-icon" style="--delay: 1s">
-                            <i class="fab fa-kubernetes"></i>
+                        <div class="info-line">
+                            <span class="info-key">Experience:</span>
+                            <span class="info-value">5+ years in production environments</span>
                         </div>
-                        <div class="mobile-tech-icon" style="--delay: 1.5s">
-                            <i class="fab fa-python"></i>
+                        <div class="info-line">
+                            <span class="info-key">Specialization:</span>
+                            <span class="info-value">Infrastructure Automation, CI/CD, Container Orchestration</span>
                         </div>
-                        <div class="mobile-tech-icon" style="--delay: 2s">
-                            <i class="fab fa-github"></i>
+                        <div class="info-line">
+                            <span class="info-key">Security Clearance:</span>
+                            <span class="info-value terminal-success">Active - Cloud Security Expert</span>
                         </div>
-                    </div>
-                </div>
-            </div>
-            <div class="about-content">
-                <div class="about-text">
-                    <p class="lead-text">
-                        I'm a passionate DevOps engineer who believes that great infrastructure 
-                        is invisible to users but essential for success.
-                    </p>
-                    <p>
-                        With over 5 years of experience in cloud technologies and cybersecurity, 
-                        I specialize in creating robust, scalable, and secure systems that enable 
-                        teams to deploy with confidence.
-                    </p>
-                    <p>
-                        When I'm not optimizing CI/CD pipelines or securing cloud environments, 
-                        you'll find me exploring the latest in containerization technologies or 
-                        contributing to open-source projects.
-                    </p>
-                    <div class="personality-traits">
-                        <div class="trait-item">
-                            <i class="fas fa-shield-alt"></i>
-                            <span>Security First</span>
-                        </div>
-                        <div class="trait-item">
-                            <i class="fas fa-rocket"></i>
-                            <span>Performance Focused</span>
-                        </div>
-                        <div class="trait-item">
-                            <i class="fas fa-cogs"></i>
-                            <span>Automation Enthusiast</span>
+                        <div class="info-line">
+                            <span class="info-key">Location:</span>
+                            <span class="info-value">Matrix Node 001 (Earth)</span>
                         </div>
                     </div>
                 </div>
-                <div class="about-visual">
-                    <div class="code-window">
-                        <div class="window-header">
-                            <div class="window-controls">
-                                <span class="control close"></span>
-                                <span class="control minimize"></span>
-                                <span class="control maximize"></span>
-                            </div>
-                            <span class="window-title">deploy.yml</span>
-                        </div>
-                        <div class="code-content">
-                            <div class="code-line">
-                                <span class="line-number">1</span>
-                                <span class="code-text">
-                                    <span class="keyword">name:</span> 
-                                    <span class="string">Deploy to Production</span>
-                                </span>
-                            </div>
-                            <div class="code-line">
-                                <span class="line-number">2</span>
-                                <span class="code-text">
-                                    <span class="keyword">on:</span>
-                                </span>
-                            </div>
-                            <div class="code-line">
-                                <span class="line-number">3</span>
-                                <span class="code-text">
-                                    &nbsp;&nbsp;<span class="keyword">push:</span>
-                                </span>
-                            </div>
-                            <div class="code-line">
-                                <span class="line-number">4</span>
-                                <span class="code-text">
-                                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">branches:</span> 
-                                    <span class="string">[main]</span>
-                                </span>
-                            </div>
-                            <div class="code-line">
-                                <span class="line-number">5</span>
-                                <span class="code-text">
-                                    <span class="keyword">jobs:</span>
-                                </span>
-                            </div>
-                            <div class="code-line">
-                                <span class="line-number">6</span>
-                                <span class="code-text">
-                                    &nbsp;&nbsp;<span class="keyword">deploy:</span>
-                                </span>
-                            </div>
-                        </div>
-                    </div>
+                
+                <div class="holo-card">
+                    <h3>Mission Statement</h3>
+                    <p class="typewriter-trigger" data-text="Bridging the gap between development and operations through innovative automation, secure cloud architectures, and cutting-edge DevOps practices. I architect scalable solutions that enable teams to deploy faster, more securely, and with confidence.">
+                        Bridging the gap between development and operations through innovative automation, secure cloud architectures, and cutting-edge DevOps practices. I architect scalable solutions that enable teams to deploy faster, more securely, and with confidence.
+                    </p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Skills Section -->
-    <section id="skills" class="section skills-section">
+    <section id="skills" class="skills-section animate-on-scroll">
         <div class="container">
-            <div class="section-header">
-                <span class="section-number">02</span>
-                <h2 class="section-title">Technical Arsenal</h2>
-                <div class="section-line"></div>
-            </div>
+            <h2 class="section-title glitch-trigger" data-text="./skills --list-all">./skills --list-all</h2>
+            
             <div class="skills-grid">
-                <div class="skill-category">
-                    <div class="category-header">
-                        <i class="fas fa-cloud"></i>
-                        <h3>Cloud & Infrastructure</h3>
-                    </div>
-                    <div class="skills-list">
+                <!-- DevOps Tools -->
+                <div class="skill-category holo-card">
+                    <h3><i class="fas fa-tools"></i> DevOps & Automation</h3>
+                    <div class="skill-items">
                         <div class="skill-item">
-                            <span class="skill-name">AWS</span>
+                            <span>Kubernetes</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="--progress: 95%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span>Docker</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="--progress: 98%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span>Terraform</span>
                             <div class="skill-bar">
                                 <div class="skill-progress" style="--progress: 90%"></div>
                             </div>
                         </div>
                         <div class="skill-item">
-                            <span class="skill-name">Azure</span>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="--progress: 85%"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <span class="skill-name">Terraform</span>
+                            <span>Ansible</span>
                             <div class="skill-bar">
                                 <div class="skill-progress" style="--progress: 88%"></div>
                             </div>
                         </div>
-                        <div class="skill-item">
-                            <span class="skill-name">Kubernetes</span>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="--progress: 82%"></div>
-                            </div>
-                        </div>
                     </div>
                 </div>
-                <div class="skill-category">
-                    <div class="category-header">
-                        <i class="fas fa-code"></i>
-                        <h3>Development</h3>
-                    </div>
-                    <div class="skills-list">
+
+                <!-- Cloud Platforms -->
+                <div class="skill-category holo-card">
+                    <h3><i class="fas fa-cloud"></i> Cloud Platforms</h3>
+                    <div class="skill-items">
                         <div class="skill-item">
-                            <span class="skill-name">Python</span>
+                            <span>AWS</span>
                             <div class="skill-bar">
                                 <div class="skill-progress" style="--progress: 92%"></div>
                             </div>
                         </div>
                         <div class="skill-item">
-                            <span class="skill-name">JavaScript</span>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="--progress: 78%"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <span class="skill-name">Bash</span>
+                            <span>Google Cloud</span>
                             <div class="skill-bar">
                                 <div class="skill-progress" style="--progress: 85%"></div>
                             </div>
                         </div>
                         <div class="skill-item">
-                            <span class="skill-name">Go</span>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="--progress: 70%"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="skill-category">
-                    <div class="category-header">
-                        <i class="fas fa-shield-alt"></i>
-                        <h3>Security & Monitoring</h3>
-                    </div>
-                    <div class="skills-list">
-                        <div class="skill-item">
-                            <span class="skill-name">Prometheus</span>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="--progress: 86%"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <span class="skill-name">Grafana</span>
-                            <div class="skill-bar">
-                                <div class="skill-progress" style="--progress: 84%"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <span class="skill-name">Security Auditing</span>
+                            <span>Azure</span>
                             <div class="skill-bar">
                                 <div class="skill-progress" style="--progress: 80%"></div>
                             </div>
                         </div>
+                    </div>
+                </div>
+
+                <!-- Programming -->
+                <div class="skill-category holo-card">
+                    <h3><i class="fas fa-code"></i> Programming</h3>
+                    <div class="skill-items">
                         <div class="skill-item">
-                            <span class="skill-name">Penetration Testing</span>
+                            <span>Python</span>
                             <div class="skill-bar">
-                                <div class="skill-progress" style="--progress: 75%"></div>
+                                <div class="skill-progress" style="--progress: 95%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span>Go</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="--progress: 85%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span>Bash/Shell</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="--progress: 98%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span>YAML/JSON</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="--progress: 99%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Security -->
+                <div class="skill-category holo-card">
+                    <h3><i class="fas fa-shield-alt"></i> Security & Monitoring</h3>
+                    <div class="skill-items">
+                        <div class="skill-item">
+                            <span>Security Scanning</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="--progress: 90%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span>Prometheus</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="--progress: 88%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span>Grafana</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="--progress: 85%"></div>
                             </div>
                         </div>
                     </div>
@@ -385,168 +277,56 @@
     </section>
 
     <!-- Projects Section -->
-    <section id="projects" class="section projects-section">
+    <section id="projects" class="projects-section animate-on-scroll">
         <div class="container">
-            <div class="section-header">
-                <span class="section-number">03</span>
-                <h2 class="section-title">Featured Projects</h2>
-                <div class="section-line"></div>
-            </div>
+            <h2 class="section-title glitch-trigger" data-text="ls -la ~/projects/">ls -la ~/projects/</h2>
+            
             <div class="projects-grid">
-                <div class="project-card featured">
-                    <div class="project-image">
-                        <div class="project-overlay">
-                            <div class="project-links">
-                                <a href="#" class="project-link">
-                                    <i class="fab fa-github"></i>
-                                </a>
-                                <a href="#" class="project-link">
-                                    <i class="fas fa-external-link-alt"></i>
-                                </a>
-                            </div>
-                        </div>
-                        <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=600&h=400&fit=crop" alt="Cloud Infrastructure">
+                <div class="project-card holo-card">
+                    <div class="project-header">
+                        <h3>Infrastructure as Code Platform</h3>
+                        <div class="project-status terminal-success">Production</div>
                     </div>
-                    <div class="project-content">
-                        <div class="project-tech">
-                            <span class="tech-tag">AWS</span>
+                    <div class="project-details">
+                        <p>Automated multi-cloud infrastructure deployment using Terraform, reducing deployment time by 90% and eliminating configuration drift.</p>
+                        <div class="tech-stack">
                             <span class="tech-tag">Terraform</span>
+                            <span class="tech-tag">AWS</span>
                             <span class="tech-tag">Kubernetes</span>
-                        </div>
-                        <h3 class="project-title">Multi-Cloud Infrastructure</h3>
-                        <p class="project-description">
-                            Designed and implemented a scalable multi-cloud infrastructure 
-                            supporting 10M+ daily requests with 99.99% uptime.
-                        </p>
-                        <div class="project-metrics">
-                            <div class="metric">
-                                <span class="metric-value">99.99%</span>
-                                <span class="metric-label">Uptime</span>
-                            </div>
-                            <div class="metric">
-                                <span class="metric-value">10M+</span>
-                                <span class="metric-label">Daily Requests</span>
-                            </div>
+                            <span class="tech-tag">GitLab CI</span>
                         </div>
                     </div>
                 </div>
-                <div class="project-card">
-                    <div class="project-image">
-                        <div class="project-overlay">
-                            <div class="project-links">
-                                <a href="#" class="project-link">
-                                    <i class="fab fa-github"></i>
-                                </a>
-                                <a href="#" class="project-link">
-                                    <i class="fas fa-external-link-alt"></i>
-                                </a>
-                            </div>
-                        </div>
-                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop" alt="Security Dashboard">
-                    </div>
-                    <div class="project-content">
-                        <div class="project-tech">
-                            <span class="tech-tag">Python</span>
-                            <span class="tech-tag">Docker</span>
-                            <span class="tech-tag">Grafana</span>
-                        </div>
-                        <h3 class="project-title">Security Monitoring Platform</h3>
-                        <p class="project-description">
-                            Real-time security monitoring and threat detection system 
-                            with automated incident response capabilities.
-                        </p>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <div class="project-image">
-                        <div class="project-overlay">
-                            <div class="project-links">
-                                <a href="#" class="project-link">
-                                    <i class="fab fa-github"></i>
-                                </a>
-                                <a href="#" class="project-link">
-                                    <i class="fas fa-external-link-alt"></i>
-                                </a>
-                            </div>
-                        </div>
-                        <img src="https://images.unsplash.com/photo-1518432031352-d6fc5c10da5a?w=600&h=400&fit=crop" alt="CI/CD Pipeline">
-                    </div>
-                    <div class="project-content">
-                        <div class="project-tech">
-                            <span class="tech-tag">GitHub Actions</span>
-                            <span class="tech-tag">Jenkins</span>
-                            <span class="tech-tag">Ansible</span>
-                        </div>
-                        <h3 class="project-title">Automated CI/CD Pipeline</h3>
-                        <p class="project-description">
-                            Zero-downtime deployment pipeline with automated testing, 
-                            security scanning, and rollback capabilities.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- Experience Section -->
-    <section id="experience" class="section experience-section">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-number">04</span>
-                <h2 class="section-title">Professional Journey</h2>
-                <div class="section-line"></div>
-            </div>
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-marker"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-header">
-                            <h3>DevOps Engineer</h3>
-                            <span class="company">Fundcraft</span>
-                            <span class="period">Feb 2025 - Present</span>
-                        </div>
-                        <p class="timeline-description">
-                            Leading cloud infrastructure initiatives and implementing 
-                            security-first DevOps practices for financial technology solutions.
-                        </p>
-                        <div class="timeline-achievements">
-                            <div class="achievement">
-                                <i class="fas fa-check"></i>
-                                <span>Reduced deployment time by 75%</span>
-                            </div>
-                            <div class="achievement">
-                                <i class="fas fa-check"></i>
-                                <span>Implemented zero-downtime deployments</span>
-                            </div>
+                <div class="project-card holo-card">
+                    <div class="project-header">
+                        <h3>Container Security Pipeline</h3>
+                        <div class="project-status terminal-warning">Monitoring</div>
+                    </div>
+                    <div class="project-details">
+                        <p>Comprehensive security scanning and compliance automation for containerized applications with zero-trust architecture.</p>
+                        <div class="tech-stack">
+                            <span class="tech-tag">Docker</span>
+                            <span class="tech-tag">Falco</span>
+                            <span class="tech-tag">Trivy</span>
+                            <span class="tech-tag">OPA</span>
                         </div>
                     </div>
                 </div>
-                <div class="timeline-item">
-                    <div class="timeline-marker"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-header">
-                            <h3>Embedded Systems Engineer</h3>
-                            <span class="company">SALICRU S.A.</span>
-                            <span class="period">Sep 2023 - Feb 2025</span>
-                        </div>
-                        <p class="timeline-description">
-                            Developed embedded software solutions and communication drivers 
-                            for industrial power systems and UPS devices.
-                        </p>
+
+                <div class="project-card holo-card">
+                    <div class="project-header">
+                        <h3>Observability Stack</h3>
+                        <div class="project-status terminal-success">Active</div>
                     </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-marker"></div>
-                    <div class="timeline-content">
-                        <div class="timeline-header">
-                            <h3>Software Engineer</h3>
-                            <span class="company">SALICRU S.A.</span>
-                            <span class="period">Feb 2022 - Jul 2023</span>
+                    <div class="project-details">
+                        <p>Full-stack monitoring and alerting system providing real-time insights across 200+ microservices.</p>
+                        <div class="tech-stack">
+                            <span class="tech-tag">Prometheus</span>
+                            <span class="tech-tag">Grafana</span>
+                            <span class="tech-tag">Jaeger</span>
+                            <span class="tech-tag">ELK Stack</span>
                         </div>
-                        <p class="timeline-description">
-                            Built and maintained Python-based desktop applications and 
-                            managed version control systems for the R&D department.
-                        </p>
                     </div>
                 </div>
             </div>
@@ -554,101 +334,91 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="section contact-section">
+    <section id="contact" class="contact-section animate-on-scroll">
         <div class="container">
-            <div class="section-header">
-                <span class="section-number">05</span>
-                <h2 class="section-title">Let's Build Something Amazing</h2>
-                <div class="section-line"></div>
-            </div>
-            <div class="contact-content">
-                <div class="contact-info">
-                    <h3>Ready to collaborate?</h3>
-                    <p>
-                        I'm always excited to work on challenging projects that push 
-                        the boundaries of what's possible with cloud infrastructure and security.
-                    </p>
-                    <div class="contact-methods">
-                        <a href="mailto:contact@barnola.net" class="contact-method">
-                            <div class="method-icon">
-                                <i class="fas fa-envelope"></i>
+            <h2 class="section-title glitch-trigger" data-text="./establish-connection">./establish-connection</h2>
+            
+            <div class="contact-grid">
+                <div class="contact-terminal terminal-window holo-card">
+                    <div class="terminal-header">
+                        <div class="terminal-controls">
+                            <div class="terminal-control close"></div>
+                            <div class="terminal-control minimize"></div>
+                            <div class="terminal-control maximize"></div>
+                        </div>
+                        <span>secure-channel@francesc.matrix</span>
+                    </div>
+                    <div class="terminal-content">
+                        <div class="contact-info">
+                            <div class="contact-line">
+                                <span class="contact-key">email:</span>
+                                <a href="mailto:contact@barnola.net" class="contact-value neon-text">contact@barnola.net</a>
                             </div>
-                            <div class="method-info">
-                                <span class="method-label">Email</span>
-                                <span class="method-value">contact@barnola.net</span>
+                            <div class="contact-line">
+                                <span class="contact-key">linkedin:</span>
+                                <a href="https://linkedin.com/in/fbarnola" class="contact-value neon-text" target="_blank">linkedin.com/in/fbarnola</a>
                             </div>
-                        </a>
-                        <a href="https://linkedin.com/in/fbarnola" class="contact-method">
-                            <div class="method-icon">
-                                <i class="fab fa-linkedin"></i>
+                            <div class="contact-line">
+                                <span class="contact-key">github:</span>
+                                <a href="https://github.com/barnolacesc" class="contact-value neon-text" target="_blank">github.com/barnolacesc</a>
                             </div>
-                            <div class="method-info">
-                                <span class="method-label">LinkedIn</span>
-                                <span class="method-value">linkedin.com/in/fbarnola</span>
+                            <div class="contact-line">
+                                <span class="contact-key">status:</span>
+                                <span class="contact-value terminal-success">Currently building in Fundcraft</span>
                             </div>
-                        </a>
-                        <a href="https://github.com/barnolacesc" class="contact-method">
-                            <div class="method-icon">
-                                <i class="fab fa-github"></i>
+                            <div class="contact-line">
+                                <span class="contact-key">location:</span>
+                                <span class="contact-value">Remote / On-site</span>
                             </div>
-                            <div class="method-info">
-                                <span class="method-label">GitHub</span>
-                                <span class="method-value">github.com/barnolacesc</span>
-                            </div>
-                        </a>
+                        </div>
+                        
+                        <div class="terminal-divider">---</div>
+                        
+                        <div class="quick-commands">
+                            <p>Quick commands:</p>
+                            <button class="terminal-button" onclick="terminal.execute('contact')">./get-contact-info</button>
+                            <button class="terminal-button" onclick="window.open('assets/francesc_barnola_cv.pdf')">./download-resume</button>
+                            <button class="terminal-button" onclick="terminal.execute('skills')">./view-skills</button>
+                        </div>
                     </div>
                 </div>
-                <div class="contact-form">
-                    <form class="glass-form">
-                        <div class="form-group">
-                            <input type="text" id="name" required>
-                            <label for="name">Your Name</label>
+                
+                <div class="matrix-stats holo-card">
+                    <h3>System Status</h3>
+                    <div class="stat-grid">
+                        <div class="stat-item">
+                            <span class="stat-label">Uptime</span>
+                            <span class="stat-value neon-text">5+ years</span>
                         </div>
-                        <div class="form-group">
-                            <input type="email" id="email" required>
-                            <label for="email">Email Address</label>
+                        <div class="stat-item">
+                            <span class="stat-label">Projects Deployed</span>
+                            <span class="stat-value neon-text">100+</span>
                         </div>
-                        <div class="form-group">
-                            <textarea id="message" required></textarea>
-                            <label for="message">Project Details</label>
+                        <div class="stat-item">
+                            <span class="stat-label">Coffee Consumed</span>
+                            <span class="stat-value neon-text">∞</span>
                         </div>
-                        <button type="submit" class="submit-button">
-                            <span>Send Message</span>
-                            <i class="fas fa-paper-plane"></i>
-                        </button>
-                    </form>
+                        <div class="stat-item">
+                            <span class="stat-label">Security Level</span>
+                            <span class="stat-value terminal-success">MAXIMUM</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="footer">
+    <footer class="matrix-footer">
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-brand">
-                    <span class="logo-text">francesc<span class="accent-dot">.</span>barnola</span>
-                    <p>DevOps Engineer & Cloud CyberSec Specialist</p>
-                </div>
-                <div class="footer-links">
-                    <a href="mailto:contact@barnola.net">
-                        <i class="fas fa-envelope"></i>
-                    </a>
-                    <a href="https://linkedin.com/in/fbarnola">
-                        <i class="fab fa-linkedin"></i>
-                    </a>
-                    <a href="https://github.com/barnolacesc">
-                        <i class="fab fa-github"></i>
-                    </a>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 Francesc Barnola. Crafted with passion and precision.</p>
+            <div class="footer-terminal">
+                <span class="terminal-prompt">$</span>
+                <span class="typewriter-text" data-text="echo 'Thanks for visiting. Stay curious, stay innovative.' && exit 0">echo "Thanks for visiting. Stay curious, stay innovative." && exit 0</span>
             </div>
         </div>
     </footer>
 
-    <!-- JavaScript -->
-    <script src="js/futuristic-main.js"></script>
+    <!-- Matrix Terminal JavaScript -->
+    <script src="js/matrix-terminal-main.js"></script>
 </body>
-</html> 
+</html>
