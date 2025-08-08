@@ -1,6 +1,6 @@
 # Francesc Barnola's Portfolio
 
-![Portfolio Screenshot - Futuristic Design](assets/image-dark.png)
+![Portfolio Screenshot - Futuristic Design](futuristic-neon-blue.png)
 
 ## 🚀 Live Demo
 
