@@ -377,7 +377,7 @@
                         <div class="quick-commands">
                             <p>Quick commands:</p>
                             <button class="terminal-button" onclick="terminal.execute('contact')">./get-contact-info</button>
-                            <button class="terminal-button" onclick="window.open('assets/francesc_barnola_cv.pdf')">./download-resume</button>
+                            <button class="terminal-button" onclick="openVerificationModal()">./download-resume</button>
                             <button class="terminal-button" onclick="terminal.execute('skills')">./view-skills</button>
                         </div>
                     </div>
@@ -417,6 +417,33 @@
             </div>
         </div>
     </footer>
+
+    <!-- Human Verification Modal -->
+    <div id="verification-modal" class="hcaptcha-modal" style="display: none;">
+        <div class="hcaptcha-modal-content terminal-window holo-card">
+            <div class="terminal-header">
+                <div class="terminal-controls">
+                    <div class="terminal-control close" onclick="closeVerificationModal()"></div>
+                    <div class="terminal-control minimize"></div>
+                    <div class="terminal-control maximize"></div>
+                </div>
+                <span>security-verification.sh</span>
+            </div>
+            <div class="terminal-content">
+                <p class="verification-message">$ sudo verify-human-access --download-cv</p>
+                <p class="verification-instruction">Solve this challenge to prove you're human:</p>
+                <div class="math-challenge">
+                    <p class="challenge-question" id="challenge-question">What is <span id="num1"></span> + <span id="num2"></span>?</p>
+                    <input type="number" id="challenge-answer" class="challenge-input" placeholder="Your answer..." autocomplete="off">
+                    <div class="challenge-feedback" id="challenge-feedback"></div>
+                </div>
+                <div class="hcaptcha-actions">
+                    <button class="terminal-button" onclick="closeVerificationModal()">./cancel</button>
+                    <button class="terminal-button terminal-button-primary" onclick="verifyAnswer()">./verify</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Matrix Terminal JavaScript -->
     <script src="js/matrix-terminal-main.js"></script>
