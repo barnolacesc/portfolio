@@ -1,0 +1,220 @@
+---
+---
+
+<!-- Modal overlay -->
+<div id="captcha-modal" aria-modal="true" role="dialog" aria-label="Human verification" style="display:none;">
+  <div id="captcha-backdrop"></div>
+  <div id="captcha-box">
+    <div class="font-mono" id="captcha-label">Human verification</div>
+    <p id="captcha-question"></p>
+    <div id="captcha-input-row">
+      <input
+        id="captcha-input"
+        type="number"
+        inputmode="numeric"
+        placeholder="?"
+        autocomplete="off"
+        aria-label="Answer"
+      />
+      <button id="captcha-submit" type="button">Confirm</button>
+    </div>
+    <div id="captcha-error" aria-live="polite"></div>
+    <button id="captcha-close" aria-label="Close">✕</button>
+  </div>
+</div>
+
+<style>
+  #captcha-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 10000;
+    align-items: center;
+    justify-content: center;
+  }
+  #captcha-modal.open {
+    display: flex !important;
+  }
+
+  #captcha-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(9, 9, 11, 0.85);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+  }
+
+  #captcha-box {
+    position: relative;
+    z-index: 1;
+    background: var(--bg-2);
+    border: 1px solid var(--border-2);
+    padding: 36px 40px;
+    width: min(400px, calc(100vw - 48px));
+  }
+
+  #captcha-label {
+    font-size: 0.6rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--amber);
+    margin-bottom: 20px;
+  }
+
+  #captcha-question {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 1.3rem;
+    color: var(--fg);
+    letter-spacing: -0.02em;
+    margin-bottom: 24px;
+    line-height: 1.3;
+  }
+
+  #captcha-input-row {
+    display: flex;
+    gap: 10px;
+  }
+
+  #captcha-input {
+    flex: 1;
+    background: var(--bg);
+    border: 1px solid var(--border-2);
+    color: var(--fg);
+    font-family: 'DM Mono', monospace;
+    font-size: 1rem;
+    padding: 10px 14px;
+    outline: none;
+    -moz-appearance: textfield;
+    width: 0; /* let flex control width */
+    transition: border-color 0.2s;
+  }
+  #captcha-input::-webkit-outer-spin-button,
+  #captcha-input::-webkit-inner-spin-button { -webkit-appearance: none; }
+  #captcha-input:focus { border-color: var(--amber); }
+
+  #captcha-submit {
+    background: var(--amber);
+    color: #09090b;
+    border: none;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-weight: 500;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: opacity 0.2s;
+    flex-shrink: 0;
+  }
+  #captcha-submit:hover { opacity: 0.85; }
+
+  #captcha-error {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.68rem;
+    color: #f87171;
+    margin-top: 12px;
+    min-height: 18px;
+    letter-spacing: 0.03em;
+  }
+
+  #captcha-close {
+    position: absolute;
+    top: 14px;
+    right: 16px;
+    background: none;
+    border: none;
+    color: var(--fg-2);
+    font-size: 0.9rem;
+    cursor: pointer;
+    line-height: 1;
+    padding: 4px;
+    transition: color 0.2s;
+  }
+  #captcha-close:hover { color: var(--fg); }
+</style>
+
+<script>
+  const modal    = document.getElementById('captcha-modal')!;
+  const backdrop = document.getElementById('captcha-backdrop')!;
+  const question = document.getElementById('captcha-question')!;
+  const input    = document.getElementById('captcha-input') as HTMLInputElement;
+  const submit   = document.getElementById('captcha-submit')!;
+  const error    = document.getElementById('captcha-error')!;
+  const closeBtn = document.getElementById('captcha-close')!;
+
+  const CV_URL = '/assets/francesc_barnola_cv.pdf';
+  let answer = 0;
+
+  function newQuestion() {
+    const ops = ['+', '-', '×'];
+    const op  = ops[Math.floor(Math.random() * ops.length)];
+    let a: number, b: number;
+
+    if (op === '+') {
+      a = Math.floor(Math.random() * 15) + 2;
+      b = Math.floor(Math.random() * 15) + 2;
+      answer = a + b;
+    } else if (op === '-') {
+      a = Math.floor(Math.random() * 10) + 10;
+      b = Math.floor(Math.random() * 9) + 1;
+      answer = a - b;
+    } else {
+      a = Math.floor(Math.random() * 8) + 2;
+      b = Math.floor(Math.random() * 8) + 2;
+      answer = a * b;
+    }
+
+    question.textContent = `What is ${a} ${op} ${b}?`;
+  }
+
+  function openModal() {
+    newQuestion();
+    input.value = '';
+    error.textContent = '';
+    modal.classList.add('open');
+    setTimeout(() => input.focus(), 50);
+  }
+
+  function closeModal() {
+    modal.classList.remove('open');
+  }
+
+  function trySubmit() {
+    const val = parseInt(input.value, 10);
+    if (isNaN(val)) {
+      error.textContent = 'Enter a number.';
+      return;
+    }
+    if (val === answer) {
+      closeModal();
+      // Trigger download
+      const a = document.createElement('a');
+      a.href = CV_URL;
+      a.download = 'francesc_barnola_cv.pdf';
+      a.target = '_blank';
+      a.rel = 'noopener';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+    } else {
+      error.textContent = 'Incorrect — try again.';
+      input.value = '';
+      input.focus();
+      newQuestion();
+    }
+  }
+
+  // Intercept all CV links
+  document.querySelectorAll<HTMLAnchorElement>('a[href*="francesc_barnola_cv"]').forEach(link => {
+    link.addEventListener('click', e => {
+      e.preventDefault();
+      openModal();
+    });
+  });
+
+  submit.addEventListener('click', trySubmit);
+  input.addEventListener('keydown', e => { if (e.key === 'Enter') trySubmit(); });
+  closeBtn.addEventListener('click', closeModal);
+  backdrop.addEventListener('click', closeModal);
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+</script>

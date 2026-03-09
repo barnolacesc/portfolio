@@ -503,3 +503,137 @@ Available terminal commands:
 
 Easter egg: Try the Konami code! ↑↑↓↓←→←→BA
 `);
+
+// ========================================
+// Human Verification Challenge for CV Download
+// ========================================
+
+let currentChallenge = { num1: 0, num2: 0, answer: 0 };
+
+// Function to generate random math challenge
+function generateChallenge() {
+    const num1 = Math.floor(Math.random() * 10) + 1;  // 1-10
+    const num2 = Math.floor(Math.random() * 10) + 1;  // 1-10
+    const answer = num1 + num2;
+
+    return { num1, num2, answer };
+}
+
+// Function to open verification modal
+function openVerificationModal() {
+    const modal = document.getElementById('verification-modal');
+    if (!modal) return;
+
+    // Generate new challenge
+    currentChallenge = generateChallenge();
+
+    // Update modal with challenge
+    document.getElementById('num1').textContent = currentChallenge.num1;
+    document.getElementById('num2').textContent = currentChallenge.num2;
+    document.getElementById('challenge-answer').value = '';
+    document.getElementById('challenge-feedback').textContent = '';
+    document.getElementById('challenge-feedback').className = 'challenge-feedback';
+
+    // Show modal
+    modal.style.display = 'flex';
+
+    // Focus on input
+    setTimeout(() => {
+        document.getElementById('challenge-answer').focus();
+    }, 300);
+}
+
+// Function to close verification modal
+function closeVerificationModal() {
+    const modal = document.getElementById('verification-modal');
+    if (!modal) return;
+
+    modal.style.display = 'none';
+
+    // Reset fields
+    document.getElementById('challenge-answer').value = '';
+    document.getElementById('challenge-feedback').textContent = '';
+    document.getElementById('challenge-feedback').className = 'challenge-feedback';
+}
+
+// Function to verify the answer
+function verifyAnswer() {
+    const userAnswer = parseInt(document.getElementById('challenge-answer').value);
+    const feedback = document.getElementById('challenge-feedback');
+
+    if (isNaN(userAnswer)) {
+        feedback.textContent = '❌ Please enter a valid number';
+        feedback.className = 'challenge-feedback error';
+        return;
+    }
+
+    if (userAnswer === currentChallenge.answer) {
+        feedback.textContent = '✓ Correct! Downloading CV...';
+        feedback.className = 'challenge-feedback success';
+
+        console.log('✅ Human verification successful');
+
+        // Wait a moment then download and close
+        setTimeout(() => {
+            closeVerificationModal();
+            downloadCV();
+        }, 1000);
+    } else {
+        feedback.textContent = '❌ Incorrect. Try again!';
+        feedback.className = 'challenge-feedback error';
+
+        // Generate new challenge after wrong answer
+        setTimeout(() => {
+            currentChallenge = generateChallenge();
+            document.getElementById('num1').textContent = currentChallenge.num1;
+            document.getElementById('num2').textContent = currentChallenge.num2;
+            document.getElementById('challenge-answer').value = '';
+            feedback.textContent = '';
+            feedback.className = 'challenge-feedback';
+        }, 1500);
+    }
+}
+
+// Function to download CV
+function downloadCV() {
+    // Show terminal message
+    const output = document.querySelector('.terminal-output');
+    if (output) {
+        const line = document.createElement('div');
+        line.innerHTML = `<span class="terminal-prompt">$</span> ./download-resume<br><span class="terminal-response terminal-success">✓ Verification complete. Downloading CV...</span>`;
+        output.appendChild(line);
+        output.scrollTop = output.scrollHeight;
+    }
+
+    // Download the CV
+    window.open('assets/francesc_barnola_cv.pdf', '_blank');
+}
+
+// Close modal when clicking outside
+document.addEventListener('click', (e) => {
+    const modal = document.getElementById('verification-modal');
+    if (modal && e.target === modal) {
+        closeVerificationModal();
+    }
+});
+
+// Allow Enter key to submit answer
+document.addEventListener('DOMContentLoaded', () => {
+    const answerInput = document.getElementById('challenge-answer');
+    if (answerInput) {
+        answerInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                verifyAnswer();
+            }
+        });
+    }
+});
+
+// Make functions globally accessible
+window.openVerificationModal = openVerificationModal;
+window.closeVerificationModal = closeVerificationModal;
+window.verifyAnswer = verifyAnswer;
+
+// Legacy support (in case old function name is still referenced)
+window.openHCaptchaModal = openVerificationModal;
+window.closeHCaptchaModal = closeVerificationModal;

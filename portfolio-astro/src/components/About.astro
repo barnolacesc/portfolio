@@ -1,0 +1,117 @@
+---
+---
+
+<section id="about" class="section-wrap">
+
+  <div class="reveal">
+    <div class="section-eyebrow">
+      <span class="section-num">01 / About</span>
+    </div>
+    <h2 class="section-title">The operator<br/>behind the infra.</h2>
+  </div>
+
+  <div class="about-grid">
+
+    <!-- Bio -->
+    <div>
+      <div class="reveal" data-delay="0.1s">
+        <p style="font-size: 0.95rem; color: var(--fg); line-height: 1.85; margin-bottom: 20px;">
+          I'm a DevOps and Cloud engineer designing and operating infrastructure
+          that lets engineering teams ship faster and sleep better at night.
+          My work sits at the intersection of infrastructure automation,
+          cloud architecture, and security engineering.
+        </p>
+        <p style="font-size: 0.95rem; color: var(--fg-2); line-height: 1.85; margin-bottom: 20px;">
+          I hold the <span style="color: var(--amber);">AWS Certified Solutions Architect – Associate</span> certification
+          and work day-to-day at <a href="https://www.fundcraft.lu/" target="_blank" style="color: var(--fg); border-bottom: 1px solid var(--border-2); transition: border-color 0.2s;" onmouseover="this.style.borderColor='var(--amber)'" onmouseout="this.style.borderColor='var(--border-2)'">Fundcraft</a>,
+          where I build and maintain the cloud infrastructure for a regulated fintech platform.
+        </p>
+        <p style="font-size: 0.95rem; color: var(--fg-2); line-height: 1.85;">
+          Outside of work I run a full Kubernetes homelab on bare metal — Proxmox, K3s, TrueNAS —
+          with a complete observability stack, self-hosted CI/CD, and a growing catalogue of
+          personal projects. I believe the best way to understand a technology is to
+          operate it in production, even if that production is your living room.
+        </p>
+      </div>
+
+      <!-- Stats -->
+      <div class="reveal" data-delay="0.2s" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1px; border: 1px solid var(--border); margin-top: 40px;">
+        <div style="padding: 24px; border-right: 1px solid var(--border);">
+          <div class="font-mono" style="font-size: 0.6rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--fg-2); margin-bottom: 8px;">Self-hosted services</div>
+          <div style="font-family: 'Syne', sans-serif; font-weight: 800; font-size: 2.2rem; letter-spacing: -0.03em; color: var(--fg);">
+            <span data-count="30" data-suffix="+">30+</span>
+          </div>
+        </div>
+        <div style="padding: 24px;">
+          <div class="font-mono" style="font-size: 0.6rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--fg-2); margin-bottom: 8px;">AWS Certification</div>
+          <div style="font-family: 'Syne', sans-serif; font-weight: 800; font-size: 2.2rem; letter-spacing: -0.03em; color: var(--amber);">SAA</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Photo + card -->
+    <div class="reveal" data-delay="0.15s" style="display: flex; flex-direction: column; gap: 16px;">
+      <!-- Profile photo -->
+      <div style="position: relative;">
+        <img
+          src="/profile.jpg"
+          alt="Francesc Barnola"
+          class="profile-img"
+        />
+        <!-- Amber tint overlay on hover -->
+        <div class="photo-overlay" style="position: absolute; inset: 0; background: var(--amber); opacity: 0; mix-blend-mode: multiply; transition: opacity 0.4s;"></div>
+      </div>
+
+      <!-- Current role card -->
+      <div style="border: 1px solid var(--border); padding: 16px 20px; background: var(--bg-2);">
+        <div class="font-mono" style="font-size: 0.58rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--fg-2); margin-bottom: 10px;">Currently at</div>
+        <div style="font-family: 'Syne', sans-serif; font-weight: 700; font-size: 0.95rem; color: var(--fg); margin-bottom: 2px;">Fundcraft</div>
+        <div class="font-mono" style="font-size: 0.65rem; color: var(--fg-2);">DevOps Engineer · Fintech</div>
+        <div style="display: flex; align-items: center; gap: 6px; margin-top: 12px;">
+          <span style="width: 5px; height: 5px; border-radius: 50%; background: #4ade80; display: inline-block;"></span>
+          <span class="font-mono" style="font-size: 0.58rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--fg-2);">Active</span>
+        </div>
+      </div>
+
+      <!-- Location card -->
+      <div style="border: 1px solid var(--border); padding: 16px 20px; background: var(--bg-2);">
+        <div class="font-mono" style="font-size: 0.58rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--fg-2); margin-bottom: 6px;">Location</div>
+        <div style="font-size: 0.85rem; color: var(--fg);">Girona / Barcelona</div>
+        <div class="font-mono" style="font-size: 0.62rem; color: var(--fg-2); margin-top: 2px;">Remote · On-site</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<style>
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 260px;
+    gap: 56px;
+    align-items: start;
+  }
+
+  .profile-img {
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+    filter: grayscale(20%);
+  }
+
+  .photo-overlay { transition: opacity 0.4s ease; }
+  div:has(> .photo-overlay):hover .photo-overlay { opacity: 0.12 !important; }
+
+  @media (max-width: 860px) {
+    .about-grid {
+      grid-template-columns: 1fr;
+      gap: 32px;
+    }
+    /* Hide the photo column entirely on mobile — content first */
+    .about-grid > div:last-child {
+      display: none;
+    }
+  }
+</style>

@@ -1,0 +1,124 @@
+---
+import '../styles/global.css';
+import Sidebar from '../components/Sidebar.astro';
+import CaptchaModal from '../components/CaptchaModal.astro';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = 'Francesc Barnola — DevOps & Cloud Engineer',
+  description = 'DevOps Engineer specialising in Kubernetes, cloud infrastructure, and security automation. AWS Certified Solutions Architect Associate.',
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <meta name="generator" content={Astro.generator} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,400;0,500;1,400&family=Fraunces:ital,opsz,wght@1,9..144,600;1,9..144,900&family=Syne:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="icon" href="/favicon.ico" />
+    <title>{title}</title>
+  </head>
+  <body>
+    <CaptchaModal />
+    <div class="site-outer">
+      <div class="site-layout">
+        <Sidebar />
+        <main class="content">
+          <slot />
+        </main>
+      </div>
+    </div>
+
+    <script>
+      // Visual overflow debugger — highlights offending elements in red
+      const vw = document.documentElement.clientWidth;
+      const offenders: string[] = [];
+      document.querySelectorAll('*').forEach(el => {
+        const rect = (el as HTMLElement).getBoundingClientRect();
+        if (rect.right > vw + 1 || rect.left < -1) {
+          (el as HTMLElement).style.outline = '2px solid red';
+          offenders.push(`${el.tagName} .${[...el.classList].join('.')} right=${Math.round(rect.right)} left=${Math.round(rect.left)}`);
+        }
+      });
+      if (offenders.length) {
+        const div = document.createElement('div');
+        div.style.cssText = 'position:fixed;bottom:0;left:0;right:0;background:red;color:white;font-size:11px;padding:6px;z-index:99999;word-break:break-all;max-height:120px;overflow-y:auto;';
+        div.textContent = offenders.join(' | ');
+        document.body.appendChild(div);
+      }
+
+      // Active section tracking
+      const sections = document.querySelectorAll('section[id]');
+      const navLinks = document.querySelectorAll<HTMLAnchorElement>('.nav-link');
+
+      const sectionObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              navLinks.forEach((link) => {
+                link.classList.toggle(
+                  'active',
+                  link.getAttribute('href') === `#${entry.target.id}`
+                );
+              });
+            }
+          });
+        },
+        { threshold: 0.35 }
+      );
+
+      sections.forEach((s) => sectionObserver.observe(s));
+
+      // Scroll reveal
+      const revealObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((e) => {
+            if (e.isIntersecting) {
+              (e.target as HTMLElement).style.transitionDelay =
+                (e.target as HTMLElement).dataset.delay ?? '0s';
+              e.target.classList.add('visible');
+            }
+          });
+        },
+        { threshold: 0.05, rootMargin: '0px 0px -32px 0px' }
+      );
+
+      document.querySelectorAll('.reveal').forEach((el) => revealObserver.observe(el));
+
+      // Counter animation
+      document.querySelectorAll<HTMLElement>('[data-count]').forEach((el) => {
+        const target = parseInt(el.dataset.count ?? '0', 10);
+        const obs = new IntersectionObserver(([entry]) => {
+          if (!entry.isIntersecting) return;
+          obs.disconnect();
+          let start = 0;
+          const step = Math.ceil(target / 40);
+          const tick = () => {
+            start = Math.min(start + step, target);
+            el.textContent = start + (el.dataset.suffix ?? '');
+            if (start < target) requestAnimationFrame(tick);
+          };
+          requestAnimationFrame(tick);
+        });
+        obs.observe(el);
+      });
+    </script>
+  </body>
+</html>
