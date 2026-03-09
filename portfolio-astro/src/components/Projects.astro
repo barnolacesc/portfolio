@@ -1,0 +1,91 @@
+---
+const projects = [
+  {
+    num: '01',
+    title: 'Personal Finances',
+    status: 'Production',
+    meta: 'Full-stack expense tracker with real bank sync via Enable Banking (OAuth2 + RS256 JWT). Auto-categorisation, recurring expenses, interactive charts. Runs on a Raspberry Pi.',
+    highlight: 'Integrated open banking API with RS256-signed JWT requests against a live financial institution.',
+    tags: ['Python', 'Flask', 'SQLAlchemy', 'OAuth2 / JWT', 'Docker', 'GitHub Actions', 'Raspberry Pi'],
+    github: 'https://github.com/barnolacesc/personal-finances',
+  },
+  {
+    num: '02',
+    title: 'Uptime Kuma Client',
+    status: 'Open Source',
+    meta: 'Push-based monitoring heartbeat agent written in pure Bash. Works on anything from a Raspberry Pi Zero (ARMv6) to a Kubernetes CronJob — no inbound ports, no VPN.',
+    highlight: 'Auto-detects systemd vs cron. Monitors up to 10 services per host. Works on ARMv6, ARM64, x86_64.',
+    tags: ['Bash', 'systemd', 'cron', 'Docker', 'Kubernetes', 'ARM', 'Uptime Kuma'],
+    github: 'https://github.com/barnolacesc/uptime-kuma-client',
+  },
+  {
+    num: '03',
+    title: 'GHA Self-hosted Runner',
+    status: 'Infrastructure',
+    meta: 'Dockerized GitHub Actions runner for Raspberry Pi (ARM64). Powers the CI pipeline for personal-finances — self-registering, non-root, auto-deregisters on container stop.',
+    highlight: 'Full CI infra ownership: code, pipeline, and the machine running it — all self-hosted.',
+    tags: ['Docker', 'GitHub Actions', 'ARM64', 'Raspberry Pi', 'CI/CD'],
+    github: 'https://github.com/barnolacesc/gha-selfhosted-runner',
+  },
+  {
+    num: '04',
+    title: 'Homelab Diagramer',
+    status: 'Self-hosted',
+    meta: 'Forked and deployed Svelte + Flask full-stack inventory manager for the homelab. Interactive Cytoscape.js network graph, full CRUD for hardware, VMs, apps, networks, and storage.',
+    highlight: 'Running inside the K3s cluster. Visual topology of the entire homelab as a live app.',
+    tags: ['Svelte', 'Flask', 'SQLAlchemy', 'Cytoscape.js', 'Docker', 'Kubernetes'],
+    github: 'https://github.com/barnolacesc/homelab-diagramer',
+  },
+  {
+    num: '05',
+    title: 'Dotfiles',
+    status: 'Tooling',
+    meta: 'Cross-platform dotfiles with auto-install OS detection (macOS / Ubuntu / Debian). Modular Zsh config, 20+ git aliases, Docker Compose shortcuts, systemd helpers.',
+    highlight: 'Reproducible dev environment bootstrapped from a single script on any machine.',
+    tags: ['Zsh', 'Bash', 'Oh My Zsh', 'macOS', 'Linux', 'Git'],
+    github: 'https://github.com/barnolacesc/dotfiles',
+  },
+];
+---
+
+<section id="projects" class="section-wrap">
+
+  <div class="reveal">
+    <div class="section-eyebrow">
+      <span class="section-num">05 / Projects</span>
+    </div>
+    <h2 class="section-title">Things I built<br/>because I needed them.</h2>
+  </div>
+
+  <p class="reveal" data-delay="0.05s" style="font-size: 0.85rem; color: var(--fg-2); margin-bottom: 40px; max-width: 500px; line-height: 1.7;">
+    No tutorial clones. Every project below runs in an environment I actually depend on.
+  </p>
+
+  <div class="projects-list reveal" data-delay="0.1s">
+    {projects.map((p) => (
+      <div class="project-row">
+        <div class="project-num">{p.num}</div>
+        <div>
+          <div style="display: flex; align-items: baseline; gap: 16px; margin-bottom: 8px; flex-wrap: wrap;">
+            <div class="project-title">{p.title}</div>
+            <span class="font-mono" style="font-size: 0.58rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--amber); border: 1px solid var(--amber); padding: 1px 7px; opacity: 0.8;">{p.status}</span>
+          </div>
+          <p class="project-meta">{p.meta}</p>
+          <p class="font-mono" style="font-size: 0.68rem; color: var(--fg-2); margin-bottom: 12px; line-height: 1.6; letter-spacing: 0.01em;">
+            <span style="color: var(--amber); margin-right: 4px;">→</span>{p.highlight}
+          </p>
+          <div class="project-tags" style="margin-bottom: 14px;">
+            {p.tags.map(t => <span class="ptag">{t}</span>)}
+          </div>
+          <a href={p.github} target="_blank" rel="noopener" class="project-link">
+            <svg width="12" height="12" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844a9.59 9.59 0 0 1 2.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0 0 22 12.017C22 6.484 17.522 2 12 2z"/>
+            </svg>
+            View on GitHub
+          </a>
+        </div>
+      </div>
+    ))}
+  </div>
+
+</section>

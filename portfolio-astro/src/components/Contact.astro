@@ -1,0 +1,116 @@
+---
+---
+
+<section id="contact" class="section-wrap" style="border-bottom: none;">
+
+  <div class="reveal">
+    <div class="section-eyebrow">
+      <span class="section-num">06 / Contact</span>
+    </div>
+    <h2 class="section-title">Got an interesting<br/>problem to solve?</h2>
+  </div>
+
+  <div style="max-width: 560px;">
+    <p class="reveal" data-delay="0.1s" style="font-size: 0.95rem; color: var(--fg-2); line-height: 1.8; margin-bottom: 40px;">
+      I'm open to conversations about cloud infrastructure, platform engineering,
+      and DevSecOps. Whether it's a full-time role, a project, or just comparing
+      Kubernetes notes — reach out.
+    </p>
+
+    <!-- Email -->
+    <div class="reveal" data-delay="0.15s" style="margin-bottom: 40px;">
+      <div class="font-mono" style="font-size: 0.6rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--fg-2); margin-bottom: 12px;">Email</div>
+      <a
+        href="mailto:francesc@barnola.cat"
+        style="font-family: 'Syne', sans-serif; font-weight: 700; font-size: 1.4rem; letter-spacing: -0.02em; color: var(--fg); border-bottom: 1px solid var(--border-2); padding-bottom: 4px; transition: color 0.2s, border-color 0.2s; display: inline-block;"
+        onmouseover="this.style.color='var(--amber)'; this.style.borderColor='var(--amber)'"
+        onmouseout="this.style.color='var(--fg)'; this.style.borderColor='var(--border-2)'"
+      >
+        francesc@barnola.cat
+      </a>
+    </div>
+
+    <!-- Links grid -->
+    <div class="reveal contact-grid" data-delay="0.2s">
+
+      <a
+        href="https://github.com/barnolacesc"
+        target="_blank"
+        rel="noopener"
+        class="contact-tile"
+        style="background: var(--bg-2); padding: 20px 24px; display: block; transition: background 0.2s;"
+        onmouseover="this.style.background='var(--bg)'"
+        onmouseout="this.style.background='var(--bg-2)'"
+      >
+        <div class="font-mono" style="font-size: 0.58rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--fg-2); margin-bottom: 8px;">GitHub</div>
+        <div style="font-family: 'Syne', sans-serif; font-weight: 600; font-size: 0.85rem; color: var(--fg);">barnolacesc</div>
+      </a>
+
+      <a
+        href="https://linkedin.com/in/fbarnola"
+        target="_blank"
+        rel="noopener"
+        class="contact-tile"
+        style="background: var(--bg-2); padding: 20px 24px; display: block; transition: background 0.2s;"
+        onmouseover="this.style.background='var(--bg)'"
+        onmouseout="this.style.background='var(--bg-2)'"
+      >
+        <div class="font-mono" style="font-size: 0.58rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--fg-2); margin-bottom: 8px;">LinkedIn</div>
+        <div style="font-family: 'Syne', sans-serif; font-weight: 600; font-size: 0.85rem; color: var(--fg);">Francesc Barnola</div>
+      </a>
+
+      <a
+        href="/assets/francesc_barnola_cv.pdf"
+        target="_blank"
+        class="contact-tile"
+        style="background: var(--bg-2); padding: 20px 24px; grid-column: 1 / -1; display: flex; align-items: center; justify-content: space-between; transition: background 0.2s; border-top: 1px solid var(--border);"
+        onmouseover="this.style.background='var(--amber-l)'"
+        onmouseout="this.style.background='var(--bg-2)'"
+      >
+        <div>
+          <div class="font-mono" style="font-size: 0.58rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--fg-2); margin-bottom: 6px;">Resume / CV</div>
+          <div style="font-family: 'Syne', sans-serif; font-weight: 600; font-size: 0.85rem; color: var(--fg);">Download PDF</div>
+        </div>
+        <span style="color: var(--amber); font-size: 1.2rem;">↓</span>
+      </a>
+
+    </div>
+
+    <!-- Status -->
+    <div class="reveal" data-delay="0.25s" style="display: flex; align-items: center; gap: 8px;">
+      <span style="width: 5px; height: 5px; border-radius: 50%; background: #4ade80; display: inline-block;"></span>
+      <span class="font-mono" style="font-size: 0.6rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--fg-2);">
+        Currently building at Fundcraft · Girona / Barcelona · Open to opportunities
+      </span>
+    </div>
+  </div>
+
+</section>
+
+<style>
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: var(--border);
+    margin-bottom: 40px;
+  }
+  .site-footer {
+    padding: 24px 64px;
+    border-top: 1px solid var(--border);
+  }
+  @media (max-width: 860px) {
+    .contact-grid {
+      grid-template-columns: 1fr;
+    }
+    .site-footer {
+      padding: 24px;
+    }
+  }
+</style>
+
+<footer class="site-footer">
+  <span class="font-mono" style="font-size: 0.58rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--fg-2);">
+    © {new Date().getFullYear()} Francesc Barnola · Built with Astro
+  </span>
+</footer>

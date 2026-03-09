@@ -1,0 +1,309 @@
+---
+const navItems = [
+  { href: '#about',    label: 'About' },
+  { href: '#learning', label: 'Learning' },
+  { href: '#skills',   label: 'Skills' },
+  { href: '#homelab',  label: 'Homelab' },
+  { href: '#projects', label: 'Projects' },
+  { href: '#contact',  label: 'Contact' },
+];
+---
+
+<!-- ─── Desktop sidebar ─────────────────────── -->
+<aside class="sidebar">
+  <div class="sidebar-inner">
+    <div class="sidebar-top">
+      <!-- Status -->
+      <div class="status-row">
+        <span class="status-dot"></span>
+        <span class="font-mono status-label">Available</span>
+      </div>
+
+      <!-- Name -->
+      <div class="font-display name-block">
+        <div>Francesc</div>
+        <div class="name-amber">Barnola<span id="cursor">_</span></div>
+      </div>
+
+      <!-- Role -->
+      <div class="role-text">
+        DevOps Engineer<br/>& Cloud Architect
+      </div>
+
+      <!-- AWS -->
+      <div class="font-mono aws-badge">
+        ☁ AWS Solutions Architect · Associate
+      </div>
+
+      <hr class="rule" />
+
+      <!-- Nav -->
+      <nav>
+        {navItems.map(({ href, label }) => (
+          <a href={href} class="nav-link">{label}</a>
+        ))}
+      </nav>
+    </div>
+
+    <div class="sidebar-bottom">
+      <hr class="rule" />
+      <div class="social-row">
+        <a href="https://github.com/barnolacesc" target="_blank" rel="noopener" class="font-mono sidebar-link">GitHub</a>
+        <a href="https://linkedin.com/in/fbarnola" target="_blank" rel="noopener" class="font-mono sidebar-link">LinkedIn</a>
+      </div>
+      <div class="font-mono email-text">francesc@barnola.cat</div>
+      <a href="/assets/francesc_barnola_cv.pdf" target="_blank" class="cv-btn font-mono">
+        <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
+          <path d="M5 1v6M2 7l3 2 3-2" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+        </svg>
+        Download CV
+      </a>
+    </div>
+  </div>
+</aside>
+
+<!-- ─── Mobile header ──────────────────────── -->
+<header class="mobile-header">
+  <div class="mobile-header-inner">
+    <a href="#" class="font-display mobile-name">
+      <span>Francesc </span><span class="name-amber">Barnola</span>
+    </a>
+    <button id="menu-btn" class="hamburger" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+
+  <!-- Dropdown menu -->
+  <div id="mobile-menu" class="mobile-menu" aria-hidden="true">
+    <nav class="mobile-nav">
+      {navItems.map(({ href, label }) => (
+        <a href={href} class="mobile-nav-link font-mono">{label}</a>
+      ))}
+    </nav>
+    <div class="mobile-meta">
+      <div class="font-mono aws-badge">☁ AWS SAA · Fundcraft</div>
+      <div class="mobile-social">
+        <a href="https://github.com/barnolacesc" target="_blank" rel="noopener" class="font-mono sidebar-link">GitHub</a>
+        <a href="https://linkedin.com/in/fbarnola" target="_blank" rel="noopener" class="font-mono sidebar-link">LinkedIn</a>
+        <a href="/assets/francesc_barnola_cv.pdf" target="_blank" class="font-mono sidebar-link">CV ↓</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<style>
+  /* ── Animations ──────────────────────────── */
+  @keyframes statusPulse {
+    0%, 100% { opacity: 1; }
+    50%       { opacity: 0.3; }
+  }
+  @keyframes cursorBlink {
+    0%, 49% { opacity: 1; }
+    50%, 100% { opacity: 0; }
+  }
+
+  /* ── Sidebar (desktop) ───────────────────── */
+  .sidebar-inner {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+  }
+
+  .status-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 36px;
+  }
+  .status-dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: #4ade80;
+    display: inline-block;
+    animation: statusPulse 2s infinite;
+  }
+  .status-label {
+    font-size: 0.6rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--fg-2);
+  }
+
+  .name-block {
+    font-size: clamp(2.4rem, 3.5vw, 3.8rem);
+    color: var(--fg);
+    margin-bottom: 20px;
+  }
+  .name-amber { color: var(--amber); }
+
+  #cursor {
+    color: var(--fg-2);
+    animation: cursorBlink 1.1s step-end infinite;
+  }
+
+  .role-text {
+    font-size: 0.82rem;
+    color: var(--fg-2);
+    line-height: 1.5;
+    margin-bottom: 6px;
+  }
+  .aws-badge {
+    font-size: 0.6rem;
+    letter-spacing: 0.1em;
+    color: var(--amber);
+    text-transform: uppercase;
+    margin-bottom: 32px;
+  }
+
+  .social-row {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 12px;
+  }
+  .sidebar-link {
+    font-size: 0.62rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--fg-2);
+    transition: color 0.2s;
+  }
+  .sidebar-link:hover { color: var(--fg); }
+
+  .email-text {
+    font-size: 0.62rem;
+    color: var(--fg-2);
+    margin-bottom: 20px;
+    letter-spacing: 0.02em;
+  }
+
+  .cv-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.62rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--fg);
+    border: 1px solid var(--border-2);
+    padding: 10px 16px;
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .cv-btn:hover {
+    border-color: var(--amber);
+    color: var(--amber);
+  }
+
+  /* ── Mobile header ───────────────────────── */
+  .mobile-header {
+    display: none;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(9, 9, 11, 0.92);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .mobile-header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 24px;
+  }
+
+  .mobile-name {
+    font-size: 1.4rem;
+    line-height: 1;
+    font-style: italic;
+    font-weight: 900;
+  }
+
+  .hamburger {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+  }
+  .hamburger span {
+    display: block;
+    width: 22px;
+    height: 1.5px;
+    background: var(--fg);
+    transition: transform 0.25s ease, opacity 0.25s ease;
+  }
+  .hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+  .hamburger.open span:nth-child(2) { opacity: 0; }
+  .hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+  .mobile-menu {
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.35s ease;
+    border-top: 1px solid var(--border);
+  }
+  .mobile-menu.open {
+    max-height: 400px;
+  }
+
+  .mobile-nav {
+    display: flex;
+    flex-direction: column;
+    padding: 8px 0;
+  }
+  .mobile-nav-link {
+    display: block;
+    padding: 12px 24px;
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--fg-2);
+    transition: color 0.2s, background 0.2s;
+  }
+  .mobile-nav-link:hover {
+    color: var(--fg);
+    background: var(--bg-2);
+  }
+
+  .mobile-meta {
+    padding: 12px 24px 20px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .mobile-meta .aws-badge { margin-bottom: 0; }
+
+  .mobile-social {
+    display: flex;
+    gap: 20px;
+  }
+
+  /* ── Responsive toggle ───────────────────── */
+  @media (max-width: 860px) {
+    .mobile-header { display: block; }
+  }
+</style>
+
+<script>
+  const btn = document.getElementById('menu-btn');
+  const menu = document.getElementById('mobile-menu');
+
+  btn?.addEventListener('click', () => {
+    const isOpen = menu?.classList.toggle('open');
+    btn.classList.toggle('open', isOpen);
+    menu?.setAttribute('aria-hidden', String(!isOpen));
+  });
+
+  // Close on nav link click
+  document.querySelectorAll('.mobile-nav-link').forEach((link) => {
+    link.addEventListener('click', () => {
+      menu?.classList.remove('open');
+      btn?.classList.remove('open');
+    });
+  });
+</script>

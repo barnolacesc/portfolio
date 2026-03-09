@@ -1,0 +1,65 @@
+---
+const skills = [
+  {
+    cat: 'Orchestration',
+    items: ['Kubernetes', 'K3s', 'Docker', 'Helm', 'Traefik', 'cert-manager', 'Sealed Secrets'],
+  },
+  {
+    cat: 'IaC & Automation',
+    items: ['Terraform', 'Ansible', 'Helm Charts', 'Kustomize', 'n8n'],
+  },
+  {
+    cat: 'Cloud',
+    items: ['AWS (SAA)', 'GCP', 'Azure', 'Cloudflare', 'Proxmox VE', 'Hetzner'],
+  },
+  {
+    cat: 'Observability',
+    items: ['Prometheus', 'Grafana', 'Loki', 'InfluxDB', 'Alertmanager', 'Fluent Bit', 'OpenObserve'],
+  },
+  {
+    cat: 'CI/CD',
+    items: ['GitHub Actions', 'GitLab CI', 'Jenkins', 'Self-hosted Runners', 'ArgoCD', 'pre-commit'],
+  },
+  {
+    cat: 'Languages',
+    items: ['Python', 'Bash', 'Go', 'TypeScript', 'Lua', 'SQL', 'HCL'],
+  },
+  {
+    cat: 'Security',
+    items: ['Trivy', 'Falco', 'SonarQube', 'OPA', 'JWT / RS256', 'Sealed Secrets', 'TLS automation'],
+  },
+  {
+    cat: 'Storage & Network',
+    items: ['TrueNAS', 'NFS / SMB / iSCSI', 'Pi-hole', 'k8s_gateway', 'WireGuard'],
+  },
+];
+---
+
+<section id="skills" class="section-wrap">
+
+  <div class="reveal">
+    <div class="section-eyebrow">
+      <span class="section-num">03 / Skills</span>
+    </div>
+    <h2 class="section-title">Technical<br/>inventory.</h2>
+  </div>
+
+  <p class="reveal" data-delay="0.1s" style="font-size: 0.85rem; color: var(--fg-2); margin-bottom: 40px; max-width: 500px; line-height: 1.7;">
+    Every line below is something I've actually run in anger —
+    either in production at work or in the homelab at 2am.
+  </p>
+
+  <div class="reveal" data-delay="0.15s">
+    {skills.map((row) => (
+      <div class="skill-row">
+        <div class="skill-cat">{row.cat}</div>
+        <div class="skill-list">
+          {row.items.map((item, i) => (
+            <span>{item}</span>
+          ))}
+        </div>
+      </div>
+    ))}
+  </div>
+
+</section>

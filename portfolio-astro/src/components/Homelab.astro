@@ -1,0 +1,200 @@
+---
+const namespaces = [
+  { ns: 'media',        apps: ['Jellyfin', 'Radarr', 'Sonarr', 'Prowlarr', 'Bazarr', 'Jellyseerr', 'Lidarr'] },
+  { ns: 'automation',   apps: ['n8n', 'Lapineda API'] },
+  { ns: 'homeassistant',apps: ['Home Assistant'] },
+  { ns: 'coder',        apps: ['Coder IDE', 'PostgreSQL'] },
+  { ns: 'monitoring',   apps: ['Prometheus', 'Grafana', 'Alertmanager', 'Loki', 'Fluent Bit'] },
+  { ns: 'rag',          apps: ['Qdrant (vector DB)'] },
+  { ns: 'health',       apps: ['Garmin fetcher', 'InfluxDB'] },
+  { ns: 'moltbot',      apps: ['OpenClaw'] },
+  { ns: 'guacamole',    apps: ['Apache Guacamole'] },
+  { ns: 'obsidian',     apps: ['LiveSync bridge'] },
+];
+---
+
+<section id="homelab" class="section-wrap">
+
+  <div class="reveal">
+    <div class="section-eyebrow">
+      <span class="section-num">04 / Homelab</span>
+    </div>
+    <h2 class="section-title">Home cluster.<br/>Always on.</h2>
+  </div>
+
+  <p class="reveal" data-delay="0.05s" style="font-size: 0.85rem; color: var(--fg-2); margin-bottom: 48px; max-width: 520px; line-height: 1.7;">
+    A 3-node K3s cluster running on Proxmox VMs, backed by TrueNAS for shared storage.
+    Fully declarative — Ansible bootstraps, kubectl ships, Sealed Secrets keeps credentials safe in Git.
+    Not a tutorial. A real system I depend on daily.
+  </p>
+
+  <!-- Topology diagram -->
+  <div class="reveal" data-delay="0.1s" style="margin-bottom: 48px;">
+    <div class="font-mono" style="font-size: 0.6rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--fg-2); margin-bottom: 16px;">Infrastructure topology</div>
+
+    <div class="topo-grid">
+      <div class="topo-node">
+        <div class="topo-label">Hypervisor</div>
+        <div class="topo-name" style="color: var(--amber);">Proxmox VE</div>
+        <div class="topo-sub">KVM · 3 VMs hosted</div>
+      </div>
+      <div class="topo-node">
+        <div class="topo-label">Control plane</div>
+        <div class="topo-name">k3s-master</div>
+        <div class="topo-sub">2 vCPU · 8 GiB RAM</div>
+      </div>
+      <div class="topo-node">
+        <div class="topo-label">Storage</div>
+        <div class="topo-name" style="color: var(--amber);">TrueNAS Scale</div>
+        <div class="topo-sub">SMB · NFS · iSCSI</div>
+      </div>
+      <div class="topo-node topo-span">
+        <div class="topo-label">Worker nodes ×2</div>
+        <div class="topo-name">k3s-worker-1 / 2</div>
+        <div class="topo-sub">2 vCPU · 12 GiB each</div>
+      </div>
+    </div>
+
+    <!-- Networking row -->
+    <div class="topo-node net-row">
+      <div>
+        <div class="topo-label">Ingress</div>
+        <div class="topo-name">Traefik</div>
+      </div>
+      <div>
+        <div class="topo-label">DNS</div>
+        <div class="topo-name">Pi-hole + k8s_gateway</div>
+      </div>
+      <div>
+        <div class="topo-label">TLS</div>
+        <div class="topo-name">cert-manager</div>
+      </div>
+      <div>
+        <div class="topo-label">Secrets</div>
+        <div class="topo-name">Sealed Secrets</div>
+      </div>
+      <div>
+        <div class="topo-label">Monitoring</div>
+        <div class="topo-name">Grafana + Loki</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Namespace / app grid -->
+  <div class="reveal" data-delay="0.2s">
+    <div class="font-mono" style="font-size: 0.6rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--fg-2); margin-bottom: 16px;">
+      Running workloads · {namespaces.reduce((a, n) => a + n.apps.length, 0)} apps · {namespaces.length} namespaces
+    </div>
+
+    <div class="ns-table">
+      {namespaces.map(({ ns, apps }) => (
+        <div class="ns-row">
+          <div class="ns-name font-mono">{ns}</div>
+          <div class="ns-apps">
+            {apps.map(app => (
+              <span class="font-mono ns-app">{app}</span>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+
+  <!-- IaC note -->
+  <div class="reveal" data-delay="0.25s" style="margin-top: 32px; padding: 20px 24px; border: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap;">
+    <div>
+      <div class="font-mono" style="font-size: 0.6rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--amber); margin-bottom: 6px;">GitOps · Fully declarative</div>
+      <div style="font-size: 0.82rem; color: var(--fg-2);">Every node, app, and secret is defined in code. No manual steps, no snowflake servers.</div>
+    </div>
+    <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+      {['Ansible', 'K3s manifests', 'Helm', 'Sealed Secrets', 'Traefik HelmConfig'].map(t => (
+        <span class="ptag">{t}</span>
+      ))}
+    </div>
+  </div>
+
+  <!-- WIP note -->
+  <div class="reveal" data-delay="0.3s" style="margin-top: 24px;">
+    <span class="font-mono" style="font-size: 0.62rem; letter-spacing: 0.06em; color: var(--fg-2);">
+      ⌛ repo coming soon — still deciding what's safe to make public
+    </span>
+  </div>
+
+</section>
+
+<style>
+  .topo-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1px;
+    background: var(--border);
+    margin-bottom: 1px;
+  }
+  .topo-span { grid-column: 2; }
+  .topo-sub {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.62rem;
+    color: var(--fg-2);
+    margin-top: 6px;
+  }
+  .net-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 1px;
+    overflow-x: hidden;
+  }
+
+  .ns-table {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    background: var(--border);
+  }
+  .ns-row {
+    display: grid;
+    grid-template-columns: 130px 1fr;
+    gap: 1px;
+    background: var(--border);
+  }
+  .ns-name {
+    background: var(--bg-2);
+    padding: 10px 14px;
+    font-size: 0.6rem;
+    letter-spacing: 0.06em;
+    color: var(--amber);
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+  }
+  .ns-apps {
+    background: var(--bg);
+    padding: 10px 14px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    align-items: center;
+  }
+  .ns-app {
+    font-size: 0.72rem;
+    color: var(--fg);
+  }
+
+  @media (max-width: 860px) {
+    .topo-grid {
+      grid-template-columns: 1fr;
+    }
+    .topo-span { grid-column: 1; }
+
+    .net-row {
+      gap: 16px;
+    }
+
+    .ns-row {
+      grid-template-columns: 1fr;
+    }
+    .ns-name {
+      border-bottom: 1px solid var(--border);
+    }
+  }
+</style>
