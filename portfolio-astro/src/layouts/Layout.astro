@@ -47,22 +47,8 @@ const {
     </div>
 
     <script>
-      // Visual overflow debugger — highlights offending elements in red
-      const vw = document.documentElement.clientWidth;
-      const offenders: string[] = [];
-      document.querySelectorAll('*').forEach(el => {
-        const rect = (el as HTMLElement).getBoundingClientRect();
-        if (rect.right > vw + 1 || rect.left < -1) {
-          (el as HTMLElement).style.outline = '2px solid red';
-          offenders.push(`${el.tagName} .${[...el.classList].join('.')} right=${Math.round(rect.right)} left=${Math.round(rect.left)}`);
-        }
-      });
-      if (offenders.length) {
-        const div = document.createElement('div');
-        div.style.cssText = 'position:fixed;bottom:0;left:0;right:0;background:red;color:white;font-size:11px;padding:6px;z-index:99999;word-break:break-all;max-height:120px;overflow-y:auto;';
-        div.textContent = offenders.join(' | ');
-        document.body.appendChild(div);
-      }
+      const isDesktop = () => window.innerWidth > 860;
+      const contentEl = document.querySelector<HTMLElement>('.content');
 
       // Active section tracking
       const sections = document.querySelectorAll('section[id]');
@@ -81,7 +67,7 @@ const {
             }
           });
         },
-        { threshold: 0.35 }
+        { root: isDesktop() ? contentEl : null, threshold: 0.35 }
       );
 
       sections.forEach((s) => sectionObserver.observe(s));
@@ -97,7 +83,7 @@ const {
             }
           });
         },
-        { threshold: 0.05, rootMargin: '0px 0px -32px 0px' }
+        { root: isDesktop() ? contentEl : null, threshold: 0.05, rootMargin: '0px 0px -32px 0px' }
       );
 
       document.querySelectorAll('.reveal').forEach((el) => revealObserver.observe(el));
@@ -116,8 +102,21 @@ const {
             if (start < target) requestAnimationFrame(tick);
           };
           requestAnimationFrame(tick);
-        });
+        }, { root: isDesktop() ? contentEl : null });
         obs.observe(el);
+      });
+
+      // Anchor link scrolling on desktop (content div is the scroll container)
+      document.querySelectorAll<HTMLAnchorElement>('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener('click', (e) => {
+          if (!isDesktop() || !contentEl) return;
+          const id = anchor.getAttribute('href')!.slice(1);
+          const target = document.getElementById(id);
+          if (target) {
+            e.preventDefault();
+            target.scrollIntoView({ behavior: 'smooth' });
+          }
+        });
       });
     </script>
   </body>
