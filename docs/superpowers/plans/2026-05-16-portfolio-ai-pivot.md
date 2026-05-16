@@ -12,6 +12,33 @@
 
 **Sequencing strategy:** Tasks 1–7 create new components and make additive edits — they don't visually break anything because new components aren't imported yet and existing-section edits don't change section ordering. Task 8 is the atomic cutover: it imports new sections in `index.astro`, renumbers every eyebrow, and updates the sidebar nav + tagline in one commit. Up to that final commit, the site keeps working with its current 6-section layout.
 
+---
+
+## Progress tracker
+
+| Task | Status | Commit |
+|---|---|---|
+| 1 — Jarvis.astro | ✅ done | `689bda3` |
+| 2 — AppFactory.astro | ⏭ next | — |
+| 3 — Dockyard.astro | pending | — |
+| 4 — Now.astro | pending | — |
+| 5 — Work.astro | pending | — |
+| 6 — About bio rewrite | pending | — |
+| 7 — Skills AI/LLM row | pending | — |
+| 8 — Atomic cutover | pending | — |
+| 9 — Final review pass | pending | — |
+
+**How to resume:**
+
+1. Re-enter the worktree: `cd /Users/cesc/.dockyard/worktrees/portfolio/route-dense-tls`
+2. Pull latest if needed: `git pull origin dy/route-dense-tls`
+3. Re-invoke the Gemini orchestrator skill (or run tasks inline).
+4. Dispatch Task 2 next. The exact prompt pattern that worked for Task 1 is preserved in this conversation — same instructions, swap "Task 1" for "Task 2" and the filename for `AppFactory.astro`.
+5. After each Gemini task, the orchestrator must adversarially review the diff with `git log -1 --stat` and `grep` for key structural markers before dispatching the next one.
+6. Update this Progress tracker after each task lands.
+
+**Gemini model verified working on this account:** `gemini-3.1-pro-preview` (use this — `gemini-3-pro` returns 404).
+
 **Verification pattern:** This is a static UI build with no test framework. Every task ends with three verification steps:
 
 1. **Build verification** — `cd portfolio-astro && npm run build` returns exit code 0 with no warnings.
