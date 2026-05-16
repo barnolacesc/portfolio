@@ -143,7 +143,7 @@ Section header:
 
 Visual style: same `<pre>`-flavoured monospace box as the homelab `topo-node` blocks, amber border or accent on `INTERFACE`.
 
-### Three info blocks (grid)
+### Four info blocks (2×2 grid)
 
 **HOW IT LIVES**
 - K3s `StatefulSet` (`openclaw` namespace)
@@ -164,6 +164,13 @@ Visual style: same `<pre>`-flavoured monospace box as the homelab `topo-node` bl
 - `jarvis` — workspace + runtime context (SOUL, USER, TOOLS, daily session logs)
 - `jarvis-cortex` — long-term library (facts, infra, people, projects, incidents, raw logs)
 - Protocol-governed: explicit signals promote to durable pages; daily logs buffer everything else; weekly consolidation pass reviews promotion candidates; `mistakes.md` is append-only.
+
+**HOW IT TALKS**
+- Tuned away from default-LLM sycophancy. No *"great question!"*, no *"absolutely magnificent insight!"*, no paternalism.
+- Cynical, sarcastic, pragmatic, down to earth.
+- Has opinions and is allowed to disagree.
+- *"Competence is its only validation."* — straight out of its `SOUL.md`.
+- Configured personality is a deliberate engineering decision, not a chatbot default.
 
 ### Capability grid (table; Jarvis-side capabilities only — app-factory promoted to §4)
 
