@@ -1,0 +1,66 @@
+---
+const exploring = [
+  'Pushing self-hosted models on consumer hardware — what runs fast, what runs cheap, what runs at all',
+  'Pushing Jarvis deeper into agentic work — long-horizon tasks, better tool orchestration, fewer prompts',
+  'Building Dockyard out of fork-stage into something that\'s mine',
+  'Watching the gap between local and frontier models close in real time',
+];
+---
+
+<section id="now" class="section-wrap">
+
+  <div class="reveal">
+    <div class="section-eyebrow">
+      <span class="section-num">06 / Now</span>
+    </div>
+    <h2 class="section-title">Currently<br/>exploring.</h2>
+  </div>
+
+  <p class="reveal" data-delay="0.05s" style="font-size: 1.05rem; color: var(--fg); margin-bottom: 32px; max-width: 600px; line-height: 1.8;">
+    The rabbit holes I'm actively in. This list changes whenever the rabbit hole does.
+  </p>
+
+  <div class="reveal" data-delay="0.1s">
+    <ul class="now-list">
+      {exploring.map(item => (
+        <li class="now-item">
+          <span class="now-arrow">→</span>
+          <span class="now-text">{item}</span>
+        </li>
+      ))}
+    </ul>
+  </div>
+
+</section>
+
+<style>
+  .now-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    background: var(--border);
+    max-width: 760px;
+  }
+  .now-item {
+    background: var(--bg-2);
+    padding: 16px 20px;
+    display: grid;
+    grid-template-columns: 24px 1fr;
+    gap: 12px;
+    align-items: start;
+  }
+  .now-arrow {
+    color: var(--amber);
+    font-family: 'DM Mono', monospace;
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+  .now-text {
+    color: var(--fg);
+    font-size: 0.98rem;
+    line-height: 1.6;
+  }
+</style>
