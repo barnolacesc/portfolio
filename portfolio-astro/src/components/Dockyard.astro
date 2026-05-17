@@ -1,0 +1,136 @@
+---
+const stack = [
+  'Native macOS app (Swift)',
+  'Ghostty GPU-rendered terminal',
+  'Tmux on a dedicated socket',
+  'Monaco editor (WKWebView)',
+  '`gh` CLI integration',
+];
+
+const features = [
+  'Worktree-per-task by default',
+  'Claude Code or Codex per pane',
+  'Session resume across restarts',
+  'Port-detecting embedded browser',
+  'Setup/run/teardown via `.dockyard.json`',
+  'Keyboard-first, ⌘+everything',
+];
+---
+
+<section id="dockyard" class="section-wrap">
+
+  <div class="reveal">
+    <div class="section-eyebrow">
+      <span class="section-num">05 / Agent-first IDE (in progress)</span>
+    </div>
+    <h2 class="section-title">Dockyard.</h2>
+  </div>
+
+  <p class="reveal" data-delay="0.05s" style="font-size: 1.05rem; color: var(--fg); margin-bottom: 24px; max-width: 720px; line-height: 1.8;">
+    Dockyard started as a fork of an open-source agent IDE I liked but wanted to take in a different direction. I'm evolving it into my own — an agent-first workspace where every workstream is a git worktree, every worktree has its own agent, and the agent, dev server, and embedded browser all live together in one native window.
+  </p>
+
+  <!-- Thesis pull-quote -->
+  <div class="reveal pullquote" data-delay="0.1s">
+    <div class="font-mono pullquote-label">Thesis</div>
+    <p class="pullquote-text">
+      If agentic work is going to be the new normal, the IDE should be designed for the agent — not retrofitted around it.
+    </p>
+  </div>
+
+  <!-- Stack / Features 2-up -->
+  <div class="reveal stack-grid" data-delay="0.15s">
+    <div class="stack-block">
+      <div class="font-mono stack-label">Stack</div>
+      <ul class="stack-list">
+        {stack.map(item => (
+          <li set:html={item.replace(/`([^`]+)`/g, '<code class="inline-code">$1</code>')} />
+        ))}
+      </ul>
+    </div>
+    <div class="stack-block">
+      <div class="font-mono stack-label">Features</div>
+      <ul class="stack-list">
+        {features.map(item => (
+          <li set:html={item.replace(/`([^`]+)`/g, '<code class="inline-code">$1</code>')} />
+        ))}
+      </ul>
+    </div>
+  </div>
+
+  <!-- Closing -->
+  <p class="reveal" data-delay="0.2s" style="margin-top: 24px; font-style: italic; color: var(--fg-2); font-size: 0.95rem; max-width: 640px;">
+    Not ready for a download button yet. When it is, this section grows one.
+  </p>
+
+</section>
+
+<style>
+  .inline-code {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.88em;
+    color: var(--amber);
+    background: var(--amber-l);
+    padding: 1px 6px;
+    border-radius: 2px;
+  }
+
+  .pullquote {
+    margin: 20px 0 32px;
+    padding: 18px 24px;
+    border-left: 2px solid var(--amber);
+    background: rgba(232, 162, 48, 0.04);
+    max-width: 720px;
+  }
+  .pullquote-label {
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--amber);
+    margin-bottom: 6px;
+  }
+  .pullquote-text {
+    font-size: 1rem;
+    color: var(--fg);
+    font-style: italic;
+    line-height: 1.7;
+  }
+
+  .stack-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: var(--border);
+    margin-bottom: 1px;
+  }
+  .stack-block {
+    background: var(--bg-2);
+    padding: 22px 24px;
+  }
+  .stack-label {
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--amber);
+    margin-bottom: 14px;
+  }
+  .stack-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .stack-list li {
+    font-size: 0.92rem;
+    color: var(--fg);
+    line-height: 1.55;
+  }
+
+  @media (max-width: 860px) {
+    .stack-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

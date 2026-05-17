@@ -1,0 +1,322 @@
+---
+const capabilities = [
+  { cap: 'Calendar + Mail', note: 'Own Google account, read/write, never sends without explicit OK' },
+  { cap: 'Home Assistant', note: 'Read/write — actually flips switches and reads sensors' },
+  { cap: 'My second brain', note: 'Operates my Obsidian vault directly — stores, retrieves, keeps things organised' },
+  { cap: 'Media stack', note: 'Radarr · Sonarr · Prowlarr · Jellyseerr · qBittorrent' },
+  { cap: 'Spotify', note: 'Now-playing, search, play, skip, volume, playlist edits' },
+  { cap: 'Notion', note: 'Full read/write API' },
+  { cap: 'n8n', note: 'Workflow CRUD + executions' },
+  { cap: 'Custom API gateway', note: 'A forward-facing API I built into my own services — also exposed to Jarvis as a tool surface' },
+  { cap: 'Web search', note: 'Self-hosted SearXNG — queries never leave the cluster' },
+  { cap: 'Proactive heartbeat', note: 'Rotates inbox / calendar / mentions / weather' },
+  { cap: 'Solar-aware compute', note: "Cron-driven check — knows when there's surplus to burn" },
+];
+---
+
+<section id="jarvis" class="section-wrap">
+
+  <div class="reveal">
+    <div class="section-eyebrow">
+      <span class="section-num">03 / The agent</span>
+    </div>
+    <h2 class="section-title">Jarvis<br/><span class="jarvis-subtitle">openclaw</span></h2>
+  </div>
+
+  <p class="reveal" data-delay="0.05s" style="font-size: 1.05rem; color: var(--fg); margin-bottom: 24px; max-width: 680px; line-height: 1.8;">
+    Jarvis is my self-hosted AI agent. It lives in my K3s homelab as a <code class="inline-code">StatefulSet</code>, multi-model by design, and reaches into everything I run — calendar, mail, smart home, media stack, music, notes, dynamic DNS, web search, you name it. It has its own personality, a curated long-term memory, and a proactive heartbeat that pokes me when something needs attention.
+  </p>
+
+  <!-- Memory philosophy pull-quote -->
+  <div class="reveal pullquote" data-delay="0.1s">
+    <div class="font-mono pullquote-label">Memory philosophy</div>
+    <p class="pullquote-text">
+      "Explicit and inspectable. File over app. Agent-writable, human-auditable. Load the index, not the content."
+    </p>
+  </div>
+
+  <!-- Featured INTERFACE block -->
+  <div class="reveal interface-block" data-delay="0.15s">
+    <div class="font-mono interface-label">Interface</div>
+    <div class="interface-headline">Telegram is the front door.</div>
+    <div class="interface-grid">
+      <div>
+        <div class="interface-row-label font-mono">text</div>
+        <div class="interface-row-value">→ any model</div>
+      </div>
+      <div>
+        <div class="interface-row-label font-mono">voice</div>
+        <div class="interface-row-value">→ transcribed in-pod, replied with voice depending on the model in play</div>
+      </div>
+    </div>
+    <div class="interface-foot font-mono">Other entry points: heartbeat polls · scheduled crons · Discord · WhatsApp</div>
+  </div>
+
+  <!-- 2x2 info grid -->
+  <div class="reveal info-2x2" data-delay="0.2s">
+
+    <div class="info-block">
+      <div class="font-mono info-label">How it lives</div>
+      <ul class="info-list">
+        <li>K3s <code class="inline-code">StatefulSet</code> · <code class="inline-code">openclaw</code> namespace</li>
+        <li>ArgoCD GitOps from <code class="inline-code">barnolacesc/home-cluster</code></li>
+        <li>Sealed Secrets · 2 PVCs · Traefik ingress</li>
+        <li>CronJobs: solar-surplus (5 min) · no-ip (monthly)</li>
+      </ul>
+    </div>
+
+    <div class="info-block">
+      <div class="font-mono info-label">How it thinks</div>
+      <ul class="info-list">
+        <li><span class="info-key">Primary</span> Gemini 3.1 Flash Lite</li>
+        <li><span class="info-key">Fallback</span> DeepSeek Chat</li>
+        <li><span class="info-key">On-demand</span> Gemma 4 31B · 26B MoE</li>
+        <li><span class="info-key">Local</span> Ollama (gemma4:e4b · qwen3.5:2b)</li>
+        <li><span class="info-key">Also</span> Claude · GPT-4o</li>
+      </ul>
+    </div>
+
+    <div class="info-block">
+      <div class="font-mono info-label">How it remembers</div>
+      <p class="info-prose">
+        Two-repo brain. Plain markdown. No embeddings, no hidden state. Agent-writable, human-auditable.
+      </p>
+      <ul class="info-list">
+        <li><code class="inline-code">jarvis</code> — workspace + runtime context</li>
+        <li><code class="inline-code">jarvis-cortex</code> — long-term library (facts · infra · people · projects · incidents · logs)</li>
+      </ul>
+      <p class="info-prose-small">
+        Protocol-governed: explicit signals promote to durable pages, daily logs buffer everything else, weekly consolidation pass reviews candidates, <code class="inline-code">mistakes.md</code> is append-only.
+      </p>
+    </div>
+
+    <div class="info-block">
+      <div class="font-mono info-label">How it talks</div>
+      <p class="info-prose">
+        Tuned away from default-LLM sycophancy. No <em>"great question!"</em>, no <em>"absolutely magnificent insight!"</em>, no paternalism. Cynical, sarcastic, pragmatic, down to earth. Has opinions and is allowed to disagree.
+      </p>
+      <p class="info-prose-small" style="color: var(--amber);">
+        "Competence is its only validation." — straight out of its <code class="inline-code">SOUL.md</code>.
+      </p>
+      <p class="info-prose-small">
+        Personality is an engineering decision, not a chatbot default.
+      </p>
+    </div>
+
+  </div>
+
+  <!-- Capability table -->
+  <div class="reveal" data-delay="0.25s" style="margin-top: 40px;">
+    <div class="font-mono" style="font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--fg-2); margin-bottom: 16px;">
+      What it does · {capabilities.length} surfaces wired
+    </div>
+
+    <div class="cap-table">
+      {capabilities.map(({ cap, note }) => (
+        <div class="cap-row">
+          <div class="cap-name font-mono">{cap}</div>
+          <div class="cap-note">{note}</div>
+        </div>
+      ))}
+    </div>
+  </div>
+
+  <!-- Closing -->
+  <p class="reveal" data-delay="0.3s" style="margin-top: 32px; font-style: italic; color: var(--fg-2); font-size: 0.95rem;">
+    Built so I'd stop pasting things into chat. Now it pastes things at <span style="color: var(--amber);">me</span>.
+  </p>
+
+</section>
+
+<style>
+  .jarvis-subtitle {
+    font-family: 'DM Mono', monospace;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 0.42em;
+    letter-spacing: 0.1em;
+    text-transform: lowercase;
+    color: var(--fg-2);
+    margin-top: 8px;
+    display: inline-block;
+  }
+
+  .inline-code {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.88em;
+    color: var(--amber);
+    background: var(--amber-l);
+    padding: 1px 6px;
+    border-radius: 2px;
+  }
+
+  .pullquote {
+    margin: 24px 0 32px;
+    padding: 18px 24px;
+    border-left: 2px solid var(--amber);
+    background: rgba(232, 162, 48, 0.04);
+    max-width: 680px;
+  }
+  .pullquote-label {
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--amber);
+    margin-bottom: 6px;
+  }
+  .pullquote-text {
+    font-size: 1rem;
+    color: var(--fg);
+    font-style: italic;
+    line-height: 1.7;
+  }
+
+  .interface-block {
+    border: 1px solid var(--amber);
+    background: rgba(232, 162, 48, 0.05);
+    padding: 24px 28px;
+    margin-bottom: 32px;
+  }
+  .interface-label {
+    font-size: 0.7rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--amber);
+    margin-bottom: 10px;
+  }
+  .interface-headline {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 1.3rem;
+    letter-spacing: -0.01em;
+    color: var(--fg);
+    margin-bottom: 18px;
+  }
+  .interface-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 16px;
+  }
+  .interface-row-label {
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--amber);
+    margin-bottom: 4px;
+  }
+  .interface-row-value {
+    font-size: 0.92rem;
+    color: var(--fg);
+    line-height: 1.6;
+  }
+  .interface-foot {
+    font-size: 0.74rem;
+    letter-spacing: 0.04em;
+    color: var(--fg-2);
+    border-top: 1px solid var(--border);
+    padding-top: 12px;
+    margin-top: 4px;
+  }
+
+  .info-2x2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: var(--border);
+    margin-bottom: 1px;
+  }
+  .info-block {
+    background: var(--bg-2);
+    padding: 22px 24px;
+  }
+  .info-label {
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--amber);
+    margin-bottom: 14px;
+  }
+  .info-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .info-list li {
+    font-size: 0.9rem;
+    color: var(--fg-2);
+    line-height: 1.55;
+  }
+  .info-key {
+    display: inline-block;
+    min-width: 84px;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.78rem;
+    color: var(--fg-3);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-right: 6px;
+  }
+  .info-prose {
+    font-size: 0.92rem;
+    color: var(--fg-2);
+    line-height: 1.7;
+    margin-bottom: 12px;
+  }
+  .info-prose-small {
+    font-size: 0.85rem;
+    color: var(--fg-2);
+    line-height: 1.65;
+    margin-top: 10px;
+  }
+
+  .cap-table {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    background: var(--border);
+  }
+  .cap-row {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 1px;
+    background: var(--border);
+  }
+  .cap-name {
+    background: var(--bg-2);
+    padding: 12px 16px;
+    font-size: 0.78rem;
+    letter-spacing: 0.04em;
+    color: var(--amber);
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+  }
+  .cap-note {
+    background: var(--bg);
+    padding: 12px 16px;
+    font-size: 0.92rem;
+    color: var(--fg);
+    line-height: 1.55;
+    display: flex;
+    align-items: center;
+  }
+
+  @media (max-width: 860px) {
+    .interface-grid {
+      grid-template-columns: 1fr;
+    }
+    .info-2x2 {
+      grid-template-columns: 1fr;
+    }
+    .cap-row {
+      grid-template-columns: 1fr;
+    }
+    .cap-name {
+      border-bottom: 1px solid var(--border);
+    }
+  }
+</style>

@@ -17,12 +17,12 @@ const namespaces = [
 
   <div class="reveal">
     <div class="section-eyebrow">
-      <span class="section-num">04 / Homelab</span>
+      <span class="section-num">02 / Homelab</span>
     </div>
     <h2 class="section-title">Home cluster.<br/>Always on.</h2>
   </div>
 
-  <p class="reveal" data-delay="0.05s" style="font-size: 0.85rem; color: var(--fg-2); margin-bottom: 48px; max-width: 520px; line-height: 1.7;">
+  <p class="reveal" data-delay="0.05s" style="font-size: 1.05rem; color: var(--fg); margin-bottom: 48px; max-width: 600px; line-height: 1.8;">
     A 3-node K3s cluster running on Proxmox VMs, backed by TrueNAS for shared storage.
     Fully declarative — Ansible bootstraps, kubectl ships, Sealed Secrets keeps credentials safe in Git.
     Not a tutorial. A real system I depend on daily.
@@ -30,7 +30,7 @@ const namespaces = [
 
   <!-- Topology diagram -->
   <div class="reveal" data-delay="0.1s" style="margin-bottom: 48px;">
-    <div class="font-mono" style="font-size: 0.6rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--fg-2); margin-bottom: 16px;">Infrastructure topology</div>
+    <div class="font-mono" style="font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--fg-2); margin-bottom: 16px;">Infrastructure topology</div>
 
     <div class="topo-grid">
       <div class="topo-node">
@@ -82,7 +82,7 @@ const namespaces = [
 
   <!-- Namespace / app grid -->
   <div class="reveal" data-delay="0.2s">
-    <div class="font-mono" style="font-size: 0.6rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--fg-2); margin-bottom: 16px;">
+    <div class="font-mono" style="font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--fg-2); margin-bottom: 16px;">
       Running workloads · {namespaces.reduce((a, n) => a + n.apps.length, 0)} apps · {namespaces.length} namespaces
     </div>
 
@@ -103,8 +103,8 @@ const namespaces = [
   <!-- IaC note -->
   <div class="reveal" data-delay="0.25s" style="margin-top: 32px; padding: 20px 24px; border: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap;">
     <div>
-      <div class="font-mono" style="font-size: 0.6rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--amber); margin-bottom: 6px;">GitOps · Fully declarative</div>
-      <div style="font-size: 0.82rem; color: var(--fg-2);">Every node, app, and secret is defined in code. No manual steps, no snowflake servers.</div>
+      <div class="font-mono" style="font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--amber); margin-bottom: 6px;">GitOps · Fully declarative</div>
+      <div style="font-size: 0.95rem; color: var(--fg-2); line-height: 1.6;">Every node, app, and secret is defined in code. No manual steps, no snowflake servers.</div>
     </div>
     <div style="display: flex; gap: 8px; flex-wrap: wrap;">
       {['Ansible', 'K3s manifests', 'Helm', 'Sealed Secrets', 'Traefik HelmConfig'].map(t => (
@@ -113,11 +113,14 @@ const namespaces = [
     </div>
   </div>
 
-  <!-- WIP note -->
-  <div class="reveal" data-delay="0.3s" style="margin-top: 24px;">
-    <span class="font-mono" style="font-size: 0.62rem; letter-spacing: 0.06em; color: var(--fg-2);">
+  <!-- WIP note + Jarvis cross-link -->
+  <div class="reveal" data-delay="0.3s" style="margin-top: 24px; display: flex; gap: 24px; flex-wrap: wrap; align-items: center;">
+    <span class="font-mono" style="font-size: 0.75rem; letter-spacing: 0.06em; color: var(--fg-2);">
       ⌛ repo coming soon — still deciding what's safe to make public
     </span>
+    <a href="#jarvis" class="font-mono" style="font-size: 0.75rem; letter-spacing: 0.06em; color: var(--amber); text-decoration: none;">
+      → The <code style="color: var(--amber);">openclaw</code> namespace runs Jarvis
+    </a>
   </div>
 
 </section>
@@ -133,7 +136,7 @@ const namespaces = [
   .topo-span { grid-column: 2; }
   .topo-sub {
     font-family: 'DM Mono', monospace;
-    font-size: 0.62rem;
+    font-size: 0.72rem;
     color: var(--fg-2);
     margin-top: 6px;
   }
@@ -160,7 +163,7 @@ const namespaces = [
   .ns-name {
     background: var(--bg-2);
     padding: 10px 14px;
-    font-size: 0.6rem;
+    font-size: 0.75rem;
     letter-spacing: 0.06em;
     color: var(--amber);
     text-transform: uppercase;
@@ -172,11 +175,11 @@ const namespaces = [
     padding: 10px 14px;
     display: flex;
     flex-wrap: wrap;
-    gap: 8px;
+    gap: 10px;
     align-items: center;
   }
   .ns-app {
-    font-size: 0.72rem;
+    font-size: 0.85rem;
     color: var(--fg);
   }
 
