@@ -19,25 +19,25 @@
 | Task | Status | Commit |
 |---|---|---|
 | 1 — Jarvis.astro | ✅ done | `689bda3` |
-| 2 — AppFactory.astro | ⏭ next | — |
-| 3 — Dockyard.astro | pending | — |
-| 4 — Now.astro | pending | — |
-| 5 — Work.astro | pending | — |
-| 6 — About bio rewrite | pending | — |
-| 7 — Skills AI/LLM row | pending | — |
-| 8 — Atomic cutover | pending | — |
-| 9 — Final review pass | pending | — |
+| 2 — AppFactory.astro | ✅ done | `6c0d780` |
+| 3 — Dockyard.astro | ✅ done | `ca0fc92` |
+| 4 — Now.astro | ✅ done | `c014912` |
+| 5 — Work.astro | ✅ done | `f3f8ac9` |
+| 6 — About bio rewrite | ✅ done | `0a3cf27` |
+| 7 — Skills AI/LLM row | ✅ done | `f0ca702` |
+| 8 — Atomic cutover | ✅ done | `c7f7704` |
+| 9 — Final review pass | ✅ done | review-only |
 
-**How to resume:**
+**Implementation complete.** All 11 sections wired, production build clean, no orphaned imports.
 
-1. Re-enter the worktree: `cd /Users/cesc/.dockyard/worktrees/portfolio/route-dense-tls`
-2. Pull latest if needed: `git pull origin dy/route-dense-tls`
-3. Re-invoke the Gemini orchestrator skill (or run tasks inline).
-4. Dispatch Task 2 next. The exact prompt pattern that worked for Task 1 is preserved in this conversation — same instructions, swap "Task 1" for "Task 2" and the filename for `AppFactory.astro`.
-5. After each Gemini task, the orchestrator must adversarially review the diff with `git log -1 --stat` and `grep` for key structural markers before dispatching the next one.
-6. Update this Progress tracker after each task lands.
+**Owner follow-ups (out of scope of this plan):**
 
-**Gemini model verified working on this account:** `gemini-3.1-pro-preview` (use this — `gemini-3-pro` returns 404).
+1. Review the placeholder bullet text in `Now.astro` and edit to taste — current copy is a sensible default but not authored by the owner directly.
+2. Optionally refresh the "current mindset" italic line at the bottom of `Learning.astro` with an AI-coloured replacement (currently *"Not sure which to tackle next — but I'll be tackling one of them."*).
+3. Optionally update the page title + meta description in `Layout.astro` to co-headline AI (Task 9 Step 3 in this plan documents the proposed edit but was intentionally skipped pending approval).
+4. Run a manual mobile-viewport check and full visual walk-through of the deployed site once it lands.
+
+**Gemini model verified working on this account:** `gemini-3.1-pro-preview` (`gemini-3-pro` returns 404).
 
 **Verification pattern:** This is a static UI build with no test framework. Every task ends with three verification steps:
 
