@@ -45,10 +45,15 @@
             <span data-count="30" data-suffix="+">30+</span>
           </div>
         </div>
-        <div style="padding: 24px;">
-          <div class="font-mono" style="font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--fg-2); margin-bottom: 8px;">AWS Certification</div>
-          <div style="font-family: 'Syne', sans-serif; font-weight: 800; font-size: 2.2rem; letter-spacing: -0.03em; color: var(--amber);">SAA</div>
-        </div>
+        <a href="https://www.credly.com/badges/b7ad2d8b-b52e-433c-88b4-f280878e98db/public_url" target="_blank" rel="noopener" class="cert-block">
+          <div style="padding: 24px; height: 100%;">
+            <div class="font-mono" style="font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--fg-2); margin-bottom: 8px;">AWS Certification</div>
+            <div style="display: flex; align-items: center; gap: 12px; margin-top: 12px;">
+              <img src="/aws-saa-badge.png" alt="AWS Solutions Architect Associate Badge" width="48" height="48" style="filter: drop-shadow(0 0 6px rgba(232, 162, 48, 0.2));" />
+              <div style="font-family: 'Syne', sans-serif; font-weight: 800; font-size: 2.2rem; letter-spacing: -0.03em; color: var(--amber);">SAA</div>
+            </div>
+          </div>
+        </a>
       </div>
     </div>
 
@@ -106,6 +111,15 @@
 
   .photo-overlay { transition: opacity 0.4s ease; }
   div:has(> .photo-overlay):hover .photo-overlay { opacity: 0.12 !important; }
+
+  .cert-block {
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+    display: block;
+  }
+  .cert-block:hover {
+    background-color: var(--bg-2);
+  }
 
   @media (max-width: 860px) {
     .about-grid {
