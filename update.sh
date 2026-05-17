@@ -31,6 +31,7 @@ case $choice in
     read -p "Enter path to new CV PDF file: " cvpath
     if [ -f "$cvpath" ]; then
       cp "$cvpath" assets/francesc_barnola_cv.pdf
+      cp "$cvpath" portfolio-astro/public/assets/francesc_barnola_cv.pdf
       echo "CV updated successfully!"
     else
       echo "Error: File not found"

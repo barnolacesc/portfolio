@@ -30,6 +30,11 @@ jobs:
         run: npm ci
         working-directory: portfolio-astro
 
+      - name: Sync assets
+        run: |
+          mkdir -p portfolio-astro/public/assets
+          cp assets/francesc_barnola_cv.pdf portfolio-astro/public/assets/francesc_barnola_cv.pdf || true
+
       - name: Build
         run: npm run build
         working-directory: portfolio-astro
