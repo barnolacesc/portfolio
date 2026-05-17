@@ -36,8 +36,10 @@ const navItems = [
       </div>
 
       <!-- AWS -->
-      <div class="font-mono aws-badge">
-        ☁ AWS Solutions Architect · Associate
+      <div class="aws-badge-container">
+        <a href="https://www.credly.com/badges/b7ad2d8b-b52e-433c-88b4-f280878e98db/public_url" target="_blank" rel="noopener" aria-label="AWS Solutions Architect Associate Badge">
+          <img src="/aws-saa-badge.png" alt="AWS Solutions Architect Associate Badge" width="60" height="60" class="aws-badge-img" />
+        </a>
       </div>
 
       <hr class="rule" />
@@ -86,7 +88,11 @@ const navItems = [
       ))}
     </nav>
     <div class="mobile-meta">
-      <div class="font-mono aws-badge">☁ AWS SAA · Fundcraft</div>
+      <div class="aws-badge-container-mobile">
+        <a href="https://www.credly.com/badges/b7ad2d8b-b52e-433c-88b4-f280878e98db/public_url" target="_blank" rel="noopener" aria-label="AWS Solutions Architect Associate Badge">
+          <img src="/aws-saa-badge.png" alt="AWS Solutions Architect Associate Badge" width="60" height="60" class="aws-badge-img" />
+        </a>
+      </div>
       <div class="mobile-social">
         <a href="https://github.com/barnolacesc" target="_blank" rel="noopener" class="font-mono sidebar-link">GitHub</a>
         <a href="https://linkedin.com/in/fbarnola" target="_blank" rel="noopener" class="font-mono sidebar-link">LinkedIn</a>
@@ -153,12 +159,20 @@ const navItems = [
     line-height: 1.6;
     margin-bottom: 8px;
   }
-  .aws-badge {
-    font-size: 0.72rem;
-    letter-spacing: 0.1em;
-    color: var(--amber);
-    text-transform: uppercase;
-    margin-bottom: 32px;
+  .aws-badge-container {
+    margin-bottom: 24px;
+    display: flex;
+    justify-content: flex-start;
+  }
+  
+  .aws-badge-img {
+    transition: transform 0.2s ease, filter 0.2s ease;
+    filter: drop-shadow(0 0 8px rgba(232, 162, 48, 0));
+  }
+  
+  .aws-badge-img:hover {
+    transform: translateY(-2px);
+    filter: drop-shadow(0 0 8px rgba(232, 162, 48, 0.4));
   }
 
   .social-row {
