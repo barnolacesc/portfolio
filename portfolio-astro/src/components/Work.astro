@@ -1,0 +1,70 @@
+---
+---
+
+<section id="work" class="section-wrap">
+
+  <div class="reveal">
+    <div class="section-eyebrow">
+      <span class="section-num">08 / Work</span>
+    </div>
+    <h2 class="section-title">At Fundcraft.</h2>
+  </div>
+
+  <p class="reveal" data-delay="0.05s" style="font-size: 1.05rem; color: var(--fg); margin-bottom: 40px; max-width: 640px; line-height: 1.8;">
+    Two things I'm proud of, told as stories rather than bullets. The technical inventory lives on the CV.
+  </p>
+
+  <div class="reveal work-grid" data-delay="0.1s">
+
+    <article class="work-card">
+      <div class="work-eyebrow font-mono">Code-Medic</div>
+      <p class="work-text">
+        I built <strong>Code-Medic</strong>, a service that turns Sentry incidents into AI-drafted pull requests. It reads the stack trace, pulls the right files, and opens a PR for an engineer to review — instead of leaving them to do the archaeology.
+      </p>
+    </article>
+
+    <article class="work-card">
+      <div class="work-eyebrow font-mono">AI tooling steward</div>
+      <p class="work-text">
+        I run the AI tooling for our ~28-engineer org: API access, subscription management, model rollouts, and provider migrations (Cursor → Claude Code most recently). I'm constantly evaluating what's next, because the best assistant six months ago is rarely the best one today.
+      </p>
+    </article>
+
+  </div>
+
+</section>
+
+<style>
+  .work-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: var(--border);
+  }
+  .work-card {
+    background: var(--bg-2);
+    padding: 28px 32px;
+  }
+  .work-eyebrow {
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--amber);
+    margin-bottom: 14px;
+  }
+  .work-text {
+    font-size: 1rem;
+    color: var(--fg);
+    line-height: 1.8;
+  }
+  .work-text strong {
+    color: var(--fg);
+    font-weight: 700;
+  }
+
+  @media (max-width: 860px) {
+    .work-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
