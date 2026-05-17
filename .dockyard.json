@@ -1,0 +1,6 @@
+{
+  "preview": {
+    "command": "cd portfolio-astro && npm run dev -- --port 52355",
+    "port": 52355
+  }
+}
