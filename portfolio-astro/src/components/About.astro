@@ -39,17 +39,17 @@
 
       <!-- Stats -->
       <div class="reveal stats-grid" data-delay="0.2s">
-        <div style="padding: 24px; border-right: 1px solid var(--border);" class="stat-cell-1">
+        <div style="padding: 24px; border-right: 1px solid var(--border); display: flex; flex-direction: column; justify-content: space-between;" class="stat-cell-1">
           <div class="font-mono" style="font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--fg-2); margin-bottom: 8px;">Self-hosted services</div>
           <div style="font-family: 'Syne', sans-serif; font-weight: 800; font-size: 2.2rem; letter-spacing: -0.03em; color: var(--fg);">
             <span data-count="30" data-suffix="+">30+</span>
           </div>
         </div>
         <a href="https://www.credly.com/badges/b7ad2d8b-b52e-433c-88b4-f280878e98db/public_url" target="_blank" rel="noopener" class="cert-block">
-          <div style="padding: 24px; height: 100%;">
+          <div style="padding: 24px; height: 100%; display: flex; flex-direction: column; justify-content: space-between;">
             <div class="font-mono" style="font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--fg-2); margin-bottom: 8px;">AWS Certification</div>
             <div class="cert-badge-row">
-              <img src="/aws-saa-badge.png" alt="AWS Solutions Architect Associate Badge" width="48" height="48" style="filter: drop-shadow(0 0 6px rgba(232, 162, 48, 0.2));" />
+              <img src="/aws-saa-badge.png" alt="AWS Solutions Architect Associate Badge" width="40" height="40" style="filter: drop-shadow(0 0 6px rgba(232, 162, 48, 0.2));" />
               <div class="cert-badge-text">SAA</div>
             </div>
           </div>
@@ -157,14 +157,25 @@
 
   @media (max-width: 480px) {
     .stats-grid {
-      grid-template-columns: 1fr;
+      grid-template-columns: 1fr 1fr;
     }
     .stat-cell-1 {
-      border-right: none !important;
-      border-bottom: 1px solid var(--border);
+      border-right: 1px solid var(--border) !important;
+      border-bottom: none;
+      padding: 16px !important;
+    }
+    .cert-block > div {
+      padding: 16px !important;
+    }
+    .cert-badge-row {
+      gap: 6px;
     }
     .cert-badge-text {
-      font-size: 2rem;
+      font-size: 1.4rem;
+    }
+    .cert-badge-row img {
+      width: 32px;
+      height: 32px;
     }
   }
 </style>
