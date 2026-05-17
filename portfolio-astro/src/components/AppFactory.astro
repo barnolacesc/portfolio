@@ -1,0 +1,210 @@
+---
+const pipeline = [
+  { stage: 'App spec',         detail: '"todo list"' },
+  { stage: 'Code + Dockerfile', detail: 'generated' },
+  { stage: 'Image push',       detail: 'Docker Hub · GHCR' },
+  { stage: 'ArgoCD sync',      detail: 'manifests applied' },
+  { stage: 'Live',             detail: 'https://…' },
+];
+
+const knobs = [
+  { knob: 'Visibility', value: 'public · home-only via VPN' },
+  { knob: 'Namespace',  value: 'public / private — based on your instruction' },
+  { knob: 'Domain',     value: 'registered & routed via Cloudflare API' },
+  { knob: 'TLS',        value: "cert-manager + Let's Encrypt, automatic" },
+  { knob: 'Ingress',    value: 'nginx + reverse proxy rules generated per app' },
+];
+---
+
+<section id="app-factory" class="section-wrap">
+
+  <div class="reveal">
+    <div class="section-eyebrow">
+      <span class="section-num">04 / Agent-built infrastructure</span>
+    </div>
+    <h2 class="section-title">App Factory.</h2>
+  </div>
+
+  <p class="reveal tagline" data-delay="0.05s">
+    Give it a one-line app idea. Get back a deployed, SSL'd, ingress-routed service.
+  </p>
+
+  <p class="reveal" data-delay="0.1s" style="font-size: 1.05rem; color: var(--fg); margin-bottom: 40px; max-width: 720px; line-height: 1.8;">
+    A skill I built on top of Jarvis. You hand it an app definition — <em>"build me a tic-tac-toe"</em>, <em>"I want a todo list"</em>, <em>"make a calculator"</em> — and the agent does the entire chain end-to-end: generates the app, writes the Dockerfile, builds and pushes the image to Docker Hub or GHCR, generates the Kubernetes manifests, hands them to ArgoCD, registers the domain with Cloudflare, wires the nginx ingress, gets the cert from cert-manager, and tells me the URL when it's live.
+  </p>
+
+  <!-- Pipeline flow -->
+  <div class="reveal" data-delay="0.15s" style="margin-bottom: 32px;">
+    <div class="font-mono" style="font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--fg-2); margin-bottom: 16px;">Pipeline</div>
+
+    <div class="pipeline-grid">
+      {pipeline.map(({ stage, detail }, i) => (
+        <>
+          <div class="pipe-node">
+            <div class="pipe-stage font-mono">{stage}</div>
+            <div class="pipe-detail">{detail}</div>
+          </div>
+          {i < pipeline.length - 1 && <div class="pipe-arrow">→</div>}
+        </>
+      ))}
+    </div>
+
+    <div class="pipe-foot font-mono">
+      ↳ Cloudflare DNS · nginx ingress · cert-manager · public OR home-only
+    </div>
+  </div>
+
+  <!-- Deployment knobs -->
+  <div class="reveal knobs-block" data-delay="0.2s">
+    <div class="font-mono knobs-label">Deployment knobs</div>
+    <div class="knobs-table">
+      {knobs.map(({ knob, value }) => (
+        <div class="knob-row">
+          <div class="knob-name font-mono">{knob}</div>
+          <div class="knob-value">{value}</div>
+        </div>
+      ))}
+    </div>
+  </div>
+
+  <!-- Scope footnote -->
+  <p class="reveal scope-note" data-delay="0.25s">
+    <span class="font-mono" style="color: var(--amber);">⚠ Honest scope:</span>
+    Currently scoped to stateless apps — static HTML / single-page tools. Database-backed apps are next on the list.
+  </p>
+
+  <!-- Closing -->
+  <p class="reveal" data-delay="0.3s" style="margin-top: 24px; font-style: italic; color: var(--fg-2); font-size: 0.95rem; max-width: 640px;">
+    The same pattern I run for real apps at work, except the trigger is a Telegram message instead of a Jira ticket.
+  </p>
+
+</section>
+
+<style>
+  .tagline {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 600;
+    font-size: 1.4rem;
+    color: var(--amber);
+    line-height: 1.4;
+    margin-bottom: 28px;
+    max-width: 720px;
+  }
+
+  .pipeline-grid {
+    display: flex;
+    align-items: stretch;
+    flex-wrap: wrap;
+    gap: 0;
+    border: 1px solid var(--border-2);
+    background: var(--bg-2);
+  }
+  .pipe-node {
+    flex: 1 1 0;
+    min-width: 140px;
+    padding: 16px 18px;
+    border-right: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .pipe-node:last-of-type {
+    border-right: none;
+  }
+  .pipe-stage {
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--amber);
+  }
+  .pipe-detail {
+    font-size: 0.86rem;
+    color: var(--fg);
+    line-height: 1.4;
+  }
+  .pipe-arrow {
+    display: none; /* arrows visually live as borders between nodes */
+  }
+  .pipe-foot {
+    padding: 12px 18px;
+    border: 1px solid var(--border-2);
+    border-top: none;
+    background: var(--bg);
+    color: var(--fg-2);
+    font-size: 0.78rem;
+    letter-spacing: 0.02em;
+  }
+
+  .knobs-block {
+    margin: 32px 0;
+  }
+  .knobs-label {
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--fg-2);
+    margin-bottom: 16px;
+  }
+  .knobs-table {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    background: var(--border);
+  }
+  .knob-row {
+    display: grid;
+    grid-template-columns: 140px 1fr;
+    gap: 1px;
+    background: var(--border);
+  }
+  .knob-name {
+    background: var(--bg-2);
+    padding: 12px 16px;
+    font-size: 0.78rem;
+    letter-spacing: 0.04em;
+    color: var(--amber);
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+  }
+  .knob-value {
+    background: var(--bg);
+    padding: 12px 16px;
+    font-size: 0.92rem;
+    color: var(--fg);
+    line-height: 1.55;
+    display: flex;
+    align-items: center;
+  }
+
+  .scope-note {
+    margin-top: 24px;
+    padding: 14px 20px;
+    border-left: 2px solid var(--amber);
+    background: rgba(232, 162, 48, 0.04);
+    color: var(--fg-2);
+    font-size: 0.92rem;
+    line-height: 1.7;
+    max-width: 720px;
+  }
+
+  @media (max-width: 860px) {
+    .pipeline-grid {
+      flex-direction: column;
+    }
+    .pipe-node {
+      border-right: none;
+      border-bottom: 1px solid var(--border);
+    }
+    .pipe-node:last-of-type {
+      border-bottom: none;
+    }
+    .knob-row {
+      grid-template-columns: 1fr;
+    }
+    .knob-name {
+      border-bottom: 1px solid var(--border);
+    }
+  }
+</style>
