@@ -38,8 +38,8 @@
       </div>
 
       <!-- Stats -->
-      <div class="reveal" data-delay="0.2s" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1px; border: 1px solid var(--border); margin-top: 40px;">
-        <div style="padding: 24px; border-right: 1px solid var(--border);">
+      <div class="reveal stats-grid" data-delay="0.2s">
+        <div style="padding: 24px; border-right: 1px solid var(--border);" class="stat-cell-1">
           <div class="font-mono" style="font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--fg-2); margin-bottom: 8px;">Self-hosted services</div>
           <div style="font-family: 'Syne', sans-serif; font-weight: 800; font-size: 2.2rem; letter-spacing: -0.03em; color: var(--fg);">
             <span data-count="30" data-suffix="+">30+</span>
@@ -48,9 +48,9 @@
         <a href="https://www.credly.com/badges/b7ad2d8b-b52e-433c-88b4-f280878e98db/public_url" target="_blank" rel="noopener" class="cert-block">
           <div style="padding: 24px; height: 100%;">
             <div class="font-mono" style="font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--fg-2); margin-bottom: 8px;">AWS Certification</div>
-            <div style="display: flex; align-items: center; gap: 12px; margin-top: 12px;">
+            <div class="cert-badge-row">
               <img src="/aws-saa-badge.png" alt="AWS Solutions Architect Associate Badge" width="48" height="48" style="filter: drop-shadow(0 0 6px rgba(232, 162, 48, 0.2));" />
-              <div style="font-family: 'Syne', sans-serif; font-weight: 800; font-size: 2.2rem; letter-spacing: -0.03em; color: var(--amber);">SAA</div>
+              <div class="cert-badge-text">SAA</div>
             </div>
           </div>
         </a>
@@ -121,6 +121,29 @@
     background-color: var(--bg-2);
   }
 
+  .stats-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    border: 1px solid var(--border);
+    margin-top: 40px;
+  }
+
+  .cert-badge-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 12px;
+  }
+
+  .cert-badge-text {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 2.2rem;
+    letter-spacing: -0.03em;
+    color: var(--amber);
+  }
+
   @media (max-width: 860px) {
     .about-grid {
       grid-template-columns: 1fr;
@@ -129,6 +152,19 @@
     /* Hide the photo column entirely on mobile — content first */
     .about-grid > div:last-child {
       display: none;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .stats-grid {
+      grid-template-columns: 1fr;
+    }
+    .stat-cell-1 {
+      border-right: none !important;
+      border-bottom: 1px solid var(--border);
+    }
+    .cert-badge-text {
+      font-size: 2rem;
     }
   }
 </style>
