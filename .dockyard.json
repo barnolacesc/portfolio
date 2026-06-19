@@ -1,6 +1,5 @@
 {
-  "preview": {
-    "command": "cd portfolio-astro && npm run dev -- --port 52355",
-    "port": 52355
-  }
+  "setup": "cd portfolio-astro && npm install",
+  "run": "cd portfolio-astro && npm run dev",
+  "expectedPort": 4321
 }
